@@ -567,7 +567,7 @@ export default function Home() {
 
         <div
           style={{
-            background: 'white',
+            background: '#E0F2FE',
             borderRadius: '14px',
             padding: '10px',
             boxShadow:
@@ -698,7 +698,7 @@ export default function Home() {
         {selectedPdf && (
           <div
             style={{
-              background: 'white',
+              background: 'C6F6D5',
               borderRadius: '14px',
               padding: '20px',
               marginTop: '20px',
