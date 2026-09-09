@@ -553,6 +553,7 @@ export default function Home() {
           style={{
             width: '80%',
             boxSizing: 'border-box',
+            boxAlign: 'center',
             padding: '15px',
             fontSize: '18px',
             border: '1px solid #d5dbe3',
