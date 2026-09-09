@@ -551,14 +551,15 @@ export default function Home() {
             setSearch(e.target.value)
           }
           style={{
-            width: '100%',
+            width: '80%',
             boxSizing: 'border-box',
             padding: '15px',
-            fontSize: '16px',
+            fontSize: '18px',
             border: '1px solid #d5dbe3',
             borderRadius: '12px',
             outline: 'none',
             marginBottom: '15px',
+            textAlign: 'center',
             background: '#FFE5B4',
           }}
         />
