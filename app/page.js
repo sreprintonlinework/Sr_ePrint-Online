@@ -587,7 +587,7 @@ export default function Home() {
 
           {filteredPdfs.length === 0 ? (
 
-   <p
+            <p
               style={{
                 padding: '20px 10px',
                 textAlign: 'center',
@@ -667,7 +667,7 @@ export default function Home() {
 
                       <div
                         style={{
-                          color: '#777'
+                          color: '#777',
                           fontSize: '13px',
                           marginTop: '4px',
                         }}
