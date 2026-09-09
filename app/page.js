@@ -544,26 +544,24 @@ export default function Home() {
         {/* SEARCH */}
 
         <input
-          type="text"
-          placeholder="🔎 Search PDF..."
-          value={search}
-          onChange={(e) =>
-            setSearch(e.target.value)
-          }
-          style={{
-            width: '80%',
-            boxSizing: 'border-box',
-            boxAlign: 'center',
-            padding: '15px',
-            fontSize: '18px',
-            border: '1px solid #d5dbe3',
-            borderRadius: '12px',
-            outline: 'none',
-            marginBottom: '15px',
-            textAlign: 'center',
-            background: '#FFE5B4',
-          }}
-        />
+  type="text"
+  placeholder="🔎 Search PDF..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  style={{
+    width: '80%',
+    display: 'block',
+    margin: '0 auto 15px auto',
+    boxSizing: 'border-box',
+    padding: '15px',
+    fontSize: '18px',
+    border: '1px solid #d5dbe3',
+    borderRadius: '12px',
+    outline: 'none',
+    textAlign: 'center',
+    background: '#FFE5B4',
+  }}
+/>
 
         {/* PDF LIST */}
 
