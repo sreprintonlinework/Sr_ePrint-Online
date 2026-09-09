@@ -587,7 +587,6 @@ export default function Home() {
 
           {filteredPdfs.length === 0 ? (
 
-) : (
   <div
     style={{
       display: 'grid',
