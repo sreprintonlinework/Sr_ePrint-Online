@@ -587,74 +587,111 @@ export default function Home() {
 
           {filteredPdfs.length === 0 ? (
 
-  <div
-    style={{
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '12px',
-    }}
-  >
-    {filteredPdfs.map(
-      (pdf) => (
-        <div
-          key={pdf.id}
-          onClick={() => {
-            if (loading) return;
-            setSelectedPdf(pdf);
-            setSuccessMessage('');
-            setPdfUrl('');
-          }}
-          style={{
-            border:
-              selectedPdf?.id === pdf.id
-                ? '2px solid #1565c0'
-                : '1px solid #e1e5eb',
-            borderRadius: '12px',
-            padding: '15px',
-            cursor:
-              loading ? 'not-allowed' : 'pointer',
-            background:
-              selectedPdf?.id === pdf.id
-                ? '#eef6ff'
-                : 'white',
-            transition: '0.2s',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              textAlign: 'center',
-              gap: '8px',
-            }}
-          >
-            <div style={{ fontSize: '32px' }}>
-              📄
-            </div>
-            <div
+   <p
               style={{
-                fontWeight: 'bold',
-                color: '#222',
-                fontSize: '15px',
+                padding: '20px 10px',
+                textAlign: 'center',
+                color: '#777',
               }}
             >
-              {pdf.name}
-            </div>
-            <div
-              style={{
-                fontWeight: 'bold',
-                color: '#1565c0',
-              }}
-            >
-              ₹{pdf.price}
-            </div>
-          </div>
+              No PDF found.
+            </p>
+
+          ) : (
+
+            filteredPdfs.map(
+              (pdf) => (
+                <div
+                  key={pdf.id}
+                  onClick={() => {
+                    if (loading) return;
+
+                    setSelectedPdf(pdf);
+                    setSuccessMessage('');
+                    setPdfUrl('');
+                  }}
+                  style={{
+                    border:
+                      selectedPdf?.id === pdf.id
+                        ? '2px solid #1565c0'
+                        : '1px solid #e1e5eb',
+
+                    borderRadius: '12px',
+                    padding: '15px',
+                    marginBottom: '10px',
+
+                    cursor:
+                      loading
+                        ? 'not-allowed'
+                        : 'pointer',
+
+                    background:
+                      selectedPdf?.id === pdf.id
+                        ? '#eef6ff'
+                        : 'white',
+
+                    transition: '0.2s',
+                  }}
+                >
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px',
+                    }}
+                  >
+
+                    <div
+                      style={{
+                        fontSize: '32px',
+                      }}
+                    >
+                      📄
+                    </div>
+
+                    <div
+                      style={{
+                        flex: 1,
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontWeight: 'bold',
+                          color: '#222',
+                          fontSize: '16px',
+                        }}
+                      >
+                        {pdf.name}
+                      </div>
+
+                      <div
+                        style={{
+                          color: '#777'
+                          fontSize: '13px',
+                          marginTop: '4px',
+                        }}
+                      >
+                        PDF Document
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        fontWeight: 'bold',
+                        color: '#1565c0',
+                      }}
+                    >
+                      ₹99
+                    </div>
+
+                  </div>
+                </div>
+              )
+            )
+
+          )}
         </div>
-      )
-    )}
-  </div>
-)
 
         {/* SELECTED PDF */}
 
