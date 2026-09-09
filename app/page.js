@@ -545,7 +545,7 @@ export default function Home() {
 
         <input
   type="text"
-  placeholder="🔎 Search PDF..."
+  placeholder="🔎 Search PDF Name..."
   value={search}
   onChange={(e) => setSearch(e.target.value)}
   style={{
@@ -554,7 +554,7 @@ export default function Home() {
     margin: '0 auto 15px auto',
     boxSizing: 'border-box',
     padding: '16px',
-    fontSize: '14px',
+    fontSize: '18px',
     border: '1px solid #d5dbe3',
     borderRadius: '12px',
     outline: 'none',
