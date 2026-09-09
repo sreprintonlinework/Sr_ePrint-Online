@@ -559,7 +559,7 @@ export default function Home() {
             borderRadius: '12px',
             outline: 'none',
             marginBottom: '15px',
-            background: 'lightOrange',
+            background: '#2e7d32',
           }}
         />
 
