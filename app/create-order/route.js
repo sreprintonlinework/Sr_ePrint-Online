@@ -1,17 +1,21 @@
 import { NextResponse } from 'next/server';
-import { pdfs } from '../pdfs';
+import { pdfs } from '../../pdfs';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
 export async function POST(request) {
   try {
+    // ==========================================
+    // 1. READ REQUEST
+    // ==========================================
+
     const body = await request.json();
 
     const pdfId = body?.pdfId;
 
     // ==========================================
-    // CHECK PDF ID
+    // 2. CHECK PDF ID
     // ==========================================
 
     if (!pdfId) {
@@ -24,7 +28,7 @@ export async function POST(request) {
     }
 
     // ==========================================
-    // FIND PDF
+    // 3. FIND SELECTED FILE
     // ==========================================
 
     const selectedPdf = pdfs.find(
@@ -34,14 +38,14 @@ export async function POST(request) {
     if (!selectedPdf) {
       return NextResponse.json(
         {
-          error: 'Selected PDF not found.',
+          error: 'Selected PDF/File not found.',
         },
         { status: 404 }
       );
     }
 
     // ==========================================
-    // RAZORPAY ENVIRONMENT VARIABLES
+    // 4. RAZORPAY KEYS
     // ==========================================
 
     const keyId = process.env.RAZORPAY_KEY_ID;
@@ -62,7 +66,7 @@ export async function POST(request) {
     }
 
     // ==========================================
-    // PRICE
+    // 5. DYNAMIC PRICE
     // ==========================================
 
     const price = Number(selectedPdf.price);
@@ -70,20 +74,18 @@ export async function POST(request) {
     if (!Number.isFinite(price) || price <= 0) {
       return NextResponse.json(
         {
-          error: 'Invalid PDF price configuration.',
+          error:
+            'Invalid file price configuration.',
         },
         { status: 500 }
       );
     }
 
-    // Convert INR to paise
-    // ₹99 = 9900
-    // ₹20 = 2000
-
+    // ₹1 = 100 paise
     const amount = Math.round(price * 100);
 
     // ==========================================
-    // RAZORPAY BASIC AUTH
+    // 6. RAZORPAY AUTH
     // ==========================================
 
     const auth = Buffer.from(
@@ -91,7 +93,7 @@ export async function POST(request) {
     ).toString('base64');
 
     // ==========================================
-    // CREATE RAZORPAY ORDER
+    // 7. CREATE RAZORPAY ORDER
     // ==========================================
 
     const response = await fetch(
@@ -105,15 +107,20 @@ export async function POST(request) {
         },
 
         body: JSON.stringify({
-          amount,
+          amount: amount,
           currency: 'INR',
 
           receipt:
-            `pdf_${selectedPdf.id}_${Date.now()}`,
+            `file_${selectedPdf.id}_${Date.now()}`,
 
           notes: {
             pdfId: String(selectedPdf.id),
-            pdfName: String(selectedPdf.name || ''),
+            pdfName: String(
+              selectedPdf.name || ''
+            ),
+            fileName: String(
+              selectedPdf.file || ''
+            ),
             price: String(price),
           },
         }),
@@ -125,7 +132,7 @@ export async function POST(request) {
     const data = await response.json();
 
     // ==========================================
-    // RAZORPAY ERROR
+    // 8. CHECK RAZORPAY RESPONSE
     // ==========================================
 
     if (!response.ok) {
@@ -145,15 +152,10 @@ export async function POST(request) {
     }
 
     // ==========================================
-    // CHECK ORDER ID
+    // 9. CHECK ORDER ID
     // ==========================================
 
     if (!data?.id) {
-      console.error(
-        'Razorpay order ID missing:',
-        data
-      );
-
       return NextResponse.json(
         {
           error:
@@ -169,7 +171,7 @@ export async function POST(request) {
     );
 
     // ==========================================
-    // SUCCESS
+    // 10. SEND ORDER TO FRONTEND
     // ==========================================
 
     return NextResponse.json(
@@ -177,13 +179,17 @@ export async function POST(request) {
         orderId: data.id,
         amount: data.amount,
         currency: data.currency,
+
         pdfId: String(selectedPdf.id),
+
         pdfName: selectedPdf.name,
-        price,
+
+        fileName: selectedPdf.file,
+
+        price: price,
       },
       { status: 200 }
     );
-
   } catch (error) {
     console.error(
       'CREATE ORDER ERROR:',
