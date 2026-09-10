@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { pdfs } from '../pdfs';
+import { pdfs } from './pdfs';
 
 export default function Home() {
   const [selectedPdf, setSelectedPdf] =
