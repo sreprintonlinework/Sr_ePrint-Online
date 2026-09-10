@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { pdfs } from '../../pdfs';
+import { pdfs } from '../pdfs';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
