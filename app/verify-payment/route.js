@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { readFile } from 'fs/promises';
 import path from 'path';
-import { pdfs } from '../../pdfs';
+import { pdfs } from '../pdfs';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
