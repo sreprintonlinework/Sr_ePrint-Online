@@ -55,8 +55,7 @@ export default function Home() {
 
     setLoading(true);
 
-    // IMPORTANT:
-    // Clear old success state before starting payment
+    // Clear old success state
     setSuccessMessage('');
     setPdfUrl('');
 
@@ -125,8 +124,10 @@ export default function Home() {
       const options = {
         key: razorpayKey,
 
-        amount:
-          orderData.amount || 9900,
+        // IMPORTANT:
+        // Amount comes from create-order
+        // based on selected PDF price
+        amount: orderData.amount,
 
         currency:
           orderData.currency || 'INR',
@@ -308,6 +309,7 @@ export default function Home() {
             );
           } finally {
             setLoading(false);
+
             paymentStartedRef.current =
               false;
           }
@@ -329,6 +331,7 @@ export default function Home() {
         modal: {
           ondismiss: function () {
             setLoading(false);
+
             paymentStartedRef.current =
               false;
           },
@@ -536,7 +539,7 @@ export default function Home() {
             }}
           >
             Select the required PDF,
-            make a secure payment of ₹99,
+            make a secure online payment,
             and download your PDF instantly.
           </p>
         </div>
@@ -544,24 +547,26 @@ export default function Home() {
         {/* SEARCH */}
 
         <input
-  type="text"
-  placeholder="🔎 Search PDF Name..."
-  value={search}
-  onChange={(e) => setSearch(e.target.value)}
-  style={{
-    width: '80%',
-    display: 'block',
-    margin: '0 auto 15px auto',
-    boxSizing: 'border-box',
-    padding: '16px',
-    fontSize: '18px',
-    border: '1px solid #d5dbe3',
-    borderRadius: '12px',
-    outline: 'none',
-    textAlign: 'center',
-    background: '#FFE5B4',
-  }}
-/>
+          type="text"
+          placeholder="🔎 Search PDF Name..."
+          value={search}
+          onChange={(e) =>
+            setSearch(e.target.value)
+          }
+          style={{
+            width: '80%',
+            display: 'block',
+            margin: '0 auto 15px auto',
+            boxSizing: 'border-box',
+            padding: '16px',
+            fontSize: '18px',
+            border: '1px solid #d5dbe3',
+            borderRadius: '12px',
+            outline: 'none',
+            textAlign: 'center',
+            background: '#FFE5B4',
+          }}
+        />
 
         {/* PDF LIST */}
 
@@ -676,13 +681,14 @@ export default function Home() {
                       </div>
                     </div>
 
+                    {/* DYNAMIC PRICE */}
                     <div
                       style={{
                         fontWeight: 'bold',
                         color: '#1565c0',
                       }}
                     >
-                      ₹99
+                      ₹{pdf.price}
                     </div>
 
                   </div>
@@ -698,7 +704,7 @@ export default function Home() {
         {selectedPdf && (
           <div
             style={{
-              background: 'C6F6D5',
+              background: '#C6F6D5',
               borderRadius: '14px',
               padding: '20px',
               marginTop: '20px',
@@ -727,6 +733,7 @@ export default function Home() {
               {selectedPdf.name}
             </h3>
 
+            {/* DYNAMIC PRICE */}
             <div
               style={{
                 fontSize: '24px',
@@ -735,7 +742,7 @@ export default function Home() {
                 marginBottom: '15px',
               }}
             >
-              ₹99
+              ₹{selectedPdf.price}
             </div>
 
             <button
@@ -767,7 +774,7 @@ export default function Home() {
             >
               {loading
                 ? '⏳ Processing Payment...'
-                : '💳 Pay ₹99 & Download PDF'}
+                : `💳 Pay ₹${selectedPdf.price} & Download PDF`}
             </button>
 
           </div>
