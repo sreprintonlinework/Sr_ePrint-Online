@@ -27,12 +27,18 @@ export default function Home() {
   }, [pdfUrl]);
 
   // ==========================================
-  // FILTER FILES
+  // FILTER + A-Z ORDER
   // ==========================================
 
-  const filteredPdfs = pdfs.filter((pdf) =>
-    pdf.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredPdfs = [...pdfs]
+    .sort((a, b) =>
+      a.name.localeCompare(b.name, undefined, {
+        sensitivity: 'base',
+      })
+    )
+    .filter((pdf) =>
+      pdf.name.toLowerCase().includes(search.toLowerCase())
+    );
 
   // ==========================================
   // GET FILE EXTENSION
@@ -414,22 +420,8 @@ export default function Home() {
             }
 
             // =================================
-            // IMPORTANT:
-            // DO NOT REJECT EXCEL MIME TYPES
+            // ACCEPT ALL VALID FILE TYPES
             // =================================
-
-            /*
-              Old code accepted only:
-
-              application/pdf
-              application/octet-stream
-
-              That caused .xls files to fail.
-
-              Now we only reject a JSON response.
-              PDF, XLS, XLSX, DOC, DOCX and other
-              valid file responses are accepted.
-            */
 
             if (
               contentType
@@ -811,8 +803,6 @@ export default function Home() {
               </div>
             )}
 
-            {/* OPEN + DOWNLOAD */}
-
             <div>
 
               <a
@@ -903,7 +893,8 @@ export default function Home() {
         </section>
 
         {/* ======================================
-            AVAILABLE FILES
+            AVAILABLE FILES - SINGLE COLUMN
+            A-Z ORDER
         ====================================== */}
 
         <section
@@ -1320,7 +1311,7 @@ export default function Home() {
         </section>
 
         {/* ======================================
-            POLICY LINKS
+            POLICY + PAYMENT HISTORY LINKS
         ====================================== */}
 
         <section
@@ -1334,7 +1325,7 @@ export default function Home() {
         >
           <h3
             style={{
-              margin: '0 0 8px 0',
+              margin: '0 0 10px 0',
               color: '#1e3a8a',
               fontSize: '18px',
             }}
@@ -1347,7 +1338,8 @@ export default function Home() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '7px',
+              alignItems: 'center',
+              gap: '8px',
             }}
           >
 
@@ -1401,6 +1393,21 @@ export default function Home() {
               Shipping / Delivery
             </a>
 
+            <span>|</span>
+
+            {/* PAYMENT HISTORY */}
+
+            <a
+              href="/payment-history"
+              style={{
+                color: '#16a34a',
+                textDecoration: 'none',
+                fontWeight: '700',
+              }}
+            >
+              💳 Payment History
+            </a>
+
           </div>
         </section>
 
@@ -1422,13 +1429,16 @@ export default function Home() {
           <div
             style={{
               marginBottom: '8px',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '8px',
             }}
           >
 
             <a
               href="/privacy"
               style={{
-                margin: '0 5px',
                 color: '#2563eb',
                 textDecoration: 'none',
               }}
@@ -1436,10 +1446,11 @@ export default function Home() {
               Privacy
             </a>
 
+            <span>|</span>
+
             <a
               href="/refund"
               style={{
-                margin: '0 5px',
                 color: '#2563eb',
                 textDecoration: 'none',
               }}
@@ -1447,10 +1458,11 @@ export default function Home() {
               Refund
             </a>
 
+            <span>|</span>
+
             <a
               href="/terms"
               style={{
-                margin: '0 5px',
                 color: '#2563eb',
                 textDecoration: 'none',
               }}
@@ -1458,15 +1470,29 @@ export default function Home() {
               Terms
             </a>
 
+            <span>|</span>
+
             <a
               href="/shipping"
               style={{
-                margin: '0 5px',
                 color: '#2563eb',
                 textDecoration: 'none',
               }}
             >
               Delivery
+            </a>
+
+            <span>|</span>
+
+            <a
+              href="/payment-history"
+              style={{
+                color: '#16a34a',
+                textDecoration: 'none',
+                fontWeight: '700',
+              }}
+            >
+              Payment History
             </a>
 
           </div>
