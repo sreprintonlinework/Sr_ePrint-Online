@@ -1268,6 +1268,26 @@ fontFamily: 'Arial, sans-serif',
 
         Email: sronline99890@gmail.com
       </p>
+
+                <p
+  style={{
+    margin: '7px 0 0',
+    fontSize: '14px',
+    lineHeight: 1.5,
+  }}
+>
+  <strong>Business Address:</strong>
+  <br />
+  Sr internet online center,
+  <br />
+  New Maa Mart backside,
+  <br />
+  Kurnool Road,
+  <br />
+  Ieeja, Jogulamba Gadwal,
+  <br />
+  Telangana - 509127
+</p>
     </section>
 
     {/* ======================================
