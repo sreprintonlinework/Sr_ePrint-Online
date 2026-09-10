@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { readFile } from 'fs/promises';
 import path from 'path';
-import { pdfs } from '../../pdfs';
+import { pdfs } from '../pdfs';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -41,7 +41,7 @@ export async function POST(request) {
     }
 
     // ==========================================
-    // 3. FIND SELECTED FILE
+    // 3. FIND SELECTED PDF
     // ==========================================
 
     const selectedPdf = pdfs.find(
@@ -82,23 +82,22 @@ export async function POST(request) {
     // ==========================================
 
     const signatureText =
-      razorpay_order_id +
-      '|' +
-      razorpay_payment_id;
+      razorpay_order_id + '|' + razorpay_payment_id;
 
     const generatedSignature = crypto
       .createHmac('sha256', keySecret)
       .update(signatureText)
       .digest('hex');
 
-    const generatedBuffer =
-      Buffer.from(generatedSignature, 'utf8');
+    const generatedBuffer = Buffer.from(
+      generatedSignature,
+      'utf8'
+    );
 
-    const receivedBuffer =
-      Buffer.from(
-        String(razorpay_signature),
-        'utf8'
-      );
+    const receivedBuffer = Buffer.from(
+      String(razorpay_signature),
+      'utf8'
+    );
 
     if (
       generatedBuffer.length !== receivedBuffer.length ||
@@ -107,9 +106,7 @@ export async function POST(request) {
         receivedBuffer
       )
     ) {
-      console.error(
-        'Invalid Razorpay signature.'
-      );
+      console.error('Invalid Razorpay signature.');
 
       return NextResponse.json(
         {
@@ -128,12 +125,17 @@ export async function POST(request) {
     ).toString('base64');
 
     // ==========================================
-    // 7. EXPECTED DYNAMIC PRICE
+    // 7. GET PDF PRICE
     // ==========================================
 
     const price = Number(selectedPdf.price);
 
     if (!Number.isFinite(price) || price <= 0) {
+      console.error(
+        'Invalid PDF price:',
+        selectedPdf.price
+      );
+
       return NextResponse.json(
         {
           error: 'Invalid file price configuration.',
@@ -142,9 +144,7 @@ export async function POST(request) {
       );
     }
 
-    const expectedAmount = Math.round(
-      price * 100
-    );
+    const expectedAmount = Math.round(price * 100);
 
     // ==========================================
     // 8. VERIFY RAZORPAY ORDER
@@ -154,17 +154,14 @@ export async function POST(request) {
       `https://api.razorpay.com/v1/orders/${razorpay_order_id}`,
       {
         method: 'GET',
-
         headers: {
           Authorization: `Basic ${auth}`,
         },
-
         cache: 'no-store',
       }
     );
 
-    const orderData =
-      await orderResponse.json();
+    const orderData = await orderResponse.json();
 
     if (!orderResponse.ok) {
       console.error(
@@ -186,9 +183,7 @@ export async function POST(request) {
     // 9. VERIFY ORDER ID
     // ==========================================
 
-    if (
-      orderData.id !== razorpay_order_id
-    ) {
+    if (orderData.id !== razorpay_order_id) {
       return NextResponse.json(
         {
           error: 'Invalid Razorpay order.',
@@ -198,16 +193,14 @@ export async function POST(request) {
     }
 
     // ==========================================
-    // 10. VERIFY ORDER PDF ID
+    // 10. VERIFY PDF ID FROM ORDER NOTES
     // ==========================================
 
-    const orderPdfId =
-      orderData?.notes?.pdfId;
+    const orderPdfId = orderData?.notes?.pdfId;
 
     if (
       orderPdfId &&
-      String(orderPdfId) !==
-        String(selectedPdf.id)
+      String(orderPdfId) !== String(selectedPdf.id)
     ) {
       console.error(
         'PDF ID mismatch:',
@@ -217,19 +210,19 @@ export async function POST(request) {
 
       return NextResponse.json(
         {
-          error: 'Payment order and selected file do not match.',
+          error:
+            'Payment order and selected file do not match.',
         },
         { status: 400 }
       );
     }
 
     // ==========================================
-    // 11. VERIFY DYNAMIC ORDER AMOUNT
+    // 11. VERIFY ORDER AMOUNT
     // ==========================================
 
     if (
-      Number(orderData.amount) !==
-        expectedAmount ||
+      Number(orderData.amount) !== expectedAmount ||
       orderData.currency !== 'INR'
     ) {
       console.error(
@@ -255,11 +248,9 @@ export async function POST(request) {
       `https://api.razorpay.com/v1/payments/${razorpay_payment_id}`,
       {
         method: 'GET',
-
         headers: {
           Authorization: `Basic ${auth}`,
         },
-
         cache: 'no-store',
       }
     );
@@ -288,12 +279,12 @@ export async function POST(request) {
     // ==========================================
 
     if (
-      paymentData.order_id !==
-      razorpay_order_id
+      paymentData.order_id !== razorpay_order_id
     ) {
       return NextResponse.json(
         {
-          error: 'Payment does not belong to this order.',
+          error:
+            'Payment does not belong to this order.',
         },
         { status: 400 }
       );
@@ -303,13 +294,10 @@ export async function POST(request) {
     // 14. PAYMENT MUST BE CAPTURED
     // ==========================================
 
-    if (
-      paymentData.status !== 'captured'
-    ) {
+    if (paymentData.status !== 'captured') {
       return NextResponse.json(
         {
-          error:
-            'Payment is not captured yet.',
+          error: 'Payment is not captured yet.',
         },
         { status: 400 }
       );
@@ -320,8 +308,7 @@ export async function POST(request) {
     // ==========================================
 
     if (
-      Number(paymentData.amount) !==
-        expectedAmount ||
+      Number(paymentData.amount) !== expectedAmount ||
       paymentData.currency !== 'INR'
     ) {
       console.error(
@@ -340,7 +327,7 @@ export async function POST(request) {
     }
 
     // ==========================================
-    // 16. FILE NAME CHECK
+    // 16. CHECK FILE NAME
     // ==========================================
 
     if (
@@ -371,22 +358,17 @@ export async function POST(request) {
       '.docx',
     ];
 
-    if (
-      !allowedExtensions.includes(
-        extension
-      )
-    ) {
+    if (!allowedExtensions.includes(extension)) {
       return NextResponse.json(
         {
-          error:
-            'This file type is not supported.',
+          error: 'This file type is not supported.',
         },
         { status: 400 }
       );
     }
 
     // ==========================================
-    // 18. FILE PATH
+    // 18. PUBLIC DIRECTORY
     // ==========================================
 
     const publicDirectory = path.join(
@@ -394,13 +376,17 @@ export async function POST(request) {
       'public'
     );
 
+    // ==========================================
+    // 19. FILE PATH
+    // ==========================================
+
     const filePath = path.join(
       publicDirectory,
       selectedPdf.file
     );
 
     // ==========================================
-    // 19. SECURITY CHECK
+    // 20. SECURITY CHECK
     // ==========================================
 
     const resolvedPublicDirectory =
@@ -411,10 +397,14 @@ export async function POST(request) {
 
     if (
       !resolvedFilePath.startsWith(
-        resolvedPublicDirectory +
-          path.sep
+        resolvedPublicDirectory + path.sep
       )
     ) {
+      console.error(
+        'Invalid file path:',
+        resolvedFilePath
+      );
+
       return NextResponse.json(
         {
           error: 'Invalid file path.',
@@ -424,7 +414,7 @@ export async function POST(request) {
     }
 
     // ==========================================
-    // 20. READ FILE
+    // 21. READ FILE
     // ==========================================
 
     let fileBuffer;
@@ -449,7 +439,7 @@ export async function POST(request) {
     }
 
     // ==========================================
-    // 21. CONTENT TYPE
+    // 22. CONTENT TYPE
     // ==========================================
 
     let contentType =
@@ -457,13 +447,11 @@ export async function POST(request) {
 
     switch (extension) {
       case '.pdf':
-        contentType =
-          'application/pdf';
+        contentType = 'application/pdf';
         break;
 
       case '.xls':
-        contentType =
-          'application/vnd.ms-excel';
+        contentType = 'application/vnd.ms-excel';
         break;
 
       case '.xlsx':
@@ -472,44 +460,50 @@ export async function POST(request) {
         break;
 
       case '.doc':
-        contentType =
-          'application/msword';
+        contentType = 'application/msword';
         break;
 
       case '.docx':
         contentType =
           'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
         break;
+
+      default:
+        contentType =
+          'application/octet-stream';
     }
 
     // ==========================================
-    // 22. DOWNLOAD FILE
+    // 23. SAFE DOWNLOAD FILE NAME
     // ==========================================
 
-    return new NextResponse(
-      fileBuffer,
-      {
-        status: 200,
+    const downloadFileName =
+      path.basename(selectedPdf.file);
 
-        headers: {
-          'Content-Type':
-            contentType,
+    // ==========================================
+    // 24. RETURN FILE DOWNLOAD
+    // ==========================================
 
-          'Content-Disposition':
-            `attachment; filename="${selectedPdf.file}"`,
+    return new NextResponse(fileBuffer, {
+      status: 200,
 
-          'Content-Length':
-            fileBuffer.length.toString(),
+      headers: {
+        'Content-Type': contentType,
 
-          'Cache-Control':
-            'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Content-Disposition':
+          `attachment; filename="${downloadFileName}"`,
 
-          Pragma: 'no-cache',
+        'Content-Length':
+          fileBuffer.length.toString(),
 
-          Expires: '0',
-        },
-      }
-    );
+        'Cache-Control':
+          'no-store, no-cache, must-revalidate, proxy-revalidate',
+
+        Pragma: 'no-cache',
+
+        Expires: '0',
+      },
+    });
 
   } catch (error) {
     console.error(
@@ -527,3 +521,19 @@ export async function POST(request) {
     );
   }
 }
+
+⚠️ చాలా ముఖ్యమైనది
+
+మీ current error ఈ line వల్లే వచ్చింది:
+
+import { pdfs } from '../../pdfs';
+
+పై complete codeలో నేను correct చేశాను:
+
+import { pdfs } from '../pdfs';
+
+మీ "pdfs.js" కూడా తప్పకుండా "app/pdfs.js" locationలో ఉండాలి.
+
+తర్వాత GitHub → Commit changes → Vercel deployment చేయండి.
+
+Build successful అయిన తర్వాత payment test చేయండి.
