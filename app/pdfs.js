@@ -26,7 +26,7 @@ xexport const pdfs = [
   {
     id: 'raj-005',
     name: 'Surendar Leave Form 11',
-    file: 'Surendar Leave Form 11.xls',
+    file: 'Surendar Leave Form 11.xlsx',
     price: 50,
   },
 ];
