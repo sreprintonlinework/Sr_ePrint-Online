@@ -23,7 +23,7 @@ export const pdfs = [
     file: 'tsmsidc.pdf',
     price: 30,
   },
-   {
+  {
     id: 'raj-005',
     name: 'Surendar Leave Form 11',
     file: 'Surendar Leave Form 11.xls',
