@@ -1,4 +1,4 @@
-export const pdfs = [
+xexport const pdfs = [
   {
     id: 'raj-001',
     name: 'birth-appli',
