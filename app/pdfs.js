@@ -1,4 +1,4 @@
-xexport const pdfs = [
+export const pdfs = [
   {
     id: 'raj-001',
     name: 'birth-appli',
@@ -21,6 +21,6 @@ xexport const pdfs = [
     id: 'raj-004',
     name: 'tsmsidc',
     file: 'tsmsidc.pdf',
-    price: 30,
+    price: 20,
   },
 ];
