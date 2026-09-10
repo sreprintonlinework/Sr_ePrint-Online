@@ -1,13 +1,13 @@
 export const pdfs = [
   {
     id: 'raj-001',
-    name: 'Birth-appli',
+    name: 'birth-appli',
     file: 'birth-appli.pdf',
     price: 99,
   },
   {
     id: 'raj-002',
-    name: 'Sample1',
+    name: 'sample1',
     file: 'sample1.pdf',
     price: 20,
   },
