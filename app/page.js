@@ -319,7 +319,7 @@ export default function Home() {
           orderData.currency || 'INR',
 
         name:
-          'SR INTERNET Online Centre',
+          'Sr_ePrint-Online',
 
         description:
           `Digital File - ${selectedPdf.name}`,
