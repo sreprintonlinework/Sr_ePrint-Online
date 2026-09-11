@@ -673,7 +673,8 @@ export default function Home() {
             fontWeight: '700',
           }}
         >
-          SR INTERNET Online Centre
+          Sr_ePrint
+            -Online
         </h1>
 
         <p
@@ -1101,7 +1102,7 @@ export default function Home() {
               fontSize: '21px',
             }}
           >
-            About SR E-Print Online
+            About Sr_ePrint Online
           </h2>
 
           <p
@@ -1292,7 +1293,7 @@ export default function Home() {
           <p
             style={{
               margin: '7px 0 0',
-              fontSize: '14px',
+              fontSize: '18px',
               lineHeight: 1.5,
             }}
           >
@@ -1300,13 +1301,11 @@ export default function Home() {
             <br />
             Sr internet online center,
             <br />
-            New Maa Mart backside,
+            New Maa Mart backside, Kurnool Road,
             <br />
-            Kurnool Road,
+            Ieeja, Jogulamba Gadwal District,
             <br />
-            Ieeja, Jogulamba Gadwal,
-            <br />
-            Telangana - 509127
+            Telangana - 509127, INDIA
           </p>
         </section>
 
