@@ -19,14 +19,14 @@ export const pdfs = [
   },
   {
     id: 'raj-004',
-    name: 'Surendar Leave Form 11',
-    file: 'Surendar Leave Form 11.xls',
+    name: 'tspsc-gen-studies-modelpaper',
+    file: 'tspsc-gen-studies-modelpaper.pdf',
     price: 59,
   },
     {
     id: 'raj-005',
     name: 'Surendar Leave Form 11',
     file: 'Surendar Leave Form 11.xls',
-    price: 20,
+    price: 29,
   },
 ];
