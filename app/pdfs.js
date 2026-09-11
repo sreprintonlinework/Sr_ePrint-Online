@@ -1,25 +1,25 @@
 export const pdfs = [
   {
     id: 'raj-001',
-    name: 'birth-application',
+    name: 'Birth-Application',
     file: 'birth-application.pdf',
     price: 20,
   },
   {
     id: 'raj-002',
-    name: 'kids-abc-word-tracing',
+    name: 'kids-ABC-word-tracing',
     file: 'kids-abc-word-tracing.pdf',
     price: 10,
   },
   {
     id: 'raj-003',
-    name: 'pan-appli-form93',
+    name: 'Pan-application-form93',
     file: 'pan-appli-form93.pdf',
     price: 99,
   },
   {
     id: 'raj-004',
-    name: 'tspsc-gen-studies-modelpaper',
+    name: 'TSPSC-gen-studies-Modelpaper',
     file: 'tspsc-gen-studies-modelpaper.pdf',
     price: 59,
   },
