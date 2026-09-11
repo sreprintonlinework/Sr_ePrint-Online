@@ -1293,7 +1293,7 @@ export default function Home() {
           <p
             style={{
               margin: '7px 0 0',
-              fontSize: '18px',
+              fontSize: '16px',
               lineHeight: 1.5,
             }}
           >
