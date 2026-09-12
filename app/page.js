@@ -308,6 +308,7 @@ export default function Home() {
 
       // ========================================
       // RAZORPAY OPTIONS
+      // UPI FIRST + ENGLISH
       // ========================================
 
       const options = {
@@ -327,9 +328,62 @@ export default function Home() {
         order_id:
           orderData.orderId,
 
+        // ======================================
+        // UPI FIRST
+        // ======================================
+
+        config: {
+          display: {
+            blocks: {
+              upi: {
+                name: 'Pay via UPI',
+                instruments: [
+                  {
+                    method: 'upi',
+                  },
+                ],
+              },
+
+              other_methods: {
+                name: 'Other Payment Methods',
+                instruments: [
+                  {
+                    method: 'card',
+                  },
+                  {
+                    method: 'netbanking',
+                  },
+                  {
+                    method: 'wallet',
+                  },
+                ],
+              },
+            },
+
+            sequence: [
+              'block.upi',
+              'block.other_methods',
+            ],
+
+            preferences: {
+              show_default_blocks: false,
+            },
+          },
+
+          language: 'en',
+        },
+
+        // ======================================
+        // RAZORPAY THEME
+        // ======================================
+
         theme: {
           color: '#2563eb',
         },
+
+        // ======================================
+        // PAYMENT SUCCESS
+        // ======================================
 
         handler: async function (response) {
           // ==================================
@@ -1038,7 +1092,7 @@ export default function Home() {
             style={{
               background: 'white',
               borderRadius: '12px',
-              padding: '18px',
+              padding: '20px 18px',
               marginBottom: '12px',
               boxShadow:
                 '0 3px 12px rgba(0,0,0,0.06)',
@@ -1070,43 +1124,62 @@ export default function Home() {
               {selectedPdf.file}
             </p>
 
+            {/* LARGE PRICE */}
+
             <div
               style={{
-                fontSize: '28px',
-                fontWeight: '700',
+                fontSize: '30px',
+                fontWeight: '800',
                 color: '#059669',
-                margin: '10px 0 14px',
+                margin: '12px 0 16px',
               }}
             >
               ₹{selectedPdf.price}
             </div>
+
+            {/* LARGE PAY BUTTON */}
 
             <button
               onClick={handlePayment}
               disabled={loading}
               style={{
                 width: '100%',
-                maxWidth: '450px',
-                padding: '13px',
+                maxWidth: '500px',
+                minHeight: '60px',
+                padding: '18px 15px',
                 border: 'none',
-                borderRadius: '9px',
+                borderRadius: '13px',
                 background:
                   loading
                     ? '#9ca3af'
                     : '#2563eb',
                 color: 'white',
-                fontSize: '16px',
-                fontWeight: '700',
+                fontSize: '20px',
+                fontWeight: '800',
                 cursor:
                   loading
                     ? 'not-allowed'
                     : 'pointer',
+                boxShadow:
+                  loading
+                    ? 'none'
+                    : '0 5px 14px rgba(37,99,235,0.28)',
               }}
             >
               {loading
                 ? '⏳ Processing Payment...'
                 : `💳 Pay ₹${selectedPdf.price} & Download`}
             </button>
+
+            <div
+              style={{
+                marginTop: '10px',
+                fontSize: '13px',
+                color: '#6b7280',
+              }}
+            >
+              Secure payment powered by Razorpay
+            </div>
 
           </section>
         )}
