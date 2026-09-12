@@ -662,14 +662,14 @@ export default function Home() {
           background:
             'linear-gradient(135deg, #2563eb, #1d4ed8)',
           color: 'white',
-          padding: '24px 15px',
+          padding: '28px 15px',
           textAlign: 'center',
         }}
       >
         <h1
           style={{
             margin: 0,
-            fontSize: '30px',
+            fontSize: '34px',
             fontWeight: '700',
           }}
         >
@@ -678,9 +678,9 @@ export default function Home() {
 
         <p
           style={{
-            marginTop: '5px',
+            marginTop: '7px',
             marginBottom: 0,
-            fontSize: '16px',
+            fontSize: '19px',
           }}
         >
           Digital PDF & Excel Files
@@ -695,7 +695,7 @@ export default function Home() {
         style={{
           maxWidth: '900px',
           margin: '0 auto',
-          padding: '18px 12px 30px',
+          padding: '20px 12px 35px',
         }}
       >
 
@@ -707,17 +707,17 @@ export default function Home() {
           style={{
             background: 'white',
             borderRadius: '12px',
-            padding: '18px 20px',
-            marginBottom: '12px',
+            padding: '20px',
+            marginBottom: '14px',
             boxShadow:
               '0 3px 12px rgba(0,0,0,0.06)',
           }}
         >
           <h2
             style={{
-              margin: '0 0 7px 0',
+              margin: '0 0 9px 0',
               color: '#1e3a8a',
-              fontSize: '23px',
+              fontSize: '27px',
             }}
           >
             Digital File Store
@@ -725,9 +725,10 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.6',
               color: '#374151',
-              margin: '5px 0',
+              margin: '6px 0',
+              fontSize: '17px',
             }}
           >
             Select the required digital file,
@@ -738,10 +739,11 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.6',
               color: '#059669',
               fontWeight: '600',
-              margin: '5px 0 0',
+              margin: '6px 0 0',
+              fontSize: '17px',
             }}
           >
             PDF, Excel and other digital files
@@ -760,8 +762,8 @@ export default function Home() {
               border:
                 '2px solid #16a34a',
               borderRadius: '12px',
-              padding: '16px',
-              marginBottom: '12px',
+              padding: '18px',
+              marginBottom: '14px',
               textAlign: 'center',
               boxShadow:
                 '0 3px 10px rgba(22,163,74,0.10)',
@@ -770,10 +772,10 @@ export default function Home() {
 
             <div
               style={{
-                fontSize: '21px',
+                fontSize: '24px',
                 fontWeight: '700',
                 color: '#166534',
-                marginBottom: '5px',
+                marginBottom: '6px',
               }}
             >
               ✅ Payment Successful
@@ -782,9 +784,9 @@ export default function Home() {
             <div
               style={{
                 color: '#166534',
-                fontSize: '14px',
-                lineHeight: '1.45',
-                marginBottom: '8px',
+                fontSize: '16px',
+                lineHeight: '1.55',
+                marginBottom: '10px',
               }}
             >
               Your payment has been received successfully.
@@ -796,8 +798,8 @@ export default function Home() {
               <div
                 style={{
                   color: '#14532d',
-                  fontSize: '13px',
-                  marginBottom: '8px',
+                  fontSize: '15px',
+                  marginBottom: '10px',
                   wordBreak: 'break-word',
                 }}
               >
@@ -813,13 +815,13 @@ export default function Home() {
                 rel="noopener noreferrer"
                 style={{
                   display: 'inline-block',
-                  padding: '10px 20px',
+                  padding: '12px 22px',
                   background: '#16a34a',
                   color: 'white',
                   textDecoration: 'none',
                   borderRadius: '8px',
                   fontWeight: '700',
-                  fontSize: '15px',
+                  fontSize: '17px',
                   margin: '3px',
                 }}
               >
@@ -834,13 +836,13 @@ export default function Home() {
                 }
                 style={{
                   display: 'inline-block',
-                  padding: '10px 20px',
+                  padding: '12px 22px',
                   background: '#2563eb',
                   color: 'white',
                   textDecoration: 'none',
                   borderRadius: '8px',
                   fontWeight: '700',
-                  fontSize: '15px',
+                  fontSize: '17px',
                   margin: '3px',
                 }}
               >
@@ -857,7 +859,7 @@ export default function Home() {
 
         <section
           style={{
-            marginBottom: '12px',
+            marginBottom: '14px',
             display: 'flex',
             justifyContent: 'center',
           }}
@@ -878,11 +880,11 @@ export default function Home() {
               style={{
                 width: '100%',
                 boxSizing: 'border-box',
-                padding: '13px 16px',
+                padding: '15px 17px',
                 borderRadius: '10px',
                 border:
                   '2px solid #fdba74',
-                fontSize: '16px',
+                fontSize: '18px',
                 outline: 'none',
                 background: '#ffedd5',
                 color: '#7c2d12',
@@ -903,16 +905,16 @@ export default function Home() {
           style={{
             background: '#dcfce7',
             borderRadius: '12px',
-            padding: '16px',
-            marginBottom: '12px',
+            padding: '18px',
+            marginBottom: '14px',
           }}
         >
 
           <h2
             style={{
-              margin: '0 0 12px 0',
+              margin: '0 0 14px 0',
               color: '#166534',
-              fontSize: '22px',
+              fontSize: '26px',
             }}
           >
             Available Files
@@ -922,7 +924,8 @@ export default function Home() {
             <p
               style={{
                 color: '#374151',
-                margin: '5px 0',
+                margin: '6px 0',
+                fontSize: '17px',
               }}
             >
               No files found.
@@ -934,7 +937,7 @@ export default function Home() {
                 display: 'grid',
                 gridTemplateColumns:
                   'repeat(2, minmax(0, 1fr))',
-                gap: '8px',
+                gap: '9px',
               }}
             >
 
@@ -958,7 +961,7 @@ export default function Home() {
 
                     borderRadius: '9px',
 
-                    padding: '11px 12px',
+                    padding: '13px 13px',
 
                     cursor: 'pointer',
 
@@ -971,7 +974,7 @@ export default function Home() {
 
                     alignItems: 'center',
 
-                    gap: '7px',
+                    gap: '8px',
                   }}
                 >
 
@@ -985,7 +988,7 @@ export default function Home() {
                     <strong
                       style={{
                         color: '#111827',
-                        fontSize: '14px',
+                        fontSize: '16px',
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
@@ -995,11 +998,11 @@ export default function Home() {
 
                     <div
                       style={{
-                        marginTop: '3px',
-                        fontSize: '11px',
+                        marginTop: '4px',
+                        fontSize: '13px',
                         color: '#6b7280',
                         wordBreak: 'break-word',
-                        lineHeight: '1.35',
+                        lineHeight: '1.4',
                       }}
                     >
                       {getFileType(pdf.file)}
@@ -1013,7 +1016,7 @@ export default function Home() {
                     style={{
                       color: '#166534',
                       whiteSpace: 'nowrap',
-                      fontSize: '15px',
+                      fontSize: '17px',
                     }}
                   >
                     ₹{pdf.price}
@@ -1038,8 +1041,8 @@ export default function Home() {
             style={{
               background: 'white',
               borderRadius: '12px',
-              padding: '18px',
-              marginBottom: '12px',
+              padding: '20px',
+              marginBottom: '14px',
               boxShadow:
                 '0 3px 12px rgba(0,0,0,0.06)',
               textAlign: 'center',
@@ -1048,9 +1051,9 @@ export default function Home() {
 
             <h2
               style={{
-                margin: '0 0 6px 0',
+                margin: '0 0 7px 0',
                 color: '#1e3a8a',
-                fontSize: '22px',
+                fontSize: '27px',
                 wordBreak: 'break-word',
               }}
             >
@@ -1061,8 +1064,9 @@ export default function Home() {
               style={{
                 color: '#6b7280',
                 wordBreak: 'break-word',
-                lineHeight: '1.4',
-                margin: '5px 0',
+                lineHeight: '1.5',
+                margin: '6px 0',
+                fontSize: '17px',
               }}
             >
               {getFileType(selectedPdf.file)} File
@@ -1072,10 +1076,10 @@ export default function Home() {
 
             <div
               style={{
-                fontSize: '28px',
+                fontSize: '32px',
                 fontWeight: '700',
                 color: '#059669',
-                margin: '10px 0 14px',
+                margin: '12px 0 16px',
               }}
             >
               ₹{selectedPdf.price}
@@ -1087,7 +1091,7 @@ export default function Home() {
               style={{
                 width: '100%',
                 maxWidth: '450px',
-                padding: '13px',
+                padding: '15px',
                 border: 'none',
                 borderRadius: '9px',
                 background:
@@ -1095,7 +1099,7 @@ export default function Home() {
                     ? '#9ca3af'
                     : '#2563eb',
                 color: 'white',
-                fontSize: '16px',
+                fontSize: '18px',
                 fontWeight: '700',
                 cursor:
                   loading
@@ -1119,16 +1123,16 @@ export default function Home() {
           style={{
             background: 'white',
             borderRadius: '12px',
-            padding: '18px',
-            marginBottom: '12px',
+            padding: '20px',
+            marginBottom: '14px',
           }}
         >
 
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
-              fontSize: '21px',
+              margin: '0 0 9px 0',
+              fontSize: '25px',
             }}
           >
             About SR E-Print Online
@@ -1136,9 +1140,10 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.6',
               color: '#374151',
-              margin: '5px 0',
+              margin: '6px 0',
+              fontSize: '17px',
             }}
           >
             SR E-Print Online provides digital files
@@ -1156,16 +1161,16 @@ export default function Home() {
           style={{
             background: 'white',
             borderRadius: '12px',
-            padding: '18px',
-            marginBottom: '12px',
+            padding: '20px',
+            marginBottom: '14px',
           }}
         >
 
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
-              fontSize: '21px',
+              margin: '0 0 9px 0',
+              fontSize: '25px',
             }}
           >
             Digital Products
@@ -1173,10 +1178,11 @@ export default function Home() {
 
           <ul
             style={{
-              lineHeight: '1.7',
+              lineHeight: '1.8',
               color: '#374151',
-              marginTop: '5px',
-              marginBottom: '5px',
+              marginTop: '6px',
+              marginBottom: '6px',
+              fontSize: '17px',
             }}
           >
             <li>Digital PDF Files</li>
@@ -1196,16 +1202,16 @@ export default function Home() {
           style={{
             background: 'white',
             borderRadius: '12px',
-            padding: '18px',
-            marginBottom: '12px',
+            padding: '20px',
+            marginBottom: '14px',
           }}
         >
 
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
-              fontSize: '21px',
+              margin: '0 0 9px 0',
+              fontSize: '25px',
             }}
           >
             How It Works
@@ -1213,10 +1219,11 @@ export default function Home() {
 
           <ol
             style={{
-              lineHeight: '1.7',
+              lineHeight: '1.8',
               color: '#374151',
-              marginTop: '5px',
-              marginBottom: '5px',
+              marginTop: '6px',
+              marginBottom: '6px',
+              fontSize: '17px',
             }}
           >
             <li>Select the required digital file.</li>
@@ -1259,16 +1266,16 @@ export default function Home() {
           style={{
             background: 'white',
             borderRadius: '12px',
-            padding: '18px',
-            marginBottom: '12px',
+            padding: '20px',
+            marginBottom: '14px',
           }}
         >
 
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
-              fontSize: '21px',
+              margin: '0 0 9px 0',
+              fontSize: '25px',
             }}
           >
             Payment & Digital Delivery
@@ -1276,9 +1283,10 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.6',
               color: '#374151',
-              margin: '5px 0',
+              margin: '6px 0',
+              fontSize: '17px',
             }}
           >
             Payments are processed securely through
@@ -1289,9 +1297,10 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.6',
               color: '#374151',
-              margin: '5px 0',
+              margin: '6px 0',
+              fontSize: '17px',
             }}
           >
             No physical shipping is involved.
@@ -1309,16 +1318,16 @@ export default function Home() {
           style={{
             background: 'white',
             borderRadius: '12px',
-            padding: '18px',
-            marginBottom: '12px',
+            padding: '20px',
+            marginBottom: '14px',
           }}
         >
 
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
-              fontSize: '21px',
+              margin: '0 0 9px 0',
+              fontSize: '25px',
             }}
           >
             Contact Us
@@ -1326,9 +1335,10 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.6',
+              lineHeight: '1.7',
               color: '#374151',
-              margin: '5px 0',
+              margin: '6px 0',
+              fontSize: '17px',
             }}
           >
 
@@ -1348,9 +1358,9 @@ export default function Home() {
 
           <p
             style={{
-              margin: '10px 0 0',
-              fontSize: '15px',
-              lineHeight: 1.6,
+              margin: '12px 0 0',
+              fontSize: '17px',
+              lineHeight: 1.7,
               color: '#374151',
             }}
           >
@@ -1388,17 +1398,17 @@ export default function Home() {
           style={{
             background: 'white',
             borderRadius: '12px',
-            padding: '16px',
-            marginBottom: '12px',
+            padding: '18px',
+            marginBottom: '14px',
             textAlign: 'center',
           }}
         >
 
           <h3
             style={{
-              margin: '0 0 10px 0',
+              margin: '0 0 12px 0',
               color: '#1e3a8a',
-              fontSize: '18px',
+              fontSize: '21px',
             }}
           >
             Important Information
@@ -1410,8 +1420,9 @@ export default function Home() {
               flexWrap: 'wrap',
               justifyContent: 'center',
               alignItems: 'center',
-              gap: '8px',
-              lineHeight: '1.5',
+              gap: '9px',
+              lineHeight: '1.6',
+              fontSize: '16px',
             }}
           >
 
@@ -1489,9 +1500,9 @@ export default function Home() {
         <footer
           style={{
             textAlign: 'center',
-            padding: '18px 12px',
+            padding: '20px 12px',
             color: '#6b7280',
-            fontSize: '13px',
+            fontSize: '15px',
             background: 'white',
             borderRadius: '12px',
           }}
@@ -1499,11 +1510,12 @@ export default function Home() {
 
           <div
             style={{
-              marginBottom: '8px',
+              marginBottom: '10px',
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '8px',
+              gap: '9px',
+              fontSize: '16px',
             }}
           >
 
@@ -1589,8 +1601,8 @@ export default function Home() {
           position: 'fixed',
           right: '18px',
           bottom: '18px',
-          width: '52px',
-          height: '52px',
+          width: '56px',
+          height: '56px',
           borderRadius: '50%',
           background: '#25D366',
           color: 'white',
@@ -1598,7 +1610,7 @@ export default function Home() {
           alignItems: 'center',
           justifyContent: 'center',
           textDecoration: 'none',
-          fontSize: '25px',
+          fontSize: '28px',
           boxShadow:
             '0 4px 12px rgba(0,0,0,0.25)',
           zIndex: 1000,
