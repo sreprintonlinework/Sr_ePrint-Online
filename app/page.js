@@ -15,18 +15,6 @@ export default function Home() {
   const downloadStartedRef = useRef(false);
 
   // ==========================================
-  // CLEAN OBJECT URL
-  // ==========================================
-
-  useEffect(() => {
-    return () => {
-      if (pdfUrl) {
-        window.URL.revokeObjectURL(pdfUrl);
-      }
-    };
-  }, [pdfUrl]);
-
-  // ==========================================
   // GET FILE EXTENSION
   // ==========================================
 
@@ -679,7 +667,7 @@ export default function Home() {
 
       <div
         style={{
-          maxWidth: '800px',
+          maxWidth: '600px',
           margin: '0 auto',
           padding: '18px 12px 30px',
         }}
@@ -724,9 +712,9 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.0',
               color: '#059669',
-              fontWeight: '600',
+              fontWeight: '500',
               margin: '5px 0 0',
             }}
           >
@@ -846,18 +834,18 @@ export default function Home() {
             marginBottom: '12px',
             display: 'flex',
             justifyContent: 'center',
-            boxxtAlign: 'center'
+            boxtAlign: 'center',
           }}
         >
           <div
             style={{
-              width: '70%',
-              maxWidth: '700px',
+              width: '100%',
+              maxWidth: '650px',
             }}
           >
             <input
               type="text"
-              placeholder="🔍 Search PDF file/ Exel file..."
+              placeholder="🔍 Search PDF file/ Excel file..."
               value={search}
               onChange={(e) =>
                 setSearch(e.target.value)
@@ -869,11 +857,12 @@ export default function Home() {
                 borderRadius: '10px',
                 border:
                   '3px solid #fdba74',
-                fontSize: '20px',
+                fontSize: '22px',
                 outline: 'none',
                 background: '#ffedd5',
                 color: '#7c2d12',
                 textAlign: 'center',
+                boxtAlign: 'center',
                 boxShadow:
                   '0 3px 8px rgba(234,88,12,0.10)',
               }}
@@ -897,9 +886,9 @@ export default function Home() {
 
           <h2
             style={{
-              margin: '0 0 14px 0',
+              margin: '0 0 12px 0',
               color: '#166534',
-              fontSize: '26px',
+              fontSize: '22px',
             }}
           >
             Available Files
@@ -909,7 +898,7 @@ export default function Home() {
             <p
               style={{
                 color: '#374151',
-                margin: '6px 0',
+                margin: '5px 0',
               }}
             >
               No files found.
@@ -958,7 +947,7 @@ export default function Home() {
 
                     alignItems: 'center',
 
-                    gap: '6px',
+                    gap: '7px',
                   }}
                 >
 
@@ -972,7 +961,7 @@ export default function Home() {
                     <strong
                       style={{
                         color: '#111827',
-                        fontSize: '20px',
+                        fontSize: '14px',
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
@@ -1000,7 +989,7 @@ export default function Home() {
                     style={{
                       color: '#166534',
                       whiteSpace: 'nowrap',
-                      fontSize: '16px',
+                      fontSize: '15px',
                     }}
                   >
                     ₹{pdf.price}
@@ -1030,7 +1019,6 @@ export default function Home() {
               boxShadow:
                 '0 3px 12px rgba(0,0,0,0.06)',
               textAlign: 'center',
-              boxAlign: 'center'
             }}
           >
 
@@ -1116,10 +1104,10 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '21px',
+              fontSize: '18px',
             }}
           >
-            About sr_ePrint Online
+            About SR ePrint Online
           </h2>
 
           <p
@@ -1129,7 +1117,7 @@ export default function Home() {
               margin: '5px 0',
             }}
           >
-            sr_ePrint Online provides digital files
+            SR ePrint Online provides digital files
             such as PDF and Excel files through
             online purchase and electronic delivery.
           </p>
@@ -1153,7 +1141,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '18px',
+              fontSize: '24px',
             }}
           >
             Digital Products
@@ -1193,7 +1181,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '18px',
+              fontSize: '21px',
             }}
           >
             How It Works
@@ -1321,7 +1309,7 @@ export default function Home() {
           >
 
             <strong>
-              SR E-Print Online
+              SR ePrint Online
             </strong>
 
             <br />
