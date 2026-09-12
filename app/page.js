@@ -27,12 +27,18 @@ export default function Home() {
   }, [pdfUrl]);
 
   // ==========================================
-  // FILTER FILES
+  // FILTER + A-Z ORDER
   // ==========================================
 
-  const filteredPdfs = pdfs.filter((pdf) =>
-    pdf.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredPdfs = [...pdfs]
+    .sort((a, b) =>
+      a.name.localeCompare(b.name, undefined, {
+        sensitivity: 'base',
+      })
+    )
+    .filter((pdf) =>
+      pdf.name.toLowerCase().includes(search.toLowerCase())
+    );
 
   // ==========================================
   // GET FILE EXTENSION
@@ -80,7 +86,7 @@ export default function Home() {
         return 'Text';
 
       default:
-        return 'File';
+        return 'Digital File';
     }
   };
 
@@ -313,7 +319,7 @@ export default function Home() {
           orderData.currency || 'INR',
 
         name:
-          'SR INTERNET Online Centre',
+          'SR E-Print Online',
 
         description:
           `Digital File - ${selectedPdf.name}`,
@@ -371,7 +377,7 @@ export default function Home() {
               );
 
             // =================================
-            // READ CONTENT TYPE
+            // CONTENT TYPE
             // =================================
 
             const contentType =
@@ -405,7 +411,7 @@ export default function Home() {
                   errorData?.error ||
                   errorMessage;
               } catch {
-                // Ignore JSON error
+                // Ignore JSON parsing error
               }
 
               throw new Error(
@@ -414,22 +420,8 @@ export default function Home() {
             }
 
             // =================================
-            // IMPORTANT:
-            // DO NOT REJECT EXCEL MIME TYPES
+            // JSON ERROR RESPONSE
             // =================================
-
-            /*
-              Old code accepted only:
-
-              application/pdf
-              application/octet-stream
-
-              That caused .xls files to fail.
-
-              Now we only reject a JSON response.
-              PDF, XLS, XLSX, DOC, DOCX and other
-              valid file responses are accepted.
-            */
 
             if (
               contentType
@@ -538,7 +530,7 @@ export default function Home() {
               );
             } else {
               setSuccessMessage(
-                'Payment Successful! Your payment has been received. Please use the Open File button below.'
+                'Payment Successful! Your payment has been received. Please use the Download Again button.'
               );
             }
 
@@ -681,17 +673,17 @@ export default function Home() {
             fontWeight: '700',
           }}
         >
-          SR INTERNET Online Centre
+          sr_ePrint Online
         </h1>
 
         <p
           style={{
-            marginTop: '5px',
+            marginTop: '4px',
             marginBottom: 0,
             fontSize: '16px',
           }}
         >
-          Digital PDF & Online Services
+          Digital PDF & Excel Files
         </p>
       </header>
 
@@ -701,7 +693,7 @@ export default function Home() {
 
       <div
         style={{
-          maxWidth: '900px',
+          maxWidth: '800px',
           margin: '0 auto',
           padding: '18px 12px 30px',
         }}
@@ -714,9 +706,9 @@ export default function Home() {
         <section
           style={{
             background: 'white',
-            borderRadius: '12px',
+            borderRadius: '10px',
             padding: '18px 20px',
-            marginBottom: '12px',
+            marginBottom: '10px',
             boxShadow:
               '0 3px 12px rgba(0,0,0,0.06)',
           }}
@@ -728,7 +720,7 @@ export default function Home() {
               fontSize: '23px',
             }}
           >
-            Online Digital Documents
+            Digital File Store
           </h2>
 
           <p
@@ -738,8 +730,10 @@ export default function Home() {
               margin: '5px 0',
             }}
           >
-            Select the required file, make a secure
-            online payment, and download your file instantly.
+            Select the required digital file,
+            make a secure online payment,
+            and receive your purchased file
+            electronically.
           </p>
 
           <p
@@ -750,8 +744,8 @@ export default function Home() {
               margin: '5px 0 0',
             }}
           >
-            PDF, Excel and other digital files are
-            available for online purchase.
+            PDF, Excel and other digital files
+            are available for online purchase.
           </p>
         </section>
 
@@ -788,14 +782,14 @@ export default function Home() {
             <div
               style={{
                 color: '#166534',
-                fontSize: '14px',
+                fontSize: '16px',
                 lineHeight: '1.45',
                 marginBottom: '8px',
               }}
             >
               Your payment has been received successfully.
               <br />
-              Your file download has started.
+              Your purchased file is ready.
             </div>
 
             {downloadFileName && (
@@ -810,8 +804,6 @@ export default function Home() {
                 📄 {downloadFileName}
               </div>
             )}
-
-            {/* OPEN + DOWNLOAD */}
 
             <div>
 
@@ -848,7 +840,7 @@ export default function Home() {
                   textDecoration: 'none',
                   borderRadius: '8px',
                   fontWeight: '700',
-                  fontSize: '15px',
+                  fontSize: '16px',
                   margin: '3px',
                 }}
               >
@@ -864,39 +856,39 @@ export default function Home() {
         ====================================== */}
 
         <section
-          style={{
+          style={
             marginBottom: '12px',
             display: 'flex',
             justifyContent: 'center',
-          }}
+          }
         >
           <div
             style={{
-              width: '100%',
-              maxWidth: '650px',
+              width: '70%',
+              maxWidth: '700px',
             }}
           >
             <input
               type="text"
-              placeholder="🔍 Search PDF / Excel file..."
+              placeholder="🔍 Search PDF file/ Exel file..."
               value={search}
               onChange={(e) =>
                 setSearch(e.target.value)
               }
               style={{
-                width: '100%',
+                width: '80%',
                 boxSizing: 'border-box',
                 padding: '13px 16px',
                 borderRadius: '10px',
                 border:
-                  '2px solid #fdba74',
-                fontSize: '16px',
+                  '3px solid #fdba74',
+                fontSize: '20px',
                 outline: 'none',
                 background: '#ffedd5',
                 color: '#7c2d12',
                 textAlign: 'center',
                 boxShadow:
-                  '0 2px 8px rgba(234,88,12,0.10)',
+                  '0 3px 8px rgba(234,88,12,0.10)',
               }}
             />
           </div>
@@ -904,6 +896,7 @@ export default function Home() {
 
         {/* ======================================
             AVAILABLE FILES
+            2 COLUMNS + A-Z ORDER
         ====================================== */}
 
         <section
@@ -914,11 +907,12 @@ export default function Home() {
             marginBottom: '12px',
           }}
         >
+
           <h2
             style={{
-              margin: '0 0 10px 0',
+              margin: '0 0 14px 0',
               color: '#166534',
-              fontSize: '22px',
+              fontSize: '26px',
             }}
           >
             Available Files
@@ -928,87 +922,111 @@ export default function Home() {
             <p
               style={{
                 color: '#374151',
-                margin: '5px 0',
+                margin: '6px 0',
               }}
             >
               No files found.
             </p>
           ) : (
-            filteredPdfs.map((pdf) => (
-              <div
-                key={pdf.id}
-                onClick={() =>
-                  handleSelectFile(pdf)
-                }
-                style={{
-                  background:
-                    selectedPdf?.id === pdf.id
-                      ? '#bbf7d0'
-                      : 'white',
 
-                  border:
-                    selectedPdf?.id === pdf.id
-                      ? '2px solid #16a34a'
-                      : '1px solid #d1d5db',
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns:
+                  'repeat(2, minmax(0, 1fr))',
+                gap: '8px',
+              }}
+            >
 
-                  borderRadius: '9px',
+              {filteredPdfs.map((pdf) => (
 
-                  padding: '11px 13px',
-
-                  marginBottom: '7px',
-
-                  cursor: 'pointer',
-
-                  display: 'flex',
-
-                  justifyContent:
-                    'space-between',
-
-                  alignItems: 'center',
-
-                  gap: '8px',
-                }}
-              >
                 <div
+                  key={pdf.id}
+                  onClick={() =>
+                    handleSelectFile(pdf)
+                  }
                   style={{
+                    background:
+                      selectedPdf?.id === pdf.id
+                        ? '#bbf7d0'
+                        : 'white',
+
+                    border:
+                      selectedPdf?.id === pdf.id
+                        ? '2px solid #16a34a'
+                        : '1px solid #d1d5db',
+
+                    borderRadius: '9px',
+
+                    padding: '11px 12px',
+
+                    cursor: 'pointer',
+
                     minWidth: 0,
+
+                    display: 'flex',
+
+                    justifyContent:
+                      'space-between',
+
+                    alignItems: 'center',
+
+                    gap: '6px',
                   }}
                 >
-                  <strong
-                    style={{
-                      color: '#111827',
-                      fontSize: '15px',
-                    }}
-                  >
-                    {pdf.name}
-                  </strong>
 
                   <div
                     style={{
-                      marginTop: '3px',
-                      fontSize: '12px',
-                      color: '#6b7280',
-                      wordBreak: 'break-word',
+                      minWidth: 0,
+                      flex: 1,
                     }}
                   >
-                    {getFileType(pdf.file)}
-                    {' • '}
-                    {pdf.file}
+
+                    <strong
+                      style={{
+                        color: '#111827',
+                        fontSize: '14px',
+                        display: 'block',
+                        wordBreak: 'break-word',
+                      }}
+                    >
+                      {pdf.name}
+                    </strong>
+
+                    <div
+                      style={{
+                        marginTop: '3px',
+                        fontSize: '11px',
+                        color: '#6b7280',
+                        wordBreak: 'break-word',
+                        lineHeight: '1.35',
+                      }}
+                    >
+                      {getFileType(pdf.file)}
+                      {' • '}
+                      {pdf.file}
+                    </div>
+
                   </div>
+
+                  <strong
+                    style={{
+                      color: '#166534',
+                      whiteSpace: 'nowrap',
+                      fontSize: '12px',
+                    }}
+                  >
+                    ₹{pdf.price}
+                  </strong>
+
                 </div>
 
-                <strong
-                  style={{
-                    color: '#166534',
-                    whiteSpace: 'nowrap',
-                    fontSize: '16px',
-                  }}
-                >
-                  ₹{pdf.price}
-                </strong>
-              </div>
-            ))
+              ))}
+
+            </div>
+
           )}
+
         </section>
 
         {/* ======================================
@@ -1033,6 +1051,7 @@ export default function Home() {
                 margin: '0 0 6px 0',
                 color: '#1e3a8a',
                 fontSize: '22px',
+                wordBreak: 'break-word',
               }}
             >
               {selectedPdf.name}
@@ -1088,6 +1107,7 @@ export default function Home() {
                 ? '⏳ Processing Payment...'
                 : `💳 Pay ₹${selectedPdf.price} & Download`}
             </button>
+
           </section>
         )}
 
@@ -1103,6 +1123,7 @@ export default function Home() {
             marginBottom: '12px',
           }}
         >
+
           <h2
             style={{
               color: '#1e3a8a',
@@ -1110,7 +1131,7 @@ export default function Home() {
               fontSize: '21px',
             }}
           >
-            About SR E-Print Online
+            About sr_ePrint Online
           </h2>
 
           <p
@@ -1120,14 +1141,15 @@ export default function Home() {
               margin: '5px 0',
             }}
           >
-            SR E-Print Online provides digital documents
-            and online services through secure online
-            payment and digital delivery.
+            SR E-Print Online provides digital files
+            such as PDF and Excel files through
+            online purchase and electronic delivery.
           </p>
+
         </section>
 
         {/* ======================================
-            SERVICES
+            DIGITAL PRODUCTS
         ====================================== */}
 
         <section
@@ -1138,6 +1160,7 @@ export default function Home() {
             marginBottom: '12px',
           }}
         >
+
           <h2
             style={{
               color: '#1e3a8a',
@@ -1145,7 +1168,7 @@ export default function Home() {
               fontSize: '21px',
             }}
           >
-            Our Services
+            Digital Products
           </h2>
 
           <ul
@@ -1156,12 +1179,13 @@ export default function Home() {
               marginBottom: '5px',
             }}
           >
-            <li>Digital PDF Documents</li>
+            <li>Digital PDF Files</li>
             <li>Excel Files</li>
-            <li>Online Document Services</li>
+            <li>Other Digital Files</li>
             <li>Secure Online Payment</li>
-            <li>Instant Digital Delivery</li>
+            <li>Instant Digital File Delivery</li>
           </ul>
+
         </section>
 
         {/* ======================================
@@ -1176,6 +1200,7 @@ export default function Home() {
             marginBottom: '12px',
           }}
         >
+
           <h2
             style={{
               color: '#1e3a8a',
@@ -1194,24 +1219,40 @@ export default function Home() {
               marginBottom: '5px',
             }}
           >
-            <li>Select the required file.</li>
-            <li>Check the displayed price.</li>
-            <li>Click the payment button.</li>
-            <li>Complete payment through Razorpay.</li>
-            <li>Payment is securely verified.</li>
+            <li>Select the required digital file.</li>
+
             <li>
-              Your purchased file starts downloading
-              automatically.
+              Check the displayed price.
             </li>
+
             <li>
-              If automatic download is blocked, use
-              Open File or Download Again.
+              Click the payment button.
+            </li>
+
+            <li>
+              Complete the payment securely
+              through Razorpay.
+            </li>
+
+            <li>
+              Payment is securely verified.
+            </li>
+
+            <li>
+              The purchased digital file is
+              delivered electronically.
+            </li>
+
+            <li>
+              If automatic download is blocked,
+              use Open File or Download Again.
             </li>
           </ol>
+
         </section>
 
         {/* ======================================
-            PAYMENT & DELIVERY
+            PAYMENT & DIGITAL DELIVERY
         ====================================== */}
 
         <section
@@ -1222,6 +1263,7 @@ export default function Home() {
             marginBottom: '12px',
           }}
         >
+
           <h2
             style={{
               color: '#1e3a8a',
@@ -1240,8 +1282,9 @@ export default function Home() {
             }}
           >
             Payments are processed securely through
-            Razorpay. After successful payment verification,
-            the selected digital file is delivered electronically.
+            Razorpay. After successful payment
+            verification, the selected digital file
+            is delivered electronically.
           </p>
 
           <p
@@ -1251,9 +1294,11 @@ export default function Home() {
               margin: '5px 0',
             }}
           >
-            No physical shipping is involved. All products
-            available on this website are digital files.
+            No physical shipping is involved.
+            All products available on this website
+            are digital files.
           </p>
+
         </section>
 
         {/* ======================================
@@ -1268,6 +1313,7 @@ export default function Home() {
             marginBottom: '12px',
           }}
         >
+
           <h2
             style={{
               color: '#1e3a8a',
@@ -1285,6 +1331,7 @@ export default function Home() {
               margin: '5px 0',
             }}
           >
+
             <strong>
               SR E-Print Online
             </strong>
@@ -1296,31 +1343,44 @@ export default function Home() {
             <br />
 
             Email: sronline99890@gmail.com
+
           </p>
 
           <p
             style={{
-              margin: '7px 0 0',
-              fontSize: '14px',
-              lineHeight: 1.5,
+              margin: '10px 0 0',
+              fontSize: '15px',
+              lineHeight: 1.6,
+              color: '#374151',
             }}
           >
-            <strong>Business Address:</strong>
+
+            <strong>
+              Business Address:
+            </strong>
+
             <br />
+
             Sr internet online center,
+
             <br />
-            New Maa Mart backside,
+
+            New Maa Mart backside, Kurnool Road,
+
             <br />
-            Kurnool Road,
+
+            Ieeja, Jogulamba Gadwal District,
+
             <br />
-            Ieeja, Jogulamba Gadwal,
-            <br />
-            Telangana - 509127
+
+            Telangana - 509127, India
+
           </p>
+
         </section>
 
         {/* ======================================
-            POLICY LINKS
+            IMPORTANT INFORMATION
         ====================================== */}
 
         <section
@@ -1332,9 +1392,10 @@ export default function Home() {
             textAlign: 'center',
           }}
         >
+
           <h3
             style={{
-              margin: '0 0 8px 0',
+              margin: '0 0 10px 0',
               color: '#1e3a8a',
               fontSize: '18px',
             }}
@@ -1347,7 +1408,9 @@ export default function Home() {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '7px',
+              alignItems: 'center',
+              gap: '8px',
+              lineHeight: '1.5',
             }}
           >
 
@@ -1401,7 +1464,21 @@ export default function Home() {
               Shipping / Delivery
             </a>
 
+            <span>|</span>
+
+            <a
+              href="/payment-history"
+              style={{
+                color: '#16a34a',
+                textDecoration: 'none',
+                fontWeight: '700',
+              }}
+            >
+              💳 Payment History
+            </a>
+
           </div>
+
         </section>
 
         {/* ======================================
@@ -1422,13 +1499,16 @@ export default function Home() {
           <div
             style={{
               marginBottom: '8px',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '8px',
             }}
           >
 
             <a
               href="/privacy"
               style={{
-                margin: '0 5px',
                 color: '#2563eb',
                 textDecoration: 'none',
               }}
@@ -1436,10 +1516,11 @@ export default function Home() {
               Privacy
             </a>
 
+            <span>|</span>
+
             <a
               href="/refund"
               style={{
-                margin: '0 5px',
                 color: '#2563eb',
                 textDecoration: 'none',
               }}
@@ -1447,10 +1528,11 @@ export default function Home() {
               Refund
             </a>
 
+            <span>|</span>
+
             <a
               href="/terms"
               style={{
-                margin: '0 5px',
                 color: '#2563eb',
                 textDecoration: 'none',
               }}
@@ -1458,15 +1540,29 @@ export default function Home() {
               Terms
             </a>
 
+            <span>|</span>
+
             <a
               href="/shipping"
               style={{
-                margin: '0 5px',
                 color: '#2563eb',
                 textDecoration: 'none',
               }}
             >
               Delivery
+            </a>
+
+            <span>|</span>
+
+            <a
+              href="/payment-history"
+              style={{
+                color: '#16a34a',
+                textDecoration: 'none',
+                fontWeight: '700',
+              }}
+            >
+              Payment History
             </a>
 
           </div>
