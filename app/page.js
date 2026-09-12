@@ -852,6 +852,89 @@ export default function Home() {
         )}
 
         {/* ======================================
+            SELECTED FILE
+            PAYMENT BUTTON ABOVE SEARCH BAR
+        ====================================== */}
+
+        {selectedPdf && (
+          <section
+            style={{
+              background: 'white',
+              borderRadius: '12px',
+              padding: '18px',
+              marginBottom: '12px',
+              boxShadow:
+                '0 3px 12px rgba(0,0,0,0.06)',
+              textAlign: 'center',
+            }}
+          >
+
+            <h2
+              style={{
+                margin: '0 0 6px 0',
+                color: '#1e3a8a',
+                fontSize: '22px',
+                wordBreak: 'break-word',
+              }}
+            >
+              {selectedPdf.name}
+            </h2>
+
+            <p
+              style={{
+                color: '#6b7280',
+                wordBreak: 'break-word',
+                lineHeight: '1.4',
+                margin: '5px 0',
+              }}
+            >
+              {getFileType(selectedPdf.file)} File
+              <br />
+              {selectedPdf.file}
+            </p>
+
+            <div
+              style={{
+                fontSize: '28px',
+                fontWeight: '700',
+                color: '#059669',
+                margin: '10px 0 14px',
+              }}
+            >
+              ₹{selectedPdf.price}
+            </div>
+
+            <button
+              onClick={handlePayment}
+              disabled={loading}
+              style={{
+                width: '100%',
+                maxWidth: '450px',
+                padding: '13px',
+                border: 'none',
+                borderRadius: '9px',
+                background:
+                  loading
+                    ? '#9ca3af'
+                    : '#2563eb',
+                color: 'white',
+                fontSize: '16px',
+                fontWeight: '700',
+                cursor:
+                  loading
+                    ? 'not-allowed'
+                    : 'pointer',
+              }}
+            >
+              {loading
+                ? '⏳ Processing Payment...'
+                : `💳 Pay ₹${selectedPdf.price} & Download`}
+            </button>
+
+          </section>
+        )}
+
+        {/* ======================================
             SEARCH BAR
         ====================================== */}
 
@@ -1028,88 +1111,6 @@ export default function Home() {
           )}
 
         </section>
-
-        {/* ======================================
-            SELECTED FILE
-        ====================================== */}
-
-        {selectedPdf && (
-          <section
-            style={{
-              background: 'white',
-              borderRadius: '12px',
-              padding: '18px',
-              marginBottom: '12px',
-              boxShadow:
-                '0 3px 12px rgba(0,0,0,0.06)',
-              textAlign: 'center',
-            }}
-          >
-
-            <h2
-              style={{
-                margin: '0 0 6px 0',
-                color: '#1e3a8a',
-                fontSize: '22px',
-                wordBreak: 'break-word',
-              }}
-            >
-              {selectedPdf.name}
-            </h2>
-
-            <p
-              style={{
-                color: '#6b7280',
-                wordBreak: 'break-word',
-                lineHeight: '1.4',
-                margin: '5px 0',
-              }}
-            >
-              {getFileType(selectedPdf.file)} File
-              <br />
-              {selectedPdf.file}
-            </p>
-
-            <div
-              style={{
-                fontSize: '28px',
-                fontWeight: '700',
-                color: '#059669',
-                margin: '10px 0 14px',
-              }}
-            >
-              ₹{selectedPdf.price}
-            </div>
-
-            <button
-              onClick={handlePayment}
-              disabled={loading}
-              style={{
-                width: '100%',
-                maxWidth: '450px',
-                padding: '13px',
-                border: 'none',
-                borderRadius: '9px',
-                background:
-                  loading
-                    ? '#9ca3af'
-                    : '#2563eb',
-                color: 'white',
-                fontSize: '16px',
-                fontWeight: '700',
-                cursor:
-                  loading
-                    ? 'not-allowed'
-                    : 'pointer',
-              }}
-            >
-              {loading
-                ? '⏳ Processing Payment...'
-                : `💳 Pay ₹${selectedPdf.price} & Download`}
-            </button>
-
-          </section>
-        )}
 
         {/* ======================================
             ABOUT
