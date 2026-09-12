@@ -15,6 +15,32 @@ export default function Home() {
   const downloadStartedRef = useRef(false);
 
   // ==========================================
+  // CLEAN OBJECT URL
+  // ==========================================
+
+  useEffect(() => {
+    return () => {
+      if (pdfUrl) {
+        window.URL.revokeObjectURL(pdfUrl);
+      }
+    };
+  }, [pdfUrl]);
+
+  // ==========================================
+  // FILTER + A-Z ORDER
+  // ==========================================
+
+  const filteredPdfs = [...pdfs]
+    .sort((a, b) =>
+      a.name.localeCompare(b.name, undefined, {
+        sensitivity: 'base',
+      })
+    )
+    .filter((pdf) =>
+      pdf.name.toLowerCase().includes(search.toLowerCase())
+    );
+
+  // ==========================================
   // GET FILE EXTENSION
   // ==========================================
 
@@ -667,7 +693,7 @@ export default function Home() {
 
       <div
         style={{
-          maxWidth: '600px',
+          maxWidth: '800px',
           margin: '0 auto',
           padding: '18px 12px 30px',
         }}
@@ -712,9 +738,9 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.0',
+              lineHeight: '1.5',
               color: '#059669',
-              fontWeight: '500',
+              fontWeight: '600',
               margin: '5px 0 0',
             }}
           >
@@ -834,7 +860,6 @@ export default function Home() {
             marginBottom: '12px',
             display: 'flex',
             justifyContent: 'center',
-            boxtAlign: 'center',
           }}
         >
           <div
@@ -845,7 +870,7 @@ export default function Home() {
           >
             <input
               type="text"
-              placeholder="🔍 Search PDF file/ Excel file..."
+              placeholder="🔍 Search digital file..."
               value={search}
               onChange={(e) =>
                 setSearch(e.target.value)
@@ -856,13 +881,12 @@ export default function Home() {
                 padding: '13px 16px',
                 borderRadius: '10px',
                 border:
-                  '3px solid #fdba74',
-                fontSize: '22px',
+                  '2px solid #fdba74',
+                fontSize: '18px',
                 outline: 'none',
                 background: '#ffedd5',
                 color: '#7c2d12',
                 textAlign: 'center',
-                boxtAlign: 'center',
                 boxShadow:
                   '0 3px 8px rgba(234,88,12,0.10)',
               }}
@@ -1104,10 +1128,10 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '18px',
+              fontSize: '21px',
             }}
           >
-            About SR ePrint Online
+            About SR E-Print Online
           </h2>
 
           <p
@@ -1117,7 +1141,7 @@ export default function Home() {
               margin: '5px 0',
             }}
           >
-            SR ePrint Online provides digital files
+            SR E-Print Online provides digital files
             such as PDF and Excel files through
             online purchase and electronic delivery.
           </p>
@@ -1141,7 +1165,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '24px',
+              fontSize: '21px',
             }}
           >
             Digital Products
@@ -1309,7 +1333,7 @@ export default function Home() {
           >
 
             <strong>
-              SR ePrint Online
+              SR E-Print Online
             </strong>
 
             <br />
@@ -1341,7 +1365,8 @@ export default function Home() {
 
             <br />
 
-            New Maa Mart backside, Kurnool Road,
+            New Maa Mart backside,
+            Kurnool Road,
 
             <br />
 
