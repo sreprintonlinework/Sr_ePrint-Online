@@ -25,7 +25,7 @@ export const pdfs = [
   },
     {
     id: 'raj-005',
-    name: 'Surendar Leave Form 11',
+    name: 'Surendar Leave Form 11 - Sample Template Guide (For Reference Only)',
     file: 'Surendar Leave Form 11.xls',
     price: 29,
   },
