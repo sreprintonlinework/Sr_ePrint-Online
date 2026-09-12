@@ -856,11 +856,11 @@ export default function Home() {
         ====================================== */}
 
         <section
-          style={
+          style={{
             marginBottom: '12px',
             display: 'flex',
             justifyContent: 'center',
-          }
+          }}
         >
           <div
             style={{
