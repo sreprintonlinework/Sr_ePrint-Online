@@ -1,7 +1,7 @@
 export const pdfs = [
   {
     id: 'raj-001',
-    name: 'Birth-Application',
+    name: 'Birth Application Form - Sample Template Guide (For Reference Only)',
     file: 'birth-application.pdf',
     price: 20,
   },
@@ -13,7 +13,7 @@ export const pdfs = [
   },
   {
     id: 'raj-003',
-    name: 'Pan-application-form93',
+    name: 'Pan-application-form 93 - Sample Template Guide (For Reference Only)',
     file: 'pan-appli-form93.pdf',
     price: 99,
   },
