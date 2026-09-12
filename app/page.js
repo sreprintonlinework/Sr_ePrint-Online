@@ -27,20 +27,6 @@ export default function Home() {
   }, [pdfUrl]);
 
   // ==========================================
-  // FILTER + A-Z ORDER
-  // ==========================================
-
-  const filteredPdfs = [...pdfs]
-    .sort((a, b) =>
-      a.name.localeCompare(b.name, undefined, {
-        sensitivity: 'base',
-      })
-    )
-    .filter((pdf) =>
-      pdf.name.toLowerCase().includes(search.toLowerCase())
-    );
-
-  // ==========================================
   // GET FILE EXTENSION
   // ==========================================
 
@@ -860,6 +846,7 @@ export default function Home() {
             marginBottom: '12px',
             display: 'flex',
             justifyContent: 'center',
+            boxxtAlign: 'center'
           }}
         >
           <div
@@ -985,7 +972,7 @@ export default function Home() {
                     <strong
                       style={{
                         color: '#111827',
-                        fontSize: '14px',
+                        fontSize: '20px',
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
@@ -1013,7 +1000,7 @@ export default function Home() {
                     style={{
                       color: '#166534',
                       whiteSpace: 'nowrap',
-                      fontSize: '12px',
+                      fontSize: '16px',
                     }}
                   >
                     ₹{pdf.price}
@@ -1043,6 +1030,7 @@ export default function Home() {
               boxShadow:
                 '0 3px 12px rgba(0,0,0,0.06)',
               textAlign: 'center',
+              boxAlign: 'center'
             }}
           >
 
@@ -1141,7 +1129,7 @@ export default function Home() {
               margin: '5px 0',
             }}
           >
-            SR E-Print Online provides digital files
+            sr_ePrint Online provides digital files
             such as PDF and Excel files through
             online purchase and electronic delivery.
           </p>
@@ -1165,7 +1153,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '21px',
+              fontSize: '18px',
             }}
           >
             Digital Products
@@ -1205,7 +1193,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '21px',
+              fontSize: '18px',
             }}
           >
             How It Works
