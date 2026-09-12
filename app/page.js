@@ -757,8 +757,7 @@ export default function Home() {
           <section
             style={{
               background: '#dcfce7',
-              border:
-                '2px solid #16a34a',
+              border: '2px solid #16a34a',
               borderRadius: '12px',
               padding: '16px',
               marginBottom: '12px',
@@ -963,8 +962,7 @@ export default function Home() {
                 boxSizing: 'border-box',
                 padding: '13px 16px',
                 borderRadius: '10px',
-                border:
-                  '2px solid #fdba74',
+                border: '2px solid #fdba74',
                 fontSize: '18px',
                 outline: 'none',
                 background: '#ffedd5',
@@ -1220,7 +1218,10 @@ export default function Home() {
               marginBottom: '5px',
             }}
           >
-            <li>Select the required digital file.</li>
+
+            <li>
+              Select the required digital file.
+            </li>
 
             <li>
               Check the displayed price.
@@ -1248,6 +1249,7 @@ export default function Home() {
               If automatic download is blocked,
               use Open File or Download Again.
             </li>
+
           </ol>
 
         </section>
