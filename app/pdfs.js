@@ -9,7 +9,7 @@ export const pdfs = [
     id: 'raj-002',
     name: 'kids-ABC-word-tracing',
     file: 'kids-abc-word-tracing.pdf',
-    price: 10,
+    price: 5,
   },
   {
     id: 'raj-003',
