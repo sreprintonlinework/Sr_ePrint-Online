@@ -753,40 +753,11 @@ export default function Home() {
                 fontSize: '24px',
                 fontWeight: '600',
                 color: '#059669',
-                margin: '10px 0 14px',
+                margin: '10px 0 0',
               }}
             >
               ₹{selectedPdf.price}
             </div>
-
-            <button
-              onClick={() =>
-                handlePayment(selectedPdf)
-              }
-              disabled={loading}
-              style={{
-                width: '100%',
-                maxWidth: '300px',
-                padding: '13px',
-                border: 'none',
-                borderRadius: '8px',
-                background:
-                  loading
-                    ? '#9ca3af'
-                    : '#2563eb',
-                color: 'white',
-                fontSize: '16px',
-                fontWeight: '700',
-                cursor:
-                  loading
-                    ? 'not-allowed'
-                    : 'pointer',
-              }}
-            >
-              {loading
-                ? '⏳ Processing Payment...'
-                : `💳 Pay ₹${selectedPdf.price} & Download`}
-            </button>
           </section>
         )}
 
@@ -974,7 +945,7 @@ export default function Home() {
                     {loading &&
                     selectedPdf?.id === pdf.id
                       ? '⏳ Processing...'
-                      : `💳 Pay ₹${pdf.price} & Download`}
+                      : `💳 Pay ₹${pdf.price}`}
                   </button>
 
                 </div>
@@ -1312,16 +1283,10 @@ export default function Home() {
             padding: '18px 12px',
             color: '#374151',
             fontSize: '12px',
-
-            // Light blue footer background
             background:
               'linear-gradient(135deg, #f8fafc, #dbeafe)',
-
             borderRadius: '12px',
-
-            // Light blue underline / top border
             borderTop: '2px solid #93c5fd',
-
             boxShadow:
               '0 -2px 8px rgba(37,99,235,0.08)',
           }}
