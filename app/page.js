@@ -563,7 +563,7 @@ export default function Home() {
           style={{
             marginTop: '1px',
             marginBottom: 0,
-            fontSize: '14px',
+            fontSize: '12px',
           }}
         >
           Digital PDF & Excel Files
@@ -583,16 +583,16 @@ export default function Home() {
         <section
           style={{
             background: '#ffffff',
-            borderRadius: '10px',
+            borderRadius: '5px',
             padding: '18px 20px',
-            marginBottom: '5px',
+            marginBottom: '0px',
           }}
         >
           <h2
             style={{
               margin: '0 0 7px 0',
               color: '#1e3a8a',
-              fontSize: '23px',
+              fontSize: '18px',
             }}
           >
             Digital File Store
@@ -600,9 +600,9 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.0',
               color: '#374151',
-              margin: '4px 0',
+              margin: '2px 0',
             }}
           >
             Select the required digital file,
@@ -795,44 +795,53 @@ export default function Home() {
         )}
 
         {/* SEARCH */}
-        <section
-          style={{
-            marginBottom: '12px',
-            display: 'flex',
-            justifyContent: 'center',
-            background: '#ffffff',
-          }}
-        >
-          <div
-            style={{
-              width: '80%',
-              maxWidth: '650px',
-            }}
-          >
-            <input
-              type="text"
-              placeholder="🔍 Search file (Name/Number)..."
-              value={search}
-              onChange={(e) =>
-                setSearch(e.target.value)
-              }
-              style={{
-                width: '100%',
-                boxSizing: 'border-box',
-                padding: '13px 16px',
-                borderRadius: '10px',
-                border: '2px solid #fdba74',
-                fontSize: '18px',
-                outline: 'none',
-                background: '#ffedd5',
-                color: '#7c2d12',
-                textAlign: 'center',
-                boxShadow:
-                  '0 5px 8px rgba(234,88,12,0.10)',
-              }}
-            />
-          </div>
-        </section>
+        {/* SEARCH */}
+<section
+  style={{
+    marginBottom: '12px',
+    display: 'flex',
+    justifyContent: 'center',
+    background: '#ffffff',
+  }}
+>
+  <div
+    style={{
+      width: '80%',
+      maxWidth: '650px',
+      position: 'relative',
+    }}
+  >
+    <input
+      type="text"
+      placeholder="🔍 Search file (Name/Number)..."
+      value={search}
+      onChange={(e) =>
+        setSearch(e.target.value)
+      }
+      style={{
+        width: '100%',
+        boxSizing: 'border-box',
+        padding: '13px 16px',
+        borderRadius: '10px',
+        border: '2px solid #fdba74',
+        fontSize: '18px',
+        outline: 'none',
+        background: '#ffedd5',
+        color: '#7c2d12',
+        textAlign: 'center',
+
+        /* Cursor color */
+        caretColor: '#2563eb',
+
+        /* Text weight */
+        fontWeight: '500',
+
+        boxShadow:
+          '0 5px 8px rgba(234,88,12,0.10)',
+      }}
+    />
+  </div>
+</section>
 
         {/* AVAILABLE FILES */}
         <section
@@ -1161,9 +1170,9 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.6',
+              lineHeight: '1.0',
               color: '#374151',
-              margin: '5px 0',
+              margin: '1px 0',
             }}
           >
             <strong>
@@ -1173,6 +1182,11 @@ export default function Home() {
             <br />
 
             Phone / WhatsApp: 9989057683, Email: sronline99890@gmail.com
+            <br />
+            Business Address: Sr internet online center,
+            New Maa Mart backside, Ieeja,
+            Jogulamba Gadwal Dist, Telangana-509127, 
+            India.
 
             <br />
           </p>
@@ -1281,10 +1295,7 @@ export default function Home() {
               lineHeight: '1.0',
             }}
           >
-            Business Address: Sr internet online center,
-            New Maa Mart backside, Ieeja,
-            Jogulamba Gadwal Dist, Telangana-509127, 
-            India. Email: sronline99890@gmail.com
+            
           </div>
         </section>
 
