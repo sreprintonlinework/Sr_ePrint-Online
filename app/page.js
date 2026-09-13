@@ -30,15 +30,9 @@ export default function Home() {
   // FILTER + A-Z ORDER
   // ==========================================
 
-  const filteredPdfs = [...pdfs]
-    .sort((a, b) =>
-      a.name.localeCompare(b.name, undefined, {
-        sensitivity: 'base',
-      })
-    )
-    .filter((pdf) =>
-      pdf.name.toLowerCase().includes(search.toLowerCase())
-    );
+  const filteredPdfs = pdfs.filter((pdf) =>
+  pdf.name.toLowerCase().includes(search.toLowerCase())
+);
 
   // ==========================================
   // GET FILE EXTENSION
