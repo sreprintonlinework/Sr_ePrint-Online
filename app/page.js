@@ -686,12 +686,12 @@ export default function Home() {
       ======================================== */}
 
       <div
-        style={{
-          maxWidth: '600px',
-          margin: '0 auto',
-          padding: '18px 12px 30px',
-        }}
-      >
+  style={{
+    width: '100%',
+    boxSizing: 'border-box',
+    padding: '18px 15px 30px',
+  }}
+ >
 
         {/* ======================================
             INTRO
