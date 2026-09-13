@@ -664,7 +664,7 @@ export default function Home() {
           style={{
             margin: 0,
             fontSize: '30px',
-            fontWeight: '700',
+            fontWeight: '600',
           }}
         >
           sr_ePrint Online
@@ -672,9 +672,9 @@ export default function Home() {
 
         <p
           style={{
-            marginTop: '4px',
+            marginTop: '2px',
             marginBottom: 0,
-            fontSize: '16px',
+            fontSize: '14px',
           }}
         >
           Digital PDF & Excel Files
@@ -687,7 +687,7 @@ export default function Home() {
 
       <div
         style={{
-          maxWidth: '800px',
+          maxWidth: '600px',
           margin: '0 auto',
           padding: '18px 12px 30px',
         }}
@@ -719,9 +719,9 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.0',
               color: '#374151',
-              margin: '5px 0',
+              margin: '4px 0',
             }}
           >
             Select the required digital file,
@@ -735,7 +735,7 @@ export default function Home() {
               lineHeight: '1.5',
               color: '#059669',
               fontWeight: '600',
-              margin: '5px 0 0',
+              margin: '4px 0 0',
             }}
           >
             PDF, Excel and other digital files
@@ -752,9 +752,9 @@ export default function Home() {
             style={{
               background: '#dcfce7',
               border: '2px solid #16a34a',
-              borderRadius: '12px',
-              padding: '16px',
-              marginBottom: '12px',
+              borderRadius: '10px',
+              padding: '14px',
+              marginBottom: '10px',
               textAlign: 'center',
               boxShadow:
                 '0 3px 10px rgba(22,163,74,0.10)',
@@ -763,8 +763,8 @@ export default function Home() {
 
             <div
               style={{
-                fontSize: '21px',
-                fontWeight: '700',
+                fontSize: '20px',
+                fontWeight: '600',
                 color: '#166534',
                 marginBottom: '5px',
               }}
@@ -775,7 +775,7 @@ export default function Home() {
             <div
               style={{
                 color: '#166534',
-                fontSize: '16px',
+                fontSize: '14px',
                 lineHeight: '1.45',
                 marginBottom: '8px',
               }}
@@ -789,7 +789,7 @@ export default function Home() {
               <div
                 style={{
                   color: '#14532d',
-                  fontSize: '13px',
+                  fontSize: '12px',
                   marginBottom: '8px',
                   wordBreak: 'break-word',
                 }}
@@ -811,8 +811,8 @@ export default function Home() {
                   color: 'white',
                   textDecoration: 'none',
                   borderRadius: '8px',
-                  fontWeight: '700',
-                  fontSize: '15px',
+                  fontWeight: '600',
+                  fontSize: '16px',
                   margin: '3px',
                 }}
               >
@@ -831,9 +831,9 @@ export default function Home() {
                   background: '#2563eb',
                   color: 'white',
                   textDecoration: 'none',
-                  borderRadius: '8px',
+                  borderRadius: '7px',
                   fontWeight: '700',
-                  fontSize: '16px',
+                  fontSize: '18px',
                   margin: '3px',
                 }}
               >
@@ -853,9 +853,9 @@ export default function Home() {
           <section
             style={{
               background: 'white',
-              borderRadius: '12px',
-              padding: '18px',
-              marginBottom: '12px',
+              borderRadius: '10px',
+              padding: '16px',
+              marginBottom: '10px',
               boxShadow:
                 '0 3px 12px rgba(0,0,0,0.06)',
               textAlign: 'center',
@@ -888,8 +888,8 @@ export default function Home() {
 
             <div
               style={{
-                fontSize: '28px',
-                fontWeight: '700',
+                fontSize: '24px',
+                fontWeight: '600',
                 color: '#059669',
                 margin: '10px 0 14px',
               }}
@@ -901,11 +901,11 @@ export default function Home() {
               onClick={handlePayment}
               disabled={loading}
               style={{
-                width: '100%',
-                maxWidth: '450px',
+                width: '80%',
+                maxWidth: '300px',
                 padding: '13px',
                 border: 'none',
-                borderRadius: '9px',
+                borderRadius: '8px',
                 background:
                   loading
                     ? '#9ca3af'
@@ -921,7 +921,7 @@ export default function Home() {
             >
               {loading
                 ? '⏳ Processing Payment...'
-                : `💳 Pay ₹${selectedPdf.price} & Download`}
+                : `💳 Pay & Download`}
             </button>
 
           </section>
@@ -936,17 +936,18 @@ export default function Home() {
             marginBottom: '12px',
             display: 'flex',
             justifyContent: 'center',
+            boxAlign: 'center',
           }}
         >
           <div
             style={{
-              width: '100%',
+              width: '80%',
               maxWidth: '650px',
             }}
           >
             <input
               type="text"
-              placeholder="🔍 Search digital file..."
+              placeholder="🔍 Search PDF file/ Excel file..."
               value={search}
               onChange={(e) =>
                 setSearch(e.target.value)
@@ -954,6 +955,7 @@ export default function Home() {
               style={{
                 width: '80%',
                 boxSizing: 'border-box',
+                boxAlign: 'center',
                 padding: '13px 16px',
                 borderRadius: '10px',
                 border: '2px solid #fdba74',
@@ -1008,7 +1010,7 @@ export default function Home() {
               style={{
                 display: 'grid',
                 gridTemplateColumns:
-                  'repeat(2, minmax(0, 1fr))',
+                '1fr',
                 gap: '8px',
               }}
             >
@@ -1060,7 +1062,7 @@ export default function Home() {
                     <strong
                       style={{
                         color: '#111827',
-                        fontSize: '14px',
+                        fontSize: '16px',
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
@@ -1071,7 +1073,7 @@ export default function Home() {
                     <div
                       style={{
                         marginTop: '3px',
-                        fontSize: '11px',
+                        fontSize: '12px',
                         color: '#6b7280',
                         wordBreak: 'break-word',
                         lineHeight: '1.35',
@@ -1124,7 +1126,7 @@ export default function Home() {
               fontSize: '21px',
             }}
           >
-            About SR E-Print Online
+            About sr_ ePrint Online
           </h2>
 
           <p
@@ -1134,7 +1136,7 @@ export default function Home() {
               margin: '5px 0',
             }}
           >
-            SR E-Print Online provides digital files
+            sr_ePrint Online provides digital files
             such as PDF and Excel files through
             online purchase and electronic delivery.
           </p>
@@ -1158,7 +1160,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '21px',
+              fontSize: '18px',
             }}
           >
             Digital Products
@@ -1315,7 +1317,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '21px',
+              fontSize: '20px',
             }}
           >
             Contact Us
@@ -1330,7 +1332,7 @@ export default function Home() {
           >
 
             <strong>
-              SR E-Print Online
+              sr_ePrint Online
             </strong>
 
             <br />
@@ -1362,8 +1364,7 @@ export default function Home() {
 
             <br />
 
-            New Maa Mart backside,
-            Kurnool Road,
+            New Maa Mart backside, Kurnool Road,
 
             <br />
 
@@ -1469,7 +1470,7 @@ export default function Home() {
               style={{
                 color: '#16a34a',
                 textDecoration: 'none',
-                fontWeight: '700',
+                fontWeight: '600',
               }}
             >
               💳 Payment History
@@ -1557,7 +1558,7 @@ export default function Home() {
               style={{
                 color: '#16a34a',
                 textDecoration: 'none',
-                fontWeight: '700',
+                fontWeight: '600',
               }}
             >
               Payment History
@@ -1566,7 +1567,7 @@ export default function Home() {
           </div>
 
           <div>
-            © 2026 SR E-Print Online.
+            © 2026 sr_ePrint Online.
             All Rights Reserved.
           </div>
 
