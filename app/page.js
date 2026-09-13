@@ -941,7 +941,7 @@ export default function Home() {
         >
           <div
             style={{
-              width: '100%',
+              width: '80%',
               maxWidth: '650px',
             }}
           >
@@ -1025,8 +1025,8 @@ export default function Home() {
                   style={{
                     background:
                       selectedPdf?.id === pdf.id
-                        ? '#bbf7d0'
-                        : 'white',
+                        ? 'white'
+                        : '#bbf7d0',
 
                     border:
                       selectedPdf?.id === pdf.id
@@ -1062,7 +1062,7 @@ export default function Home() {
                     <strong
                       style={{
                         color: '#111827',
-                        fontSize: '16px',
+                        fontSize: '14px',
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
@@ -1090,7 +1090,7 @@ export default function Home() {
                     style={{
                       color: '#166534',
                       whiteSpace: 'nowrap',
-                      fontSize: '15px',
+                      fontSize: '14px',
                     }}
                   >
                     ₹{pdf.price}
@@ -1123,7 +1123,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '21px',
+              fontSize: '18px',
             }}
           >
             About sr_ ePrint Online
@@ -1160,7 +1160,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '18px',
+              fontSize: '16px',
             }}
           >
             Digital Products
@@ -1257,7 +1257,7 @@ export default function Home() {
         <section
           style={{
             background: 'white',
-            borderRadius: '12px',
+            borderRadius: '10px',
             padding: '18px',
             marginBottom: '12px',
           }}
@@ -1396,7 +1396,7 @@ export default function Home() {
             style={{
               margin: '0 0 10px 0',
               color: '#1e3a8a',
-              fontSize: '18px',
+              fontSize: '14px',
             }}
           >
             Important Information
@@ -1418,7 +1418,7 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '600',
+                fontWeight: '500',
               }}
             >
               Privacy Policy
@@ -1431,7 +1431,7 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '600',
+                fontWeight: '500',
               }}
             >
               Refund / Cancellation
@@ -1444,7 +1444,7 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '600',
+                fontWeight: '500',
               }}
             >
               Terms & Conditions
@@ -1457,7 +1457,7 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '600',
+                fontWeight: '500',
               }}
             >
               Shipping / Delivery
@@ -1470,7 +1470,7 @@ export default function Home() {
               style={{
                 color: '#16a34a',
                 textDecoration: 'none',
-                fontWeight: '600',
+                fontWeight: '500',
               }}
             >
               💳 Payment History
@@ -1489,7 +1489,7 @@ export default function Home() {
             textAlign: 'center',
             padding: '18px 12px',
             color: '#6b7280',
-            fontSize: '13px',
+            fontSize: '12px',
             background: 'white',
             borderRadius: '12px',
           }}
@@ -1558,7 +1558,7 @@ export default function Home() {
               style={{
                 color: '#16a34a',
                 textDecoration: 'none',
-                fontWeight: '600',
+                fontWeight: '500',
               }}
             >
               Payment History
