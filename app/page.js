@@ -578,7 +578,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '10px',
             padding: '18px 20px',
-            marginBottom: '10px',
+            marginBottom: '5px',
           }}
         >
           <h2
@@ -622,7 +622,7 @@ export default function Home() {
               border: '2px solid #16a34a',
               borderRadius: '10px',
               padding: '14px',
-              marginBottom: '10px',
+              marginBottom: '5px',
               textAlign: 'center',
             }}
           >
@@ -641,7 +641,7 @@ export default function Home() {
                 color: '#166534',
                 fontSize: '14px',
                 lineHeight: '1.45',
-                marginBottom: '8px',
+                marginBottom: '5px',
               }}
             >
               Your payment has been received successfully.
@@ -653,7 +653,7 @@ export default function Home() {
                 style={{
                   color: '#14532d',
                   fontSize: '12px',
-                  marginBottom: '8px',
+                  marginBottom: '5px',
                   wordBreak: 'break-word',
                 }}
               >
@@ -821,7 +821,7 @@ export default function Home() {
             background: '#dcfce7',
             borderRadius: '12px',
             padding: '16px',
-            marginBottom: '12px',
+            marginBottom: '5px',
           }}
         >
           <h2
@@ -836,7 +836,7 @@ export default function Home() {
           {filteredPdfs.length === 0 ? (
             <p
               style={{
-                color: '#374151',
+                color: '#16a34a',
                 margin: '5px 0',
               }}
             >
@@ -847,7 +847,7 @@ export default function Home() {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '8px',
+                gap: '12px',
               }}
             >
               {filteredPdfs.map((pdf) => (
@@ -961,7 +961,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
-            marginBottom: '12px',
+            marginBottom: '5px',
           }}
         >
           <h2
@@ -992,7 +992,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
-            marginBottom: '12px',
+            marginBottom: '5px',
           }}
         >
           <h2
@@ -1025,7 +1025,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
-            marginBottom: '12px',
+            marginBottom: '5px',
           }}
         >
           <h2
@@ -1070,7 +1070,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '10px',
             padding: '18px',
-            marginBottom: '12px',
+            marginBottom: '5px',
           }}
         >
           <h2
@@ -1112,7 +1112,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
-            marginBottom: '12px',
+            marginBottom: '5px',
           }}
         >
           <h2
@@ -1149,7 +1149,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '16px',
-            marginBottom: '12px',
+            marginBottom: '5px',
             textAlign: 'center',
           }}
         >
@@ -1157,7 +1157,7 @@ export default function Home() {
             style={{
               margin: '0 0 10px 0',
               color: '#1e3a8a',
-              fontSize: '10px',
+              fontSize: '12px',
             }}
           >
             Important Information
@@ -1169,7 +1169,7 @@ export default function Home() {
               flexWrap: 'wrap',
               justifyContent: 'center',
               alignItems: 'center',
-              gap: '8px',
+              gap: '5px',
               lineHeight: '1.0',
             }}
           >
