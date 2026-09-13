@@ -811,7 +811,7 @@ export default function Home() {
           >
             <input
               type="text"
-              placeholder="🔍 Search PDF file / Excel file..."
+              placeholder="🔍 Search file (Name/Number)..."
               value={search}
               onChange={(e) =>
                 setSearch(e.target.value)
@@ -828,7 +828,7 @@ export default function Home() {
                 color: '#7c2d12',
                 textAlign: 'center',
                 boxShadow:
-                  '0 3px 8px rgba(234,88,12,0.10)',
+                  '0 5px 8px rgba(234,88,12,0.10)',
               }}
             />
           </div>
@@ -988,7 +988,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
-            marginBottom: '5px',
+            marginBottom: '0px',
           }}
         >
           <h2
@@ -1020,7 +1020,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
-            marginBottom: '5px',
+            marginBottom: '0px',
           }}
         >
           <h2
@@ -1037,8 +1037,8 @@ export default function Home() {
             style={{
               lineHeight: '1.7',
               color: '#374151',
-              marginTop: '5px',
-              marginBottom: '5px',
+              marginTop: '0px',
+              marginBottom: '0px',
             }}
           >
             <li>Digital PDF Files</li>
@@ -1055,7 +1055,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
-            marginBottom: '5px',
+            marginBottom: '0px',
           }}
         >
           <h2
@@ -1131,7 +1131,7 @@ export default function Home() {
             style={{
               lineHeight: '1.5',
               color: '#374151',
-              margin: '5px 0',
+              margin: '0px 0',
             }}
           >
             No physical shipping is involved.
@@ -1146,7 +1146,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
-            marginBottom: '5px',
+            marginBottom: '0px',
           }}
         >
           <h2
@@ -1184,19 +1184,21 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '16px',
-            marginBottom: '5px',
+            marginBottom: '0px',
             textAlign: 'center',
           }}
         >
           <h3
-            style={{
-              margin: '0 0 10px 0',
-              color: '#1e3a8a',
-              fontSize: '16px',
-            }}
-          >
-            Important Information
-          </h3>
+  style={{
+    margin: '0 0 10px 0',
+    color: '#1e3a8a',
+    fontSize: '14px',
+    textDecoration: 'underline',
+    textUnderlineOffset: '3px',
+  }}
+>
+  Important Information
+</h3>
 
           <div
             style={{
@@ -1204,7 +1206,7 @@ export default function Home() {
               flexWrap: 'wrap',
               justifyContent: 'center',
               alignItems: 'center',
-              gap: '5px',
+              gap: '0px',
               lineHeight: '1.0',
             }}
           >
@@ -1276,13 +1278,13 @@ export default function Home() {
             style={{
               marginTop: '10px',
               color: '#374151',
-              lineHeight: '1.5',
+              lineHeight: '1.0',
             }}
           >
             Business Address: Sr internet online center,
             New Maa Mart backside, Ieeja,
-            Jogulamba Gadwal Dist, Telangana-509127,
-            India
+            Jogulamba Gadwal Dist, Telangana-509127, 
+            India. Email: sronline99890@gmail.com
           </div>
         </section>
 
@@ -1292,7 +1294,7 @@ export default function Home() {
             textAlign: 'center',
             padding: '18px 12px',
             color: '#374151',
-            fontSize: '16px',
+            fontSize: '14px',
 
             background:
               'linear-gradient(135deg, #f8fafc, #dbeafe)',
