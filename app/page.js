@@ -40,7 +40,7 @@ export default function Home() {
 
     const parts = fileName.split('.');
 
-    if (parts.length < 2) {
+    if (parts.length < 1) {
       return '';
     }
 
@@ -549,12 +549,11 @@ export default function Home() {
           style={{
             margin: 0,
             fontSize: '30px',
-            fontWeight: '600',
+            fontWeight: '500',
           }}
         >
           sr_ePrint Online
         </h1>
-
         <p
           style={{
             marginTop: '2px',
@@ -565,16 +564,14 @@ export default function Home() {
           Digital PDF & Excel Files
         </p>
       </header>
-
       <div
         style={{
           width: '100%',
           boxSizing: 'border-box',
           padding: '18px 15px 30px',
-          background: '#ffffff',
+          background: 'white',
         }}
       >
-
         {/* INTRO */}
         <section
           style={{
@@ -593,7 +590,6 @@ export default function Home() {
           >
             Digital File Store
           </h2>
-
           <p
             style={{
               lineHeight: '1.5',
@@ -606,7 +602,6 @@ export default function Home() {
             and receive your purchased file
             electronically.
           </p>
-
           <p
             style={{
               lineHeight: '1.5',
@@ -619,7 +614,6 @@ export default function Home() {
             are available for online purchase.
           </p>
         </section>
-
         {/* SUCCESS */}
         {successMessage && pdfUrl && (
           <section
@@ -642,7 +636,6 @@ export default function Home() {
             >
               ✅ Payment Successful
             </div>
-
             <div
               style={{
                 color: '#166534',
@@ -655,7 +648,6 @@ export default function Home() {
               <br />
               Your purchased file is ready.
             </div>
-
             {downloadFileName && (
               <div
                 style={{
@@ -668,7 +660,6 @@ export default function Home() {
                 📄 {downloadFileName}
               </div>
             )}
-
             <div>
               <a
                 href={pdfUrl}
@@ -712,7 +703,6 @@ export default function Home() {
             </div>
           </section>
         )}
-
         {/* SELECTED FILE */}
         {selectedPdf && (
           <section
@@ -747,7 +737,6 @@ export default function Home() {
               <br />
               {selectedPdf.file}
             </p>
-
             <div
               style={{
                 fontSize: '24px',
@@ -758,7 +747,6 @@ export default function Home() {
             >
               ₹{selectedPdf.price}
             </div>
-
             <button
               onClick={() =>
                 handlePayment(selectedPdf)
@@ -789,7 +777,6 @@ export default function Home() {
             </button>
           </section>
         )}
-
         {/* SEARCH */}
         <section
           style={{
@@ -828,7 +815,6 @@ export default function Home() {
             />
           </div>
         </section>
-
         {/* AVAILABLE FILES */}
         <section
           style={{
@@ -847,7 +833,6 @@ export default function Home() {
           >
             Available Files
           </h2>
-
           {filteredPdfs.length === 0 ? (
             <p
               style={{
@@ -878,25 +863,16 @@ export default function Home() {
                       selectedPdf?.id === pdf.id
                         ? '2px solid #16a34a'
                         : '1px solid #86efac',
-
                     borderRadius: '9px',
-
-                    padding: '10px 11px',
-
+                   padding: '10px 11px',
                     display: 'flex',
-
                     alignItems: 'center',
-
                     gap: '10px',
-
                     width: '100%',
-
                     boxSizing: 'border-box',
-
                     flexWrap: 'wrap',
                   }}
                 >
-
                   {/* FILE NAME */}
                   <div
                     onClick={() =>
@@ -918,8 +894,7 @@ export default function Home() {
                     >
                       {pdf.name}
                     </strong>
-
-                    <div
+                   <div
                       style={{
                         marginTop: '3px',
                         fontSize: '12px',
@@ -933,7 +908,6 @@ export default function Home() {
                       {pdf.file}
                     </div>
                   </div>
-
                   {/* PRICE */}
                   <strong
                     style={{
@@ -976,13 +950,11 @@ export default function Home() {
                       ? '⏳ Processing...'
                       : `💳 Pay ₹${pdf.price} & Download`}
                   </button>
-
                 </div>
               ))}
             </div>
           )}
         </section>
-
         {/* ABOUT */}
         <section
           style={{
@@ -1014,7 +986,6 @@ export default function Home() {
             online purchase and electronic delivery.
           </p>
         </section>
-
         {/* DIGITAL PRODUCTS */}
         <section
           style={{
@@ -1033,7 +1004,6 @@ export default function Home() {
           >
             Digital Products
           </h2>
-
           <ul
             style={{
               lineHeight: '1.7',
@@ -1049,7 +1019,6 @@ export default function Home() {
             <li>Instant Digital File Delivery</li>
           </ul>
         </section>
-
         {/* HOW IT WORKS */}
         <section
           style={{
@@ -1095,7 +1064,6 @@ export default function Home() {
             </li>
           </ol>
         </section>
-
         {/* PAYMENT & DELIVERY */}
         <section
           style={{
@@ -1114,8 +1082,7 @@ export default function Home() {
           >
             Payment & Digital Delivery
           </h2>
-
-          <p
+              <p
             style={{
               lineHeight: '1.5',
               color: '#374151',
@@ -1127,8 +1094,7 @@ export default function Home() {
             verification, the selected digital file
             is delivered electronically.
           </p>
-
-          <p
+              <p
             style={{
               lineHeight: '1.5',
               color: '#374151',
@@ -1140,8 +1106,7 @@ export default function Home() {
             are digital files.
           </p>
         </section>
-
-        {/* CONTACT */}
+ {/* CONTACT */}
         <section
           style={{
             background: '#ffffff',
@@ -1178,7 +1143,6 @@ export default function Home() {
             <br />
           </p>
         </section>
-
         {/* IMPORTANT INFORMATION */}
         <section
           style={{
@@ -1193,7 +1157,7 @@ export default function Home() {
             style={{
               margin: '0 0 10px 0',
               color: '#1e3a8a',
-              fontSize: '12px',
+              fontSize: '10px',
             }}
           >
             Important Information
@@ -1206,7 +1170,7 @@ export default function Home() {
               justifyContent: 'center',
               alignItems: 'center',
               gap: '8px',
-              lineHeight: '1.5',
+              lineHeight: '1.0',
             }}
           >
             <a
