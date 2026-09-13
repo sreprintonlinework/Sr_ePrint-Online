@@ -23,7 +23,7 @@ export default function Home() {
   }, [pdfUrl]);
 
   // A-Z sorting + Search
-  const filteredPdfs = pdfs
+  const filteredPdfs = [...pdfs]
     .filter((pdf) =>
       pdf.name.toLowerCase().includes(search.toLowerCase())
     )
@@ -974,7 +974,7 @@ export default function Home() {
                     {loading &&
                     selectedPdf?.id === pdf.id
                       ? '⏳ Processing...'
-                      : `💳 Pay ₹${pdf.price}`}
+                      : `💳 Pay ₹${pdf.price} & Download`}
                   </button>
 
                 </div>
@@ -1310,10 +1310,20 @@ export default function Home() {
           style={{
             textAlign: 'center',
             padding: '18px 12px',
-            color: '#6b7280',
+            color: '#374151',
             fontSize: '12px',
-            background: '#ffffff',
+
+            // Light blue footer background
+            background:
+              'linear-gradient(135deg, #f8fafc, #dbeafe)',
+
             borderRadius: '12px',
+
+            // Light blue underline / top border
+            borderTop: '2px solid #93c5fd',
+
+            boxShadow:
+              '0 -2px 8px rgba(37,99,235,0.08)',
           }}
         >
           <div
