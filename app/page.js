@@ -1183,10 +1183,10 @@ export default function Home() {
 
             Phone / WhatsApp: 9989057683, Email: sronline99890@gmail.com
             <br />
-            Business Address: 
-          <br />
             
-          Sr internet online center,Ieeja, JogulambaGadwal Dist, Telangana-509127, India.
+          <br />
+            Business Address: 
+          Sr internet online center, Near Maa Mart, Ieeja, JogulambaGadwal Dist, Telangana-509127, India.
 
             <br />
           </p>
