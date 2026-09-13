@@ -1303,6 +1303,10 @@ export default function Home() {
               💳 Payment History
             </a>
           </div>
+                <div>
+            Business Address: Sr internet online center,New Maa Mart backside, Kurnool Road,
+Ieeja, Jogulamba Gadwal District, Telangana - 509127, India
+          </div>
         </section>
 
         {/* FOOTER */}
