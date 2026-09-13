@@ -1173,11 +1173,9 @@ export default function Home() {
 
             <br />
 
-            Phone / WhatsApp: 9989057683
+            Phone / WhatsApp: 99890576com Email: sronline99890@gmail.com
 
             <br />
-
-            Email: sronline99890@gmail.com
           </p>
 
           <p
@@ -1188,26 +1186,7 @@ export default function Home() {
               color: '#374151',
             }}
           >
-            <strong>
-              Business Address:
-            </strong>
-
-            <br />
-
-            Sr internet online center,
-
-            <br />
-
-            New Maa Mart backside, Kurnool Road,
-
-            <br />
-
-            Ieeja, Jogulamba Gadwal District,
-
-            <br />
-
-            Telangana - 509127, India
-          </p>
+                 
         </section>
 
         {/* IMPORTANT INFORMATION */}
@@ -1224,7 +1203,7 @@ export default function Home() {
             style={{
               margin: '0 0 10px 0',
               color: '#1e3a8a',
-              fontSize: '14px',
+              fontSize: '12px',
             }}
           >
             Important Information
@@ -1245,7 +1224,7 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '500',
+                fontWeight: '400',
               }}
             >
               Privacy Policy
@@ -1258,7 +1237,7 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '500',
+                fontWeight: '400',
               }}
             >
               Refund / Cancellation
@@ -1271,7 +1250,7 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '500',
+                fontWeight: '400',
               }}
             >
               Terms & Conditions
@@ -1284,7 +1263,7 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '500',
+                fontWeight: '400',
               }}
             >
               Shipping / Delivery
@@ -1297,15 +1276,14 @@ export default function Home() {
               style={{
                 color: '#16a34a',
                 textDecoration: 'none',
-                fontWeight: '500',
+                fontWeight: '400',
               }}
             >
               💳 Payment History
             </a>
           </div>
                 <div>
-            Business Address: Sr internet online center,New Maa Mart backside, Kurnool Road,
-Ieeja, Jogulamba Gadwal District, Telangana - 509127, India
+            Business Address: Sr internet online center, New Maa Mart backside, Ieeja, Jogulamba Gadwal Dist, Telangana-509127, India
           </div>
         </section>
 
