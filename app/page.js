@@ -945,7 +945,7 @@ export default function Home() {
                     {loading &&
                     selectedPdf?.id === pdf.id
                       ? '⏳ Processing...'
-                      : `💳 Pay ₹${pdf.price}`}
+                      : `💳 Pay ₹${pdf.price} & Download}
                   </button>
 
                 </div>
