@@ -529,7 +529,7 @@ export default function Home() {
   return (
     <main
       style={{
-        minHeight: '100vh',
+        minHeight: '50vh',
         background: '#ffffff',
         fontFamily: 'Arial, sans-serif',
       }}
@@ -541,7 +541,7 @@ export default function Home() {
           background:
             'linear-gradient(135deg, #2563eb, #1d4ed8)',
           color: 'white',
-          padding: '24px 15px',
+          padding: '12px 15px',
           textAlign: 'center',
         }}
       >
@@ -556,7 +556,7 @@ export default function Home() {
         </h1>
         <p
           style={{
-            marginTop: '2px',
+            marginTop: '1px',
             marginBottom: 0,
             fontSize: '14px',
           }}
@@ -847,7 +847,7 @@ export default function Home() {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '12px',
+                gap: '14px',
               }}
             >
               {filteredPdfs.map((pdf) => (
@@ -1157,7 +1157,7 @@ export default function Home() {
             style={{
               margin: '0 0 10px 0',
               color: '#1e3a8a',
-              fontSize: '12px',
+              fontSize: '16px',
             }}
           >
             Important Information
@@ -1247,7 +1247,7 @@ export default function Home() {
             textAlign: 'center',
             padding: '18px 12px',
             color: '#374151',
-            fontSize: '12px',
+            fontSize: '16px',
 
             // Light blue footer background
             background:
@@ -1264,11 +1264,11 @@ export default function Home() {
         >
           <div
             style={{
-              marginBottom: '8px',
+              marginBottom: '5px',
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '8px',
+              gap: '5px',
             }}
           >
             <a
