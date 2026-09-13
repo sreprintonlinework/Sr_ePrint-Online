@@ -15,7 +15,11 @@ export default function Home() {
   const downloadStartedRef = useRef(false);
 
   useEffect(() => {
+    document.body.style.backgroundColor = '#ffffff';
+
     return () => {
+      document.body.style.backgroundColor = '';
+
       if (pdfUrl) {
         window.URL.revokeObjectURL(pdfUrl);
       }
@@ -529,7 +533,7 @@ export default function Home() {
   return (
     <main
       style={{
-        minHeight: '50vh',
+        minHeight: '100vh',
         background: '#ffffff',
         fontFamily: 'Arial, sans-serif',
       }}
@@ -554,6 +558,7 @@ export default function Home() {
         >
           sr_ePrint Online
         </h1>
+
         <p
           style={{
             marginTop: '1px',
@@ -564,14 +569,16 @@ export default function Home() {
           Digital PDF & Excel Files
         </p>
       </header>
+
       <div
         style={{
           width: '100%',
           boxSizing: 'border-box',
           padding: '18px 15px 30px',
-          background: 'white',
+          background: '#ffffff',
         }}
       >
+
         {/* INTRO */}
         <section
           style={{
@@ -590,6 +597,7 @@ export default function Home() {
           >
             Digital File Store
           </h2>
+
           <p
             style={{
               lineHeight: '1.5',
@@ -602,6 +610,7 @@ export default function Home() {
             and receive your purchased file
             electronically.
           </p>
+
           <p
             style={{
               lineHeight: '1.5',
@@ -614,6 +623,7 @@ export default function Home() {
             are available for online purchase.
           </p>
         </section>
+
         {/* SUCCESS */}
         {successMessage && pdfUrl && (
           <section
@@ -636,6 +646,7 @@ export default function Home() {
             >
               ✅ Payment Successful
             </div>
+
             <div
               style={{
                 color: '#166534',
@@ -648,6 +659,7 @@ export default function Home() {
               <br />
               Your purchased file is ready.
             </div>
+
             {downloadFileName && (
               <div
                 style={{
@@ -660,6 +672,7 @@ export default function Home() {
                 📄 {downloadFileName}
               </div>
             )}
+
             <div>
               <a
                 href={pdfUrl}
@@ -703,6 +716,7 @@ export default function Home() {
             </div>
           </section>
         )}
+
         {/* SELECTED FILE */}
         {selectedPdf && (
           <section
@@ -737,6 +751,7 @@ export default function Home() {
               <br />
               {selectedPdf.file}
             </p>
+
             <div
               style={{
                 fontSize: '24px',
@@ -747,6 +762,7 @@ export default function Home() {
             >
               ₹{selectedPdf.price}
             </div>
+
             <button
               onClick={() =>
                 handlePayment(selectedPdf)
@@ -777,12 +793,14 @@ export default function Home() {
             </button>
           </section>
         )}
+
         {/* SEARCH */}
         <section
           style={{
             marginBottom: '12px',
             display: 'flex',
             justifyContent: 'center',
+            background: '#ffffff',
           }}
         >
           <div
@@ -815,10 +833,11 @@ export default function Home() {
             />
           </div>
         </section>
+
         {/* AVAILABLE FILES */}
         <section
           style={{
-            background: '#dcfce7',
+            background: '#ffffff',
             borderRadius: '12px',
             padding: '16px',
             marginBottom: '5px',
@@ -833,6 +852,7 @@ export default function Home() {
           >
             Available Files
           </h2>
+
           {filteredPdfs.length === 0 ? (
             <p
               style={{
@@ -854,17 +874,19 @@ export default function Home() {
                 <div
                   key={pdf.id}
                   style={{
+                    /* ONLY FILE BOX HAS COLOUR */
                     background:
                       selectedPdf?.id === pdf.id
-                        ? '#ffffff'
-                        : '#bbf7d0',
+                        ? '#bbf7d0'
+                        : '#dcfce7',
 
                     border:
                       selectedPdf?.id === pdf.id
                         ? '2px solid #16a34a'
                         : '1px solid #86efac',
+
                     borderRadius: '9px',
-                   padding: '10px 11px',
+                    padding: '10px 11px',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
@@ -873,6 +895,7 @@ export default function Home() {
                     flexWrap: 'wrap',
                   }}
                 >
+
                   {/* FILE NAME */}
                   <div
                     onClick={() =>
@@ -894,7 +917,8 @@ export default function Home() {
                     >
                       {pdf.name}
                     </strong>
-                   <div
+
+                    <div
                       style={{
                         marginTop: '3px',
                         fontSize: '12px',
@@ -908,6 +932,7 @@ export default function Home() {
                       {pdf.file}
                     </div>
                   </div>
+
                   {/* PRICE */}
                   <strong
                     style={{
@@ -950,11 +975,13 @@ export default function Home() {
                       ? '⏳ Processing...'
                       : `💳 Pay ₹${pdf.price} & Download`}
                   </button>
+
                 </div>
               ))}
             </div>
           )}
         </section>
+
         {/* ABOUT */}
         <section
           style={{
@@ -986,6 +1013,7 @@ export default function Home() {
             online purchase and electronic delivery.
           </p>
         </section>
+
         {/* DIGITAL PRODUCTS */}
         <section
           style={{
@@ -1004,6 +1032,7 @@ export default function Home() {
           >
             Digital Products
           </h2>
+
           <ul
             style={{
               lineHeight: '1.7',
@@ -1019,6 +1048,7 @@ export default function Home() {
             <li>Instant Digital File Delivery</li>
           </ul>
         </section>
+
         {/* HOW IT WORKS */}
         <section
           style={{
@@ -1064,6 +1094,7 @@ export default function Home() {
             </li>
           </ol>
         </section>
+
         {/* PAYMENT & DELIVERY */}
         <section
           style={{
@@ -1082,7 +1113,8 @@ export default function Home() {
           >
             Payment & Digital Delivery
           </h2>
-              <p
+
+          <p
             style={{
               lineHeight: '1.5',
               color: '#374151',
@@ -1094,7 +1126,8 @@ export default function Home() {
             verification, the selected digital file
             is delivered electronically.
           </p>
-              <p
+
+          <p
             style={{
               lineHeight: '1.5',
               color: '#374151',
@@ -1106,7 +1139,8 @@ export default function Home() {
             are digital files.
           </p>
         </section>
- {/* CONTACT */}
+
+        {/* CONTACT */}
         <section
           style={{
             background: '#ffffff',
@@ -1143,6 +1177,7 @@ export default function Home() {
             <br />
           </p>
         </section>
+
         {/* IMPORTANT INFORMATION */}
         <section
           style={{
@@ -1236,8 +1271,18 @@ export default function Home() {
               💳 Payment History
             </a>
           </div>
-                <div>
-            Business Address: Sr internet online center, New Maa Mart backside, Ieeja, Jogulamba Gadwal Dist, Telangana-509127, India
+
+          <div
+            style={{
+              marginTop: '10px',
+              color: '#374151',
+              lineHeight: '1.5',
+            }}
+          >
+            Business Address: Sr internet online center,
+            New Maa Mart backside, Ieeja,
+            Jogulamba Gadwal Dist, Telangana-509127,
+            India
           </div>
         </section>
 
@@ -1249,13 +1294,11 @@ export default function Home() {
             color: '#374151',
             fontSize: '16px',
 
-            // Light blue footer background
             background:
               'linear-gradient(135deg, #f8fafc, #dbeafe)',
 
             borderRadius: '12px',
 
-            // Light blue underline / top border
             borderTop: '2px solid #93c5fd',
 
             boxShadow:
