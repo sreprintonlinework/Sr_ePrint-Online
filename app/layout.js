@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'SR INTERNET Online Centre',
+  title: 'sr_ePrint Online',
   description: 'Digital PDF & Online Services',
 };
 
