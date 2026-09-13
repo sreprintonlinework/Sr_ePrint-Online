@@ -30,9 +30,15 @@ export default function Home() {
   // FILTER + A-Z ORDER
   // ==========================================
 
-  const filteredPdfs = pdfs.filter((pdf) =>
-  pdf.name.toLowerCase().includes(search.toLowerCase())
-);
+  const filteredPdfs = pdfs
+    .filter((pdf) =>
+      pdf.name.toLowerCase().includes(search.toLowerCase())
+    )
+    .sort((a, b) =>
+      a.name.localeCompare(b.name, undefined, {
+        sensitivity: 'base',
+      })
+    );
 
   // ==========================================
   // GET FILE EXTENSION
@@ -642,7 +648,7 @@ export default function Home() {
     <main
       style={{
         minHeight: '100vh',
-        background: '#f3f6fb',
+        background: '#ffffff',
         fontFamily: 'Arial, sans-serif',
       }}
     >
@@ -686,12 +692,13 @@ export default function Home() {
       ======================================== */}
 
       <div
-  style={{
-    width: '100%',
-    boxSizing: 'border-box',
-    padding: '18px 15px 30px',
-  }}
- >
+        style={{
+          width: '100%',
+          boxSizing: 'border-box',
+          padding: '18px 15px 30px',
+          background: '#ffffff',
+        }}
+      >
 
         {/* ======================================
             INTRO
@@ -699,12 +706,10 @@ export default function Home() {
 
         <section
           style={{
-            background: 'white',
+            background: '#ffffff',
             borderRadius: '10px',
             padding: '18px 20px',
             marginBottom: '10px',
-            boxShadow:
-              '0 3px 12px rgba(0,0,0,0.06)',
           }}
         >
           <h2
@@ -719,7 +724,7 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.0',
+              lineHeight: '1.5',
               color: '#374151',
               margin: '4px 0',
             }}
@@ -750,14 +755,12 @@ export default function Home() {
         {successMessage && pdfUrl && (
           <section
             style={{
-              background: '#dcfce7',
+              background: '#ffffff',
               border: '2px solid #16a34a',
               borderRadius: '10px',
               padding: '14px',
               marginBottom: '10px',
               textAlign: 'center',
-              boxShadow:
-                '0 3px 10px rgba(22,163,74,0.10)',
             }}
           >
 
@@ -846,18 +849,15 @@ export default function Home() {
 
         {/* ======================================
             SELECTED FILE
-            PAYMENT BUTTON ABOVE SEARCH BAR
         ====================================== */}
 
         {selectedPdf && (
           <section
             style={{
-              background: 'white',
+              background: '#ffffff',
               borderRadius: '10px',
               padding: '16px',
               marginBottom: '10px',
-              boxShadow:
-                '0 3px 12px rgba(0,0,0,0.06)',
               textAlign: 'center',
             }}
           >
@@ -921,7 +921,7 @@ export default function Home() {
             >
               {loading
                 ? '⏳ Processing Payment...'
-                : `💳 Pay & Download`}
+                : '💳 Pay & Download'}
             </button>
 
           </section>
@@ -936,7 +936,6 @@ export default function Home() {
             marginBottom: '12px',
             display: 'flex',
             justifyContent: 'center',
-            boxAlign: 'center',
           }}
         >
           <div
@@ -955,7 +954,6 @@ export default function Home() {
               style={{
                 width: '100%',
                 boxSizing: 'border-box',
-                boxAlign: 'center',
                 padding: '13px 16px',
                 borderRadius: '10px',
                 border: '2px solid #fdba74',
@@ -973,6 +971,7 @@ export default function Home() {
 
         {/* ======================================
             AVAILABLE FILES
+            FILE SECTION ONLY COLOURED
             2 COLUMNS + A-Z ORDER
         ====================================== */}
 
@@ -1010,7 +1009,7 @@ export default function Home() {
               style={{
                 display: 'grid',
                 gridTemplateColumns:
-                '1fr',
+                  'repeat(2, minmax(0, 1fr))',
                 gap: '8px',
               }}
             >
@@ -1025,13 +1024,13 @@ export default function Home() {
                   style={{
                     background:
                       selectedPdf?.id === pdf.id
-                        ? 'white'
+                        ? '#ffffff'
                         : '#bbf7d0',
 
                     border:
                       selectedPdf?.id === pdf.id
                         ? '2px solid #16a34a'
-                        : '1px solid #d1d5db',
+                        : '1px solid #86efac',
 
                     borderRadius: '9px',
 
@@ -1074,7 +1073,7 @@ export default function Home() {
                       style={{
                         marginTop: '3px',
                         fontSize: '12px',
-                        color: '#6b7280',
+                        color: '#4b5563',
                         wordBreak: 'break-word',
                         lineHeight: '1.35',
                       }}
@@ -1112,7 +1111,7 @@ export default function Home() {
 
         <section
           style={{
-            background: 'white',
+            background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
             marginBottom: '12px',
@@ -1126,7 +1125,7 @@ export default function Home() {
               fontSize: '18px',
             }}
           >
-            About sr_ ePrint Online
+            About sr_ePrint Online
           </h2>
 
           <p
@@ -1149,7 +1148,7 @@ export default function Home() {
 
         <section
           style={{
-            background: 'white',
+            background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
             marginBottom: '12px',
@@ -1189,7 +1188,7 @@ export default function Home() {
 
         <section
           style={{
-            background: 'white',
+            background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
             marginBottom: '12px',
@@ -1256,7 +1255,7 @@ export default function Home() {
 
         <section
           style={{
-            background: 'white',
+            background: '#ffffff',
             borderRadius: '10px',
             padding: '18px',
             marginBottom: '12px',
@@ -1306,7 +1305,7 @@ export default function Home() {
 
         <section
           style={{
-            background: 'white',
+            background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
             marginBottom: '12px',
@@ -1384,7 +1383,7 @@ export default function Home() {
 
         <section
           style={{
-            background: 'white',
+            background: '#ffffff',
             borderRadius: '12px',
             padding: '16px',
             marginBottom: '12px',
@@ -1490,7 +1489,7 @@ export default function Home() {
             padding: '18px 12px',
             color: '#6b7280',
             fontSize: '12px',
-            background: 'white',
+            background: '#ffffff',
             borderRadius: '12px',
           }}
         >
