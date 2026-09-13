@@ -1173,20 +1173,10 @@ export default function Home() {
 
             <br />
 
-            Phone / WhatsApp: 99890576com Email: sronline99890@gmail.com
+            Phone / WhatsApp: 9989057683, Email: sronline99890@gmail.com
 
             <br />
           </p>
-
-          <p
-            style={{
-              margin: '10px 0 0',
-              fontSize: '15px',
-              lineHeight: 1.6,
-              color: '#374151',
-            }}
-          >
-                 
         </section>
 
         {/* IMPORTANT INFORMATION */}
