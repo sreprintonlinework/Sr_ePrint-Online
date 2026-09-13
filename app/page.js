@@ -753,11 +753,40 @@ export default function Home() {
                 fontSize: '24px',
                 fontWeight: '600',
                 color: '#059669',
-                margin: '10px 0 0',
+                margin: '10px 0 14px',
               }}
             >
               ₹{selectedPdf.price}
             </div>
+
+            <button
+              onClick={() =>
+                handlePayment(selectedPdf)
+              }
+              disabled={loading}
+              style={{
+                width: '100%',
+                maxWidth: '300px',
+                padding: '13px',
+                border: 'none',
+                borderRadius: '8px',
+                background:
+                  loading
+                    ? '#9ca3af'
+                    : '#2563eb',
+                color: 'white',
+                fontSize: '16px',
+                fontWeight: '700',
+                cursor:
+                  loading
+                    ? 'not-allowed'
+                    : 'pointer',
+              }}
+            >
+              {loading
+                ? '⏳ Processing Payment...'
+                : `💳 Pay ₹${selectedPdf.price} & Download`}
+            </button>
           </section>
         )}
 
@@ -945,7 +974,7 @@ export default function Home() {
                     {loading &&
                     selectedPdf?.id === pdf.id
                       ? '⏳ Processing...'
-                      : `💳 Pay ₹${pdf.price} & Download}
+                      : `💳 Pay ₹${pdf.price} & Download`}
                   </button>
 
                 </div>
@@ -1277,96 +1306,100 @@ export default function Home() {
         </section>
 
         {/* FOOTER */}
-        <footer
-          style={{
-            textAlign: 'center',
-            padding: '18px 12px',
-            color: '#374151',
-            fontSize: '12px',
-            background:
-              'linear-gradient(135deg, #f8fafc, #dbeafe)',
-            borderRadius: '12px',
-            borderTop: '2px solid #93c5fd',
-            boxShadow:
-              '0 -2px 8px rgba(37,99,235,0.08)',
-          }}
-        >
-          <div
-            style={{
-              marginBottom: '8px',
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              gap: '8px',
-            }}
-          >
-            <a
-              href="/privacy"
-              style={{
-                color: '#2563eb',
-                textDecoration: 'none',
-              }}
-            >
-              Privacy
-            </a>
+<footer
+  style={{
+    textAlign: 'center',
+    padding: '18px 12px',
+    color: '#475569',
+    fontSize: '12px',
 
-            <span>|</span>
+    // Light colour footer
+    background:
+      'linear-gradient(135deg, #ffffff, #eff6ff)',
 
-            <a
-              href="/refund"
-              style={{
-                color: '#2563eb',
-                textDecoration: 'none',
-              }}
-            >
-              Refund
-            </a>
+    borderRadius: '12px',
 
-            <span>|</span>
+    // Soft light blue top line
+    borderTop: '2px solid #bfdbfe',
 
-            <a
-              href="/terms"
-              style={{
-                color: '#2563eb',
-                textDecoration: 'none',
-              }}
-            >
-              Terms
-            </a>
+    boxShadow:
+      '0 -2px 8px rgba(59,130,246,0.06)',
+  }}
+>
+  <div
+    style={{
+      marginBottom: '8px',
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      gap: '8px',
+    }}
+  >
+    <a
+      href="/privacy"
+      style={{
+        color: '#3b82f6',
+        textDecoration: 'none',
+      }}
+    >
+      Privacy
+    </a>
 
-            <span>|</span>
+    <span>|</span>
 
-            <a
-              href="/shipping"
-              style={{
-                color: '#2563eb',
-                textDecoration: 'none',
-              }}
-            >
-              Delivery
-            </a>
+    <a
+      href="/refund"
+      style={{
+        color: '#3b82f6',
+        textDecoration: 'none',
+      }}
+    >
+      Refund
+    </a>
 
-            <span>|</span>
+    <span>|</span>
 
-            <a
-              href="/payment-history"
-              style={{
-                color: '#16a34a',
-                textDecoration: 'none',
-                fontWeight: '500',
-              }}
-            >
-              Payment History
-            </a>
-          </div>
+    <a
+      href="/terms"
+      style={{
+        color: '#3b82f6',
+        textDecoration: 'none',
+      }}
+    >
+      Terms
+    </a>
 
-          <div>
-            © 2026 sr_ePrint Online.
-            All Rights Reserved.
-          </div>
-        </footer>
+    <span>|</span>
 
-      </div>
+    <a
+      href="/shipping"
+      style={{
+        color: '#3b82f6',
+        textDecoration: 'none',
+      }}
+    >
+      Delivery
+    </a>
+
+    <span>|</span>
+
+    <a
+      href="/payment-history"
+      style={{
+        color: '#16a34a',
+        textDecoration: 'none',
+        fontWeight: '500',
+      }}
+    >
+      Payment History
+    </a>
+  </div>
+
+  <div>
+    © 2026 sr_ePrint Online.
+    All Rights Reserved.
+  </div>
+</footer>
 
       {/* WHATSAPP */}
       <a
