@@ -313,7 +313,7 @@ export default function Home() {
           orderData.currency || 'INR',
 
         name:
-          'SR E-Print Online',
+          'sr_ePrint Online',
 
         description:
           `Digital File - ${selectedPdf.name}`,
@@ -901,7 +901,7 @@ export default function Home() {
               onClick={handlePayment}
               disabled={loading}
               style={{
-                width: '80%',
+                width: '100%',
                 maxWidth: '300px',
                 padding: '13px',
                 border: 'none',
@@ -941,7 +941,7 @@ export default function Home() {
         >
           <div
             style={{
-              width: '80%',
+              width: '100%',
               maxWidth: '650px',
             }}
           >
@@ -953,7 +953,7 @@ export default function Home() {
                 setSearch(e.target.value)
               }
               style={{
-                width: '80%',
+                width: '100%',
                 boxSizing: 'border-box',
                 boxAlign: 'center',
                 padding: '13px 16px',
