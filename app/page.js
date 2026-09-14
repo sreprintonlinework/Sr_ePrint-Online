@@ -960,49 +960,159 @@ export default function Home() {
                     style={{
                       color: '#166534',
                       whiteSpace: 'nowrap',
-                      fontSize: '16px',
-                      flexShrink: 0,
-                    }}
-                  >
-                    ₹{pdf.price}
-                  </strong>
+{/* AVAILABLE FILES */}
+<section
+  style={{
+    background: '#ffffff',
+    borderRadius: '12px',
+    padding: '16px',
+    marginBottom: '5px',
+  }}
+>
+  <h2
+    style={{
+      margin: '0 0 12px 0',
+      color: '#166534',
+      fontSize: '22px',
+    }}
+  >
+    Available Files
+  </h2>
 
-                  {/* PAY BUTTON */}
-                  <button
-                    onClick={() =>
-                      handlePayment(pdf)
-                    }
-                    disabled={loading}
-                    style={{
-                      border: 'none',
-                      borderRadius: '7px',
-                      padding: '9px 12px',
-                      background:
-                        loading
-                          ? '#9ca3af'
-                          : '#2563eb',
-                      color: '#ffffff',
-                      fontSize: '13px',
-                      fontWeight: '700',
-                      cursor:
-                        loading
-                          ? 'not-allowed'
-                          : 'pointer',
-                      whiteSpace: 'nowrap',
-                      flexShrink: 0,
-                    }}
-                  >
-                    {loading &&
-                    selectedPdf?.id === pdf.id
-                      ? '⏳ Processing...'
-                      : `💳 Pay ₹${pdf.price} & Download`}
-                  </button>
+  {filteredPdfs.length === 0 ? (
+    <p
+      style={{
+        color: '#16a34a',
+        margin: '5px 0',
+      }}
+    >
+      No files found.
+    </p>
+  ) : (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '14px',
+      }}
+    >
+      {filteredPdfs.map((pdf) => (
+        <div
+          key={pdf.id}
+          style={{
+            background:
+              selectedPdf?.id === pdf.id
+                ? '#ffffff'
+                : '#dcfce7',
 
-                </div>
-              ))}
+            border:
+              selectedPdf?.id === pdf.id
+                ? '2px solid #2563eb'
+                : '1px solid #86efac',
+
+            borderRadius: '9px',
+            padding: '10px 11px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            width: '100%',
+            boxSizing: 'border-box',
+            flexWrap: 'wrap',
+
+            boxShadow:
+              selectedPdf?.id === pdf.id
+                ? '0 2px 8px rgba(37,99,235,0.15)'
+                : 'none',
+
+            transition: 'all 0.2s ease',
+          }}
+        >
+
+          {/* PAY BUTTON - FIRST */}
+          <button
+            onClick={() =>
+              handlePayment(pdf)
+            }
+            disabled={loading}
+            style={{
+              border: 'none',
+              borderRadius: '7px',
+              padding: '9px 12px',
+              background:
+                loading
+                  ? '#9ca3af'
+                  : '#2563eb',
+              color: '#ffffff',
+              fontSize: '13px',
+              fontWeight: '700',
+              cursor:
+                loading
+                  ? 'not-allowed'
+                  : 'pointer',
+              whiteSpace: 'nowrap',
+              flexShrink: 0,
+            }}
+          >
+            {loading &&
+            selectedPdf?.id === pdf.id
+              ? '⏳ Processing...'
+              : `💳 Pay ₹${pdf.price} & Download`}
+          </button>
+
+          {/* FILE NAME - SECOND */}
+          <div
+            onClick={() =>
+              handleSelectFile(pdf)
+            }
+            style={{
+              minWidth: 0,
+              flex: '1 1 180px',
+              cursor: 'pointer',
+            }}
+          >
+            <strong
+              style={{
+                color: '#111827',
+                fontSize: '15px',
+                display: 'block',
+                wordBreak: 'break-word',
+              }}
+            >
+              {pdf.name}
+            </strong>
+
+            <div
+              style={{
+                marginTop: '3px',
+                fontSize: '12px',
+                color: '#4b5563',
+                wordBreak: 'break-word',
+                lineHeight: '1.35',
+              }}
+            >
+              {getFileType(pdf.file)}
+              {' • '}
+              {pdf.file}
             </div>
-          )}
-        </section>
+          </div>
+
+          {/* PRICE - LAST */}
+          <strong
+            style={{
+              color: '#166534',
+              whiteSpace: 'nowrap',
+              fontSize: '16px',
+              flexShrink: 0,
+            }}
+          >
+            ₹{pdf.price}
+          </strong>
+
+        </div>
+      ))}
+    </div>
+  )}
+</section>
 
         {/* ABOUT */}
         <section
