@@ -561,9 +561,9 @@ export default function Home() {
 
         <p
           style={{
-            marginTop: '2px',
+            marginTop: '1px',
             marginBottom: 0,
-            fontSize: '14px',
+            fontSize: '12px',
           }}
         >
           Digital PDF & Excel Files
@@ -592,7 +592,7 @@ export default function Home() {
             style={{
               margin: '0 0 7px 0',
               color: '#1e3a8a',
-              fontSize: '21px',
+              fontSize: '18px',
             }}
           >
             Digital File Store
@@ -600,9 +600,9 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.0',
               color: '#374151',
-              margin: '5px 0',
+              margin: '2px 0',
             }}
           >
             Select the required digital file,
@@ -616,7 +616,7 @@ export default function Home() {
               lineHeight: '1.5',
               color: '#059669',
               fontWeight: '600',
-              margin: '5px 0 0',
+              margin: '4px 0 0',
             }}
           >
             PDF, Excel and other digital files
@@ -641,7 +641,7 @@ export default function Home() {
                 fontSize: '20px',
                 fontWeight: '600',
                 color: '#166534',
-                marginBottom: '2px',
+                marginBottom: '5px',
               }}
             >
               ✅ Payment Successful
@@ -650,9 +650,9 @@ export default function Home() {
             <div
               style={{
                 color: '#166534',
-                fontSize: '16px',
-                lineHeight: '1.0',
-                marginBottom: '2px',
+                fontSize: '14px',
+                lineHeight: '1.45',
+                marginBottom: '5px',
               }}
             >
               Your payment has been received successfully.
@@ -823,7 +823,7 @@ export default function Home() {
                 padding: '13px 16px',
                 borderRadius: '10px',
                 border: '2px solid #fdba74',
-                fontSize: '18px',
+                fontSize: '14px',
                 outline: 'none',
                 background: '#ffedd5',
                 color: '#7c2d12',
@@ -1024,9 +1024,9 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.0',
+              lineHeight: '1.5',
               color: '#374151',
-              margin: '2px 0',
+              margin: '5px 0',
             }}
           >
             sr_ePrint Online provides digital files
@@ -1048,7 +1048,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '14px',
+              fontSize: '16px',
             }}
           >
             Digital Products
@@ -1056,7 +1056,7 @@ export default function Home() {
 
           <ul
             style={{
-              lineHeight: '1.0',
+              lineHeight: '1.7',
               color: '#374151',
               marginTop: '0px',
               marginBottom: '0px',
@@ -1083,7 +1083,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '14px',
+              fontSize: '21px',
             }}
           >
             How It Works
@@ -1093,8 +1093,8 @@ export default function Home() {
             style={{
               lineHeight: '1.7',
               color: '#374151',
-              marginTop: '2px',
-              marginBottom: '2px',
+              marginTop: '5px',
+              marginBottom: '5px',
             }}
           >
             <li>Select the required digital file.</li>
@@ -1122,14 +1122,14 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '10px',
             padding: '18px',
-            marginBottom: '2px',
+            marginBottom: '5px',
           }}
         >
           <h2
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '18px',
+              fontSize: '21px',
             }}
           >
             Payment & Digital Delivery
@@ -1174,7 +1174,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '18px',
+              fontSize: '20px',
             }}
           >
             Contact Us
@@ -1311,7 +1311,7 @@ export default function Home() {
             textAlign: 'center',
             padding: '18px 12px',
             color: '#374151',
-            fontSize: '14px',
+            fontSize: '12px',
 
             background:
               'linear-gradient(135deg, #f8fafc, #dbeafe)',
@@ -1326,7 +1326,7 @@ export default function Home() {
         >
           <div
             style={{
-              marginBottom: '2px',
+              marginBottom: '5px',
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
