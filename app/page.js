@@ -561,9 +561,9 @@ export default function Home() {
 
         <p
           style={{
-            marginTop: '1px',
+            marginTop: '2px',
             marginBottom: 0,
-            fontSize: '12px',
+            fontSize: '14px',
           }}
         >
           Digital PDF & Excel Files
@@ -602,7 +602,7 @@ export default function Home() {
             style={{
               lineHeight: '1.5',
               color: '#374151',
-              margin: '2px 0',
+              margin: '5px 0',
             }}
           >
             Select the required digital file,
@@ -616,7 +616,7 @@ export default function Home() {
               lineHeight: '1.5',
               color: '#059669',
               fontWeight: '600',
-              margin: '4px 0 0',
+              margin: '5px 0 0',
             }}
           >
             PDF, Excel and other digital files
