@@ -543,7 +543,7 @@ export default function Home() {
       <header
         style={{
           background:
-            'linear-gradient(135deg, #2563eb, #1d4ed8)',
+  'linear-gradient(135deg, #60a5fa, #93c5fd)',
           color: 'white',
           padding: '12px 15px',
           textAlign: 'center',
@@ -553,7 +553,7 @@ export default function Home() {
           style={{
             margin: 0,
             fontSize: '30px',
-            fontWeight: '500',
+            fontWeight: '400',
           }}
         >
           sr_ePrint Online
@@ -603,6 +603,7 @@ export default function Home() {
               lineHeight: '1.0',
               color: '#374151',
               margin: '2px 0',
+textAlign: 'center',
             }}
           >
             Select the required digital file,
@@ -613,10 +614,10 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.0',
               color: '#059669',
               fontWeight: '600',
-              margin: '4px 0 0',
+              margin: '2px 0 0',
             }}
           >
             PDF, Excel and other digital files
@@ -632,7 +633,7 @@ export default function Home() {
               border: '2px solid #16a34a',
               borderRadius: '10px',
               padding: '14px',
-              marginBottom: '5px',
+              marginBottom: '2px',
               textAlign: 'center',
             }}
           >
@@ -641,7 +642,7 @@ export default function Home() {
                 fontSize: '20px',
                 fontWeight: '600',
                 color: '#166534',
-                marginBottom: '5px',
+                marginBottom: '2px',
               }}
             >
               ✅ Payment Successful
@@ -652,7 +653,7 @@ export default function Home() {
                 color: '#166534',
                 fontSize: '14px',
                 lineHeight: '1.45',
-                marginBottom: '5px',
+                marginBottom: '2px',
               }}
             >
               Your payment has been received successfully.
@@ -665,7 +666,7 @@ export default function Home() {
                 style={{
                   color: '#14532d',
                   fontSize: '12px',
-                  marginBottom: '5px',
+                  marginBottom: '2px',
                   wordBreak: 'break-word',
                 }}
               >
@@ -686,7 +687,7 @@ export default function Home() {
                   textDecoration: 'none',
                   borderRadius: '8px',
                   fontWeight: '600',
-                  fontSize: '16px',
+                  fontSize: '18px',
                   margin: '3px',
                 }}
               >
@@ -732,7 +733,7 @@ export default function Home() {
               style={{
                 margin: '0 0 6px 0',
                 color: '#1e3a8a',
-                fontSize: '22px',
+                fontSize: '24px',
                 wordBreak: 'break-word',
               }}
             >
@@ -754,10 +755,10 @@ export default function Home() {
 
             <div
               style={{
-                fontSize: '24px',
+                fontSize: '20px',
                 fontWeight: '600',
                 color: '#059669',
-                margin: '10px 0 14px',
+                margin: '5px 0 7px',
               }}
             >
               ₹{selectedPdf.price}
@@ -795,53 +796,47 @@ export default function Home() {
         )}
 
         {/* SEARCH */}
-        {/* SEARCH */}
-<section
-  style={{
-    marginBottom: '12px',
-    display: 'flex',
-    justifyContent: 'center',
-    background: '#ffffff',
-  }}
->
-  <div
-    style={{
-      width: '80%',
-      maxWidth: '650px',
-      position: 'relative',
-    }}
-  >
-    <input
-      type="text"
-      placeholder="🔍 Search file (Name/Number)..."
-      value={search}
-      onChange={(e) =>
-        setSearch(e.target.value)
-      }
-      style={{
-        width: '100%',
-        boxSizing: 'border-box',
-        padding: '13px 16px',
-        borderRadius: '10px',
-        border: '2px solid #fdba74',
-        fontSize: '18px',
-        outline: 'none',
-        background: '#ffedd5',
-        color: '#7c2d12',
-        textAlign: 'center',
-
-        /* Cursor color */
-        caretColor: '#2563eb',
-
-        /* Text weight */
-        fontWeight: '500',
-
-        boxShadow:
-          '0 5px 8px rgba(234,88,12,0.10)',
-      }}
-    />
-  </div>
-</section>
+        <section
+          style={{
+            marginBottom: '12px',
+            display: 'flex',
+            justifyContent: 'center',
+            background: '#ffffff',
+          }}
+        >
+          <div
+            style={{
+              width: '80%',
+              maxWidth: '700px',
+              position: 'relative',
+            }}
+          >
+            <input
+              type="text"
+              placeholder="🔍 Search file (Name/Number)..."
+              value={search}
+              onChange={(e) =>
+                setSearch(e.target.value)
+              }
+              style={{
+                width: '100%',
+                boxSizing: 'border-box',
+                padding: '13px 16px',
+                borderRadius: '10px',
+                border: '2px solid #fdba74',
+                fontSize: '16px',
+                outline: 'none',
+                background: '#ffedd5',
+                color: '#7c2d12',
+                textAlign: 'center',
+                caretColor: '#2563eb',
+                fontWeight: '500',
+                boxShadow:
+                  '0 5px 8px rgba(234,88,12,0.10)',
+              }}
+            />
+          </div>
+        </section>
 
         {/* AVAILABLE FILES */}
         <section
@@ -856,7 +851,7 @@ export default function Home() {
             style={{
               margin: '0 0 12px 0',
               color: '#166534',
-              fontSize: '22px',
+              fontSize: '20px',
             }}
           >
             Available Files
@@ -883,15 +878,22 @@ export default function Home() {
                 <div
                   key={pdf.id}
                   style={{
-                    /* ONLY FILE BOX HAS COLOUR */
+                    /*
+                     * SELECTED FILE:
+                     * WHITE BACKGROUND
+                     * BLUE ACTIVE BORDER
+                     *
+                     * UNSELECTED FILE:
+                     * LIGHT GREEN BACKGROUND
+                     */
                     background:
                       selectedPdf?.id === pdf.id
-                        ? '#bbf7d0'
+                        ? '#ffffff'
                         : '#dcfce7',
 
                     border:
                       selectedPdf?.id === pdf.id
-                        ? '2px solid #16a34a'
+                        ? '2px solid #2563eb'
                         : '1px solid #86efac',
 
                     borderRadius: '9px',
@@ -902,6 +904,17 @@ export default function Home() {
                     width: '100%',
                     boxSizing: 'border-box',
                     flexWrap: 'wrap',
+
+                    /*
+                     * Small active effect
+                     */
+                    boxShadow:
+                      selectedPdf?.id === pdf.id
+                        ? '0 2px 8px rgba(37,99,235,0.15)'
+                        : 'none',
+
+                    transition:
+                      'all 0.2s ease',
                   }}
                 >
 
@@ -919,7 +932,7 @@ export default function Home() {
                     <strong
                       style={{
                         color: '#111827',
-                        fontSize: '15px',
+                        fontSize: '20px',
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
@@ -930,7 +943,7 @@ export default function Home() {
                     <div
                       style={{
                         marginTop: '3px',
-                        fontSize: '12px',
+                        fontSize: '20px',
                         color: '#4b5563',
                         wordBreak: 'break-word',
                         lineHeight: '1.35',
@@ -947,7 +960,7 @@ export default function Home() {
                     style={{
                       color: '#166534',
                       whiteSpace: 'nowrap',
-                      fontSize: '16px',
+                      fontSize: '20px',
                       flexShrink: 0,
                     }}
                   >
@@ -962,14 +975,14 @@ export default function Home() {
                     disabled={loading}
                     style={{
                       border: 'none',
-                      borderRadius: '7px',
+                      borderRadius: '15px',
                       padding: '9px 12px',
                       background:
                         loading
                           ? '#9ca3af'
                           : '#2563eb',
                       color: '#ffffff',
-                      fontSize: '13px',
+                      fontSize: '16px',
                       fontWeight: '700',
                       cursor:
                         loading
@@ -1014,7 +1027,7 @@ export default function Home() {
             style={{
               lineHeight: '1.5',
               color: '#374151',
-              margin: '5px 0',
+              margin: '1px 0',
             }}
           >
             sr_ePrint Online provides digital files
@@ -1071,7 +1084,7 @@ export default function Home() {
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '21px',
+              fontSize: '18px',
             }}
           >
             How It Works
@@ -1082,7 +1095,7 @@ export default function Home() {
               lineHeight: '1.7',
               color: '#374151',
               marginTop: '5px',
-              marginBottom: '5px',
+              marginBottom: '2px',
             }}
           >
             <li>Select the required digital file.</li>
@@ -1110,14 +1123,14 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '10px',
             padding: '18px',
-            marginBottom: '5px',
+            marginBottom: '2px',
           }}
         >
           <h2
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '21px',
+              fontSize: '18px',
             }}
           >
             Payment & Digital Delivery
@@ -1182,11 +1195,16 @@ export default function Home() {
             <br />
 
             Phone / WhatsApp: 9989057683, Email: sronline99890@gmail.com
+
             <br />
-            
-          <br />
-            Business Address: 
-          Sr internet online center, Near Maa Mart, Ieeja, JogulambaGadwal Dist, Telangana-509127, India.
+
+            <br />
+
+            Business Address:
+            <br />
+            Sr internet online center, Near Maa Mart,
+            Ieeja, JogulambaGadwal Dist,
+            Telangana-509127, India.
 
             <br />
           </p>
@@ -1196,23 +1214,21 @@ export default function Home() {
         <section
           style={{
             background: '#ffffff',
-            borderRadius: '12px',
-            padding: '16px',
+            borderRadius: '10px',
+            padding: '14px',
             marginBottom: '0px',
             textAlign: 'center',
           }}
         >
           <h3
-  style={{
-    margin: '0 0 10px 0',
-    color: '#1e3a8a',
-    fontSize: '14px',
-    textDecoration: 'underline',
-    textUnderlineOffset: '3px',
-  }}
->
-  Important Information
-</h3>
+            style={{
+              margin: '0 0 10px 0',
+              color: '#1e3a8a',
+              fontSize: '14px',
+            }}
+          >
+            Important Information
+          </h3>
 
           <div
             style={{
@@ -1287,23 +1303,13 @@ export default function Home() {
               💳 Payment History
             </a>
           </div>
-
-          <div
-            style={{
-              marginTop: '10px',
-              color: '#374151',
-              lineHeight: '1.0',
-            }}
-          >
-            
-          </div>
         </section>
 
         {/* FOOTER */}
         <footer
           style={{
             textAlign: 'center',
-            padding: '18px 12px',
+            padding: '16px 12px',
             color: '#374151',
             fontSize: '14px',
 
@@ -1320,11 +1326,11 @@ export default function Home() {
         >
           <div
             style={{
-              marginBottom: '5px',
+              marginBottom: '2px',
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '5px',
+              gap: '2px',
             }}
           >
             <a
