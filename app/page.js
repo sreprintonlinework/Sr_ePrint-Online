@@ -937,6 +937,11 @@ export default function Home() {
                         wordBreak: 'break-word',
                       }}
                     >
+{loading &&
+                    selectedPdf?.id === pdf.id
+                      ? '⏳ Processing...'
+                      : `💳 Pay ₹${pdf.price} & Download`}
+                  </button>
                       {pdf.name}
                     </strong>
 
