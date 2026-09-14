@@ -823,13 +823,14 @@ export default function Home() {
                 padding: '13px 16px',
                 borderRadius: '10px',
                 border: '2px solid #fdba74',
-                fontSize: '14px',
+                fontSize: '16px',
                 outline: 'none',
                 background: '#ffedd5',
                 color: '#7c2d12',
                 textAlign: 'center',
                 caretColor: '#2563eb',
                 fontWeight: '500',
+                caretColor: '#2563eb',
                 boxShadow:
                   '0 5px 8px rgba(234,88,12,0.10)',
               }}
