@@ -592,7 +592,7 @@ export default function Home() {
             style={{
               margin: '0 0 7px 0',
               color: '#1e3a8a',
-              fontSize: '18px',
+              fontSize: '21px',
             }}
           >
             Digital File Store
@@ -600,7 +600,7 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.0',
+              lineHeight: '1.5',
               color: '#374151',
               margin: '2px 0',
             }}
@@ -641,7 +641,7 @@ export default function Home() {
                 fontSize: '20px',
                 fontWeight: '600',
                 color: '#166534',
-                marginBottom: '5px',
+                marginBottom: '2px',
               }}
             >
               ✅ Payment Successful
@@ -650,9 +650,9 @@ export default function Home() {
             <div
               style={{
                 color: '#166534',
-                fontSize: '14px',
-                lineHeight: '1.45',
-                marginBottom: '5px',
+                fontSize: '16px',
+                lineHeight: '1.0',
+                marginBottom: '2px',
               }}
             >
               Your payment has been received successfully.
