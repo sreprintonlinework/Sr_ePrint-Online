@@ -936,30 +936,7 @@ export default function Home() {
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
-                    >
-                      {pdf.name}
-                    </strong>
 
-                    <div
-                      style={{
-                        marginTop: '3px',
-                        fontSize: '12px',
-                        color: '#4b5563',
-                        wordBreak: 'break-word',
-                        lineHeight: '1.35',
-                      }}
-                    >
-                      {getFileType(pdf.file)}
-                      {' • '}
-                      {pdf.file}
-                    </div>
-                  </div>
-
-                  {/* PRICE */}
-                  <strong
-                    style={{
-                      color: '#166534',
-                      whiteSpace: 'nowrap',
 {/* AVAILABLE FILES */}
 <section
   style={{
