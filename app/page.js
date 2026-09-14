@@ -543,7 +543,7 @@ export default function Home() {
       <header
         style={{
           background:
-  'linear-gradient(135deg, #60a5fa, #93c5fd)',
+            'linear-gradient(135deg, #2563eb, #1d4ed8)',
           color: 'white',
           padding: '12px 15px',
           textAlign: 'center',
@@ -553,7 +553,7 @@ export default function Home() {
           style={{
             margin: 0,
             fontSize: '30px',
-            fontWeight: '400',
+            fontWeight: '500',
           }}
         >
           sr_ePrint Online
@@ -603,7 +603,6 @@ export default function Home() {
               lineHeight: '1.0',
               color: '#374151',
               margin: '2px 0',
-textAlign: 'center',
             }}
           >
             Select the required digital file,
@@ -614,10 +613,10 @@ textAlign: 'center',
 
           <p
             style={{
-              lineHeight: '1.0',
+              lineHeight: '1.5',
               color: '#059669',
               fontWeight: '600',
-              margin: '2px 0 0',
+              margin: '4px 0 0',
             }}
           >
             PDF, Excel and other digital files
@@ -633,7 +632,7 @@ textAlign: 'center',
               border: '2px solid #16a34a',
               borderRadius: '10px',
               padding: '14px',
-              marginBottom: '2px',
+              marginBottom: '5px',
               textAlign: 'center',
             }}
           >
@@ -642,7 +641,7 @@ textAlign: 'center',
                 fontSize: '20px',
                 fontWeight: '600',
                 color: '#166534',
-                marginBottom: '2px',
+                marginBottom: '5px',
               }}
             >
               ✅ Payment Successful
@@ -653,7 +652,7 @@ textAlign: 'center',
                 color: '#166534',
                 fontSize: '14px',
                 lineHeight: '1.45',
-                marginBottom: '2px',
+                marginBottom: '5px',
               }}
             >
               Your payment has been received successfully.
@@ -666,7 +665,7 @@ textAlign: 'center',
                 style={{
                   color: '#14532d',
                   fontSize: '12px',
-                  marginBottom: '2px',
+                  marginBottom: '5px',
                   wordBreak: 'break-word',
                 }}
               >
@@ -687,7 +686,7 @@ textAlign: 'center',
                   textDecoration: 'none',
                   borderRadius: '8px',
                   fontWeight: '600',
-                  fontSize: '18px',
+                  fontSize: '16px',
                   margin: '3px',
                 }}
               >
@@ -733,7 +732,7 @@ textAlign: 'center',
               style={{
                 margin: '0 0 6px 0',
                 color: '#1e3a8a',
-                fontSize: '24px',
+                fontSize: '22px',
                 wordBreak: 'break-word',
               }}
             >
@@ -755,10 +754,10 @@ textAlign: 'center',
 
             <div
               style={{
-                fontSize: '20px',
+                fontSize: '24px',
                 fontWeight: '600',
                 color: '#059669',
-                margin: '5px 0 7px',
+                margin: '10px 0 14px',
               }}
             >
               ₹{selectedPdf.price}
@@ -807,7 +806,7 @@ textAlign: 'center',
           <div
             style={{
               width: '80%',
-              maxWidth: '700px',
+              maxWidth: '650px',
               position: 'relative',
             }}
           >
@@ -824,7 +823,7 @@ textAlign: 'center',
                 padding: '13px 16px',
                 borderRadius: '10px',
                 border: '2px solid #fdba74',
-                fontSize: '16px',
+                fontSize: '18px',
                 outline: 'none',
                 background: '#ffedd5',
                 color: '#7c2d12',
@@ -851,7 +850,7 @@ textAlign: 'center',
             style={{
               margin: '0 0 12px 0',
               color: '#166534',
-              fontSize: '20px',
+              fontSize: '22px',
             }}
           >
             Available Files
@@ -932,7 +931,7 @@ textAlign: 'center',
                     <strong
                       style={{
                         color: '#111827',
-                        fontSize: '20px',
+                        fontSize: '15px',
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
@@ -943,7 +942,7 @@ textAlign: 'center',
                     <div
                       style={{
                         marginTop: '3px',
-                        fontSize: '20px',
+                        fontSize: '12px',
                         color: '#4b5563',
                         wordBreak: 'break-word',
                         lineHeight: '1.35',
@@ -960,7 +959,7 @@ textAlign: 'center',
                     style={{
                       color: '#166534',
                       whiteSpace: 'nowrap',
-                      fontSize: '20px',
+                      fontSize: '16px',
                       flexShrink: 0,
                     }}
                   >
@@ -975,14 +974,14 @@ textAlign: 'center',
                     disabled={loading}
                     style={{
                       border: 'none',
-                      borderRadius: '15px',
+                      borderRadius: '7px',
                       padding: '9px 12px',
                       background:
                         loading
                           ? '#9ca3af'
                           : '#2563eb',
                       color: '#ffffff',
-                      fontSize: '16px',
+                      fontSize: '13px',
                       fontWeight: '700',
                       cursor:
                         loading
@@ -1025,9 +1024,9 @@ textAlign: 'center',
 
           <p
             style={{
-              lineHeight: '1.5',
+              lineHeight: '1.0',
               color: '#374151',
-              margin: '1px 0',
+              margin: '2px 0',
             }}
           >
             sr_ePrint Online provides digital files
@@ -1049,7 +1048,7 @@ textAlign: 'center',
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '16px',
+              fontSize: '14px',
             }}
           >
             Digital Products
@@ -1057,7 +1056,7 @@ textAlign: 'center',
 
           <ul
             style={{
-              lineHeight: '1.7',
+              lineHeight: '1.0',
               color: '#374151',
               marginTop: '0px',
               marginBottom: '0px',
@@ -1084,7 +1083,7 @@ textAlign: 'center',
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '18px',
+              fontSize: '14px',
             }}
           >
             How It Works
@@ -1094,7 +1093,7 @@ textAlign: 'center',
             style={{
               lineHeight: '1.7',
               color: '#374151',
-              marginTop: '5px',
+              marginTop: '2px',
               marginBottom: '2px',
             }}
           >
@@ -1175,7 +1174,7 @@ textAlign: 'center',
             style={{
               color: '#1e3a8a',
               margin: '0 0 7px 0',
-              fontSize: '20px',
+              fontSize: '18px',
             }}
           >
             Contact Us
@@ -1214,8 +1213,8 @@ textAlign: 'center',
         <section
           style={{
             background: '#ffffff',
-            borderRadius: '10px',
-            padding: '14px',
+            borderRadius: '12px',
+            padding: '16px',
             marginBottom: '0px',
             textAlign: 'center',
           }}
@@ -1225,6 +1224,7 @@ textAlign: 'center',
               margin: '0 0 10px 0',
               color: '#1e3a8a',
               fontSize: '14px',
+              
             }}
           >
             Important Information
@@ -1309,7 +1309,7 @@ textAlign: 'center',
         <footer
           style={{
             textAlign: 'center',
-            padding: '16px 12px',
+            padding: '18px 12px',
             color: '#374151',
             fontSize: '14px',
 
@@ -1330,7 +1330,7 @@ textAlign: 'center',
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '2px',
+              gap: '5px',
             }}
           >
             <a
