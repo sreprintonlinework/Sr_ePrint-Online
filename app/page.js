@@ -754,7 +754,7 @@ export default function Home() {
               style={{
                 margin: '2px 0 8px',
                 color: '#1e3a8a',
-                fontSize: '21px',
+                fontSize: '22px',
                 fontWeight: '700',
                 lineHeight: '1.0',
                 wordBreak: 'break-word',
@@ -815,7 +815,7 @@ export default function Home() {
 
                 fontSize: '18px',
 
-                fontWeight: '800',
+                fontWeight: '700',
 
                 cursor: loading
                   ? 'not-allowed'
@@ -848,7 +848,7 @@ export default function Home() {
           <div
             style={{
               width: '80%',
-              maxWidth: '70px',
+              maxWidth: '50px',
               position: 'relative',
             }}
           >
