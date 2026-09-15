@@ -44,7 +44,7 @@ export default function Home() {
 
     const parts = fileName.split('.');
 
-    if (parts.length < 1) {
+    if (parts.length < 2) {
       return '';
     }
 
@@ -278,7 +278,7 @@ export default function Home() {
           orderData.orderId,
 
         theme: {
-          color: '#2563eb',
+          color: '#059669',
         },
 
         handler: async function (response) {
@@ -721,48 +721,81 @@ export default function Home() {
         {selectedPdf && (
           <section
             style={{
-              background: '#ffffff',
-              borderRadius: '10px',
+              background:
+                'linear-gradient(135deg, #eff6ff, #ffffff)',
+              border: '2px solid #2563eb',
+outline: '3px solid #dbeafe',
+outlineOffset: '2px',
+              borderRadius: '14px',
               padding: '16px',
-              marginBottom: '10px',
+              margin: '8px auto 14px',
+              maxWidth: '520px',
               textAlign: 'center',
+              boxShadow:
+                '0 4px 14px rgba(37,99,235,0.15)',
+              position: 'relative',
+              overflow: 'hidden',
             }}
           >
+
+            {/* SELECTED FILE LABEL */}
+            <div
+              style={{
+                display: 'inline-block',
+                background: '#2563eb',
+                color: '#ffffff',
+                padding: '5px 14px',
+                borderRadius: '20px',
+                fontSize: '12px',
+                fontWeight: '700',
+                marginBottom: '9px',
+              }}
+            >
+              📄 SELECTED FILE
+            </div>
+
+            {/* FILE NAME */}
             <h2
               style={{
-                margin: '0 0 6px 0',
+                margin: '2px 0 8px',
                 color: '#1e3a8a',
-                fontSize: '22px',
+                fontSize: '21px',
+                fontWeight: '700',
+                lineHeight: '1.3',
                 wordBreak: 'break-word',
               }}
             >
               {selectedPdf.name}
             </h2>
 
-            <p
-              style={{
-                color: '#6b7280',
-                wordBreak: 'break-word',
-                lineHeight: '1.4',
-                margin: '5px 0',
-              }}
-            >
-              {getFileType(selectedPdf.file)} File
-              <br />
-              {selectedPdf.file}
-            </p>
-
+            {/* PRICE */}
             <div
               style={{
-                fontSize: '24px',
-                fontWeight: '600',
-                color: '#059669',
-                margin: '10px 0 14px',
+                margin: '6px 0 12px',
               }}
             >
-              ₹{selectedPdf.price}
+              <div
+                style={{
+                  fontSize: '12px',
+                  color: '#6b7280',
+                  marginBottom: '1px',
+                }}
+              >
+                Price
+              </div>
+
+              <div
+                style={{
+                  fontSize: '27px',
+                  fontWeight: '800',
+                  color: '#059669',
+                }}
+              >
+                ₹{selectedPdf.price}
+              </div>
             </div>
 
+            {/* PAYMENT BUTTON */}
             <button
               onClick={() =>
                 handlePayment(selectedPdf)
@@ -770,27 +803,43 @@ export default function Home() {
               disabled={loading}
               style={{
                 width: '100%',
-                maxWidth: '300px',
-                padding: '13px',
-                border: 'none',
-                borderRadius: '8px',
-                background:
-                  loading
-                    ? '#9ca3af'
-                    : '#2563eb',
-                color: 'white',
+                maxWidth: '320px',
+                padding: '13px 16px',
+                border: loading
+                  ? '2px solid #9ca3af'
+                  : '2px solid #047857',
+                borderRadius: '9px',
+                background: loading
+                  ? '#9ca3af'
+                  : 'linear-gradient(135deg, #059669, #047857)',
+                color: '#ffffff',
                 fontSize: '16px',
                 fontWeight: '700',
-                cursor:
-                  loading
-                    ? 'not-allowed'
-                    : 'pointer',
+                cursor: loading
+                  ? 'not-allowed'
+                  : 'pointer',
+                boxShadow: loading
+                  ? 'none'
+                  : '0 3px 8px rgba(5,150,105,0.25)',
+                transition: 'all 0.2s ease',
               }}
             >
               {loading
                 ? '⏳ Processing Payment...'
                 : `💳 Pay ₹${selectedPdf.price} & Download`}
             </button>
+
+            {/* SECURE PAYMENT */}
+            <div
+              style={{
+                marginTop: '8px',
+                fontSize: '11px',
+                color: '#6b7280',
+              }}
+            >
+              🔒 Secure payment powered by Razorpay
+            </div>
+
           </section>
         )}
 
@@ -830,7 +879,6 @@ export default function Home() {
                 textAlign: 'center',
                 caretColor: '#2563eb',
                 fontWeight: '500',
-                caretColor: '#2563eb',
                 boxShadow:
                   '0 5px 8px rgba(234,88,12,0.10)',
               }}
@@ -878,14 +926,6 @@ export default function Home() {
                 <div
                   key={pdf.id}
                   style={{
-                    /*
-                     * SELECTED FILE:
-                     * WHITE BACKGROUND
-                     * BLUE ACTIVE BORDER
-                     *
-                     * UNSELECTED FILE:
-                     * LIGHT GREEN BACKGROUND
-                     */
                     background:
                       selectedPdf?.id === pdf.id
                         ? '#ffffff'
@@ -905,9 +945,6 @@ export default function Home() {
                     boxSizing: 'border-box',
                     flexWrap: 'wrap',
 
-                    /*
-                     * Small active effect
-                     */
                     boxShadow:
                       selectedPdf?.id === pdf.id
                         ? '0 2px 8px rgba(37,99,235,0.15)'
@@ -1202,6 +1239,7 @@ export default function Home() {
 
             Business Address:
             <br />
+
             Sr internet online center, Near Maa Mart,
             Ieeja, JogulambaGadwal Dist,
             Telangana-509127, India.
@@ -1225,7 +1263,6 @@ export default function Home() {
               margin: '0 0 10px 0',
               color: '#1e3a8a',
               fontSize: '14px',
-              
             }}
           >
             Important Information
