@@ -749,7 +749,6 @@ export default function Home() {
                 marginBottom: '9px',
               }}
             >
-            </div>
 
             {/* FILE NAME */}
             <h2
@@ -800,7 +799,7 @@ export default function Home() {
               disabled={loading}
               style={{
                 width: '100%',
-                maxWidth: '320px',
+                maxWidth: '420px',
                 padding: '13px 16px',
                 border: loading
                   ? '2px solid #9ca3af'
@@ -825,18 +824,6 @@ export default function Home() {
                 ? '⏳ Processing Payment...'
                 : `💳 Pay & Download`}
             </button>
-
-            {/* SECURE PAYMENT */}
-            <div
-              style={{
-                marginTop: '8px',
-                fontSize: '11px',
-                color: '#6b7280',
-              }}
-            >
-              🔒 Secure payment powered by Razorpay
-            </div>
-
           </section>
         )}
 
@@ -1014,7 +1001,7 @@ export default function Home() {
                       background:
                         loading
                           ? '#9ca3af'
-                          : '#87CEEB',
+                          : '#93c5fd',
                       color: '#ffffff',
                       fontSize: '13px',
                       fontWeight: '700',
