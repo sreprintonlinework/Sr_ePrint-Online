@@ -751,8 +751,6 @@ outlineOffset: '2px',
                 marginBottom: '9px',
               }}
             >
-              📄 SELECTED FILE
-            </div>
 
             {/* FILE NAME */}
             <h2
@@ -774,16 +772,7 @@ outlineOffset: '2px',
                 margin: '6px 0 12px',
               }}
             >
-              <div
-                style={{
-                  fontSize: '12px',
-                  color: '#6b7280',
-                  marginBottom: '1px',
-                }}
-              >
-                Price
-              </div>
-
+              
               <div
                 style={{
                   fontSize: '27px',
@@ -803,7 +792,7 @@ outlineOffset: '2px',
               disabled={loading}
               style={{
                 width: '100%',
-                maxWidth: '320px',
+                maxWidth: '420px',
                 padding: '13px 16px',
                 border: loading
                   ? '2px solid #9ca3af'
@@ -811,7 +800,7 @@ outlineOffset: '2px',
                 borderRadius: '9px',
                 background: loading
                   ? '#9ca3af'
-                  : 'linear-gradient(135deg, #059669, #047857)',
+                  : 'linear-gradient(135deg, #86eafe, #22c55e)',
                 color: '#ffffff',
                 fontSize: '16px',
                 fontWeight: '700',
