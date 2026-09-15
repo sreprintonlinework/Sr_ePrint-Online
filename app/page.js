@@ -723,15 +723,28 @@ export default function Home() {
             style={{
               background:
                 'linear-gradient(135deg, #eff6ff, #ffffff)',
-              border: '2px solid #60a5fa',
+
+              border: '2px solid #2563eb',
+
+              outline: '3px solid #dbeafe',
+
+              outlineOffset: '2px',
+
               borderRadius: '14px',
+
               padding: '16px',
-              margin: '8px auto 14px',
+
+              margin: '10px auto 16px',
+
               maxWidth: '520px',
+
               textAlign: 'center',
+
               boxShadow:
-                '0 4px 14px rgba(37,99,235,0.15)',
+                '0 5px 16px rgba(37,99,235,0.18)',
+
               position: 'relative',
+
               overflow: 'hidden',
             }}
           >
@@ -749,6 +762,8 @@ export default function Home() {
                 marginBottom: '9px',
               }}
             >
+              📄 SELECTED FILE
+            </div>
 
             {/* FILE NAME */}
             <h2
@@ -801,29 +816,39 @@ export default function Home() {
                 width: '100%',
                 maxWidth: '420px',
                 padding: '13px 16px',
+
                 border: loading
                   ? '2px solid #9ca3af'
                   : '2px solid #047857',
+
                 borderRadius: '9px',
+
                 background: loading
                   ? '#9ca3af'
                   : 'linear-gradient(135deg, #059669, #047857)',
+
                 color: '#ffffff',
+
                 fontSize: '16px',
+
                 fontWeight: '700',
+
                 cursor: loading
                   ? 'not-allowed'
                   : 'pointer',
+
                 boxShadow: loading
                   ? 'none'
                   : '0 3px 8px rgba(5,150,105,0.25)',
+
                 transition: 'all 0.2s ease',
               }}
             >
               {loading
                 ? '⏳ Processing Payment...'
-                : `💳 Pay & Download`}
+                : '💳 Pay & Download'}
             </button>
+
           </section>
         )}
 
@@ -921,12 +946,19 @@ export default function Home() {
                         : '1px solid #86efac',
 
                     borderRadius: '9px',
+
                     padding: '10px 11px',
+
                     display: 'flex',
+
                     alignItems: 'center',
+
                     gap: '10px',
+
                     width: '100%',
+
                     boxSizing: 'border-box',
+
                     flexWrap: 'wrap',
 
                     boxShadow:
@@ -998,25 +1030,32 @@ export default function Home() {
                       border: 'none',
                       borderRadius: '7px',
                       padding: '9px 12px',
+
                       background:
                         loading
                           ? '#9ca3af'
                           : '#93c5fd',
+
                       color: '#ffffff',
+
                       fontSize: '13px',
+
                       fontWeight: '700',
+
                       cursor:
                         loading
                           ? 'not-allowed'
                           : 'pointer',
+
                       whiteSpace: 'nowrap',
+
                       flexShrink: 0,
                     }}
                   >
                     {loading &&
                     selectedPdf?.id === pdf.id
                       ? '⏳ Processing...'
-                      : `💳 Pay & Download`}
+                      : '💳 Pay & Download'}
                   </button>
 
                 </div>
