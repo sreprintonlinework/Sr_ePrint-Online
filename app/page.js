@@ -747,23 +747,7 @@ export default function Home() {
 
               overflow: 'hidden',
             }}
-          >
-
-            {/* SELECTED FILE LABEL */}
-            <div
-              style={{
-                display: 'inline-block',
-                background: '#2563eb',
-                color: '#ffffff',
-                padding: '5px 14px',
-                borderRadius: '20px',
-                fontSize: '12px',
-                fontWeight: '700',
-                marginBottom: '9px',
-              }}
-            >
-              📄 SELECTED FILE
-            </div>
+         >
 
             {/* FILE NAME */}
             <h2
@@ -772,7 +756,7 @@ export default function Home() {
                 color: '#1e3a8a',
                 fontSize: '21px',
                 fontWeight: '700',
-                lineHeight: '1.3',
+                lineHeight: '1.0',
                 wordBreak: 'break-word',
               }}
             >
@@ -1034,7 +1018,7 @@ export default function Home() {
                       background:
                         loading
                           ? '#9ca3af'
-                          : '#93c5fd',
+                          : '#1e3a8a',
 
                       color: '#ffffff',
 
