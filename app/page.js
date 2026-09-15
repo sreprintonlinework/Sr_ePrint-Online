@@ -773,7 +773,7 @@ export default function Home() {
                 style={{
                   fontSize: '12px',
                   color: '#6b7280',
-                  marginBottom: '1px',
+                  marginBottom: '0px',
                 }}
               >
                 Price
@@ -781,7 +781,7 @@ export default function Home() {
 
               <div
                 style={{
-                  fontSize: '27px',
+                  fontSize: '20px',
                   fontWeight: '800',
                   color: '#059669',
                 }}
@@ -805,7 +805,7 @@ export default function Home() {
                   ? '2px solid #9ca3af'
                   : '2px solid #047857',
 
-                borderRadius: '9px',
+                borderRadius: '3px',
 
                 background: loading
                   ? '#9ca3af'
@@ -813,9 +813,9 @@ export default function Home() {
 
                 color: '#ffffff',
 
-                fontSize: '16px',
+                fontSize: '18px',
 
-                fontWeight: '700',
+                fontWeight: '800',
 
                 cursor: loading
                   ? 'not-allowed'
@@ -848,7 +848,7 @@ export default function Home() {
           <div
             style={{
               width: '80%',
-              maxWidth: '650px',
+              maxWidth: '70px',
               position: 'relative',
             }}
           >
@@ -865,7 +865,7 @@ export default function Home() {
                 padding: '13px 16px',
                 borderRadius: '10px',
                 border: '2px solid #fdba74',
-                fontSize: '16px',
+                fontSize: '18px',
                 outline: 'none',
                 background: '#ffedd5',
                 color: '#7c2d12',
@@ -969,7 +969,7 @@ export default function Home() {
                     <strong
                       style={{
                         color: '#111827',
-                        fontSize: '15px',
+                        fontSize: '18px',
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
@@ -997,7 +997,7 @@ export default function Home() {
                     style={{
                       color: '#166534',
                       whiteSpace: 'nowrap',
-                      fontSize: '16px',
+                      fontSize: '18px',
                       flexShrink: 0,
                     }}
                   >
@@ -1022,7 +1022,7 @@ export default function Home() {
 
                       color: '#ffffff',
 
-                      fontSize: '13px',
+                      fontSize: '16px',
 
                       fontWeight: '700',
 
