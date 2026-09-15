@@ -723,9 +723,7 @@ export default function Home() {
             style={{
               background:
                 'linear-gradient(135deg, #eff6ff, #ffffff)',
-              border: '2px solid #2563eb',
-outline: '3px solid #dbeafe',
-outlineOffset: '2px',
+              border: '2px solid #60a5fa',
               borderRadius: '14px',
               padding: '16px',
               margin: '8px auto 14px',
@@ -751,6 +749,8 @@ outlineOffset: '2px',
                 marginBottom: '9px',
               }}
             >
+              📄 SELECTED FILE
+            </div>
 
             {/* FILE NAME */}
             <h2
@@ -772,7 +772,16 @@ outlineOffset: '2px',
                 margin: '6px 0 12px',
               }}
             >
-              
+              <div
+                style={{
+                  fontSize: '12px',
+                  color: '#6b7280',
+                  marginBottom: '1px',
+                }}
+              >
+                Price
+              </div>
+
               <div
                 style={{
                   fontSize: '27px',
@@ -792,7 +801,7 @@ outlineOffset: '2px',
               disabled={loading}
               style={{
                 width: '100%',
-                maxWidth: '420px',
+                maxWidth: '320px',
                 padding: '13px 16px',
                 border: loading
                   ? '2px solid #9ca3af'
@@ -800,7 +809,7 @@ outlineOffset: '2px',
                 borderRadius: '9px',
                 background: loading
                   ? '#9ca3af'
-                  : 'linear-gradient(135deg, #86eafe, #22c55e)',
+                  : 'linear-gradient(135deg, #059669, #047857)',
                 color: '#ffffff',
                 fontSize: '16px',
                 fontWeight: '700',
