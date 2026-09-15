@@ -749,7 +749,6 @@ export default function Home() {
                 marginBottom: '9px',
               }}
             >
-              📄 SELECTED FILE
             </div>
 
             {/* FILE NAME */}
@@ -824,7 +823,7 @@ export default function Home() {
             >
               {loading
                 ? '⏳ Processing Payment...'
-                : `💳 Pay ₹${selectedPdf.price} & Download`}
+                : `💳 Pay & Download`}
             </button>
 
             {/* SECURE PAYMENT */}
@@ -1015,7 +1014,7 @@ export default function Home() {
                       background:
                         loading
                           ? '#9ca3af'
-                          : '#2563eb',
+                          : '#87CEEB',
                       color: '#ffffff',
                       fontSize: '13px',
                       fontWeight: '700',
@@ -1030,7 +1029,7 @@ export default function Home() {
                     {loading &&
                     selectedPdf?.id === pdf.id
                       ? '⏳ Processing...'
-                      : `💳 Pay ₹${pdf.price} & Download`}
+                      : `💳 Pay & Download`}
                   </button>
 
                 </div>
