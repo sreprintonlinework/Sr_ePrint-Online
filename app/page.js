@@ -848,7 +848,7 @@ export default function Home() {
           <div
             style={{
               width: '80%',
-              maxWidth: '50px',
+              maxWidth: '600px',
               position: 'relative',
             }}
           >
