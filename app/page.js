@@ -556,7 +556,7 @@ export default function Home() {
             fontWeight: '500',
           }}
         >
-          sr_ePrint Online
+         ePrint Online
         </h1>
 
         <p
