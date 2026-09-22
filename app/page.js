@@ -140,56 +140,48 @@ export default function Home() {
   };
 
   /*
+  const startDownload = (url, fileName) => {
+  try {
+    const link = document.createElement('a');
+
+    link.href = url;
+    link.download = fileName;
+    link.setAttribute('download', fileName);
+
+    link.style.position = 'fixed';
+    link.style.left = '-9999px';
+    link.style.top = '-9999px';
+    link.style.opacity = '0';
+
+    document.body.appendChild(link);
+
+    // Automatic download — only ONE click
+    link.click();
+
+    setTimeout(() => {
+      try {
+        link.remove();
+      } catch {
+        // Ignore remove error
+      }
+    }, 1500);
+
+    return true;
+  } catch (error) {
+    console.error(
+      'AUTO DOWNLOAD ERROR:',
+      error
+    );
+
+    return false;
+  }
+};
     IMPORTANT:
     Browser-friendly automatic download.
     This creates a temporary hidden link and
     triggers it immediately.
   */
-  const startDownload = (url, fileName) => {
-    try {
-      const link = document.createElement('a');
-
-      link.href = url;
-      link.download = fileName;
-      link.setAttribute('download', fileName);
-
-      link.style.position = 'fixed';
-      link.style.left = '-9999px';
-      link.style.top = '-9999px';
-      link.style.opacity = '0';
-
-      document.body.appendChild(link);
-
-      // Trigger download
-      link.click();
-
-      // Extra click for browsers that need it
-      setTimeout(() => {
-        try {
-          link.click();
-        } catch {
-          // Ignore second-click error
-        }
-      }, 150);
-
-      setTimeout(() => {
-        try {
-          link.remove();
-        } catch {
-          // Ignore remove error
-        }
-      }, 2000);
-
-      return true;
-    } catch (error) {
-      console.error(
-        'AUTO DOWNLOAD ERROR:',
-        error
-      );
-
-      return false;
-    }
-  };
+  
 
   // Payment
   const handlePayment = async (pdfToBuy = null) => {
@@ -890,7 +882,7 @@ export default function Home() {
           >
             <input
               type="text"
-              placeholder="🔍 Search file (Name/Number)..."
+              placeholder="🔍 Search file... (Name/Number)"
               value={search}
               onChange={(e) =>
                 setSearch(e.target.value)
