@@ -38,15 +38,11 @@ export default function Home() {
     );
 
   const getExtension = (fileName) => {
-    if (!fileName) {
-      return '';
-    }
+    if (!fileName) return '';
 
     const parts = fileName.split('.');
 
-    if (parts.length < 2) {
-      return '';
-    }
+    if (parts.length < 2) return '';
 
     return '.' + parts[parts.length - 1].toLowerCase();
   };
@@ -79,6 +75,7 @@ export default function Home() {
     }
   };
 
+  // Razorpay script
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
       if (typeof window === 'undefined') {
@@ -115,8 +112,7 @@ export default function Home() {
         return;
       }
 
-      const script =
-        document.createElement('script');
+      const script = document.createElement('script');
 
       script.src = scriptUrl;
       script.async = true;
@@ -128,6 +124,7 @@ export default function Home() {
     });
   };
 
+  // Select file
   const handleSelectFile = (pdf) => {
     setSelectedPdf(pdf);
     setSuccessMessage('');
@@ -138,25 +135,50 @@ export default function Home() {
     }
 
     setPdfUrl('');
+
     downloadStartedRef.current = false;
   };
 
+  /*
+    IMPORTANT:
+    Browser-friendly automatic download.
+    This creates a temporary hidden link and
+    triggers it immediately.
+  */
   const startDownload = (url, fileName) => {
     try {
-      const link =
-        document.createElement('a');
+      const link = document.createElement('a');
 
       link.href = url;
       link.download = fileName;
-      link.style.display = 'none';
+      link.setAttribute('download', fileName);
+
+      link.style.position = 'fixed';
+      link.style.left = '-9999px';
+      link.style.top = '-9999px';
+      link.style.opacity = '0';
 
       document.body.appendChild(link);
 
+      // Trigger download
       link.click();
 
+      // Extra click for browsers that need it
       setTimeout(() => {
-        link.remove();
-      }, 1500);
+        try {
+          link.click();
+        } catch {
+          // Ignore second-click error
+        }
+      }, 150);
+
+      setTimeout(() => {
+        try {
+          link.remove();
+        } catch {
+          // Ignore remove error
+        }
+      }, 2000);
 
       return true;
     } catch (error) {
@@ -169,6 +191,7 @@ export default function Home() {
     }
   };
 
+  // Payment
   const handlePayment = async (pdfToBuy = null) => {
     const pdf = pdfToBuy || selectedPdf;
 
@@ -205,6 +228,7 @@ export default function Home() {
         );
       }
 
+      // Create order
       const orderResponse =
         await fetch('/create-order', {
           method: 'POST',
@@ -291,6 +315,7 @@ export default function Home() {
           setLoading(true);
 
           try {
+            // Verify payment
             const verifyResponse =
               await fetch(
                 '/verify-payment',
@@ -353,8 +378,8 @@ export default function Home() {
               );
             }
 
-            // JSON means server returned an error/message
-            // instead of the purchased file.
+            // Server should return the actual file,
+            // not JSON.
             if (
               contentType
                 .toLowerCase()
@@ -379,6 +404,7 @@ export default function Home() {
               );
             }
 
+            // Get purchased file
             const blob =
               await verifyResponse.blob();
 
@@ -401,6 +427,7 @@ export default function Home() {
               blob.type
             );
 
+            // Create Blob URL
             const url =
               window.URL.createObjectURL(
                 blob
@@ -408,6 +435,7 @@ export default function Home() {
 
             setPdfUrl(url);
 
+            // Create final file name
             const extension =
               getExtension(pdf.file);
 
@@ -424,6 +452,11 @@ export default function Home() {
               finalFileName
             );
 
+            /*
+              IMPORTANT:
+              Automatic download is triggered
+              immediately after Blob creation.
+            */
             const downloadSuccess =
               startDownload(
                 url,
@@ -535,35 +568,38 @@ export default function Home() {
       style={{
         minHeight: '100vh',
         background: '#ffffff',
-        fontFamily: 'Arial, sans-serif',
+        fontFamily:
+          'Arial, Helvetica, sans-serif',
       }}
     >
 
-      {/* HEADER */}
+      {/* ================= HEADER ================= */}
+
       <header
         style={{
           background:
             'linear-gradient(135deg, #2563eb, #1d4ed8)',
-          color: 'white',
-          padding: '12px 15px',
+          color: '#ffffff',
+          padding: '13px 15px',
           textAlign: 'center',
         }}
       >
         <h1
           style={{
             margin: 0,
-            fontSize: '30px',
-            fontWeight: '500',
+            fontSize: '28px',
+            lineHeight: '1.2',
+            fontWeight: '600',
           }}
         >
-         ePrint Online
+          ePrint Online
         </h1>
 
         <p
           style={{
-            marginTop: '1px',
-            marginBottom: 0,
-            fontSize: '12px',
+            margin: '3px 0 0',
+            fontSize: '13px',
+            lineHeight: '1.3',
           }}
         >
           Digital PDF & Excel Files
@@ -574,25 +610,26 @@ export default function Home() {
         style={{
           width: '100%',
           boxSizing: 'border-box',
-          padding: '18px 15px 30px',
+          padding: '16px 14px 25px',
           background: '#ffffff',
         }}
       >
 
-        {/* INTRO */}
+        {/* ================= INTRO ================= */}
+
         <section
           style={{
             background: '#ffffff',
-            borderRadius: '5px',
-            padding: '18px 20px',
-            marginBottom: '0px',
+            padding: '15px 6px',
+            marginBottom: '4px',
           }}
         >
           <h2
             style={{
-              margin: '0 0 7px 0',
+              margin: '0 0 7px',
               color: '#1e3a8a',
-              fontSize: '18px',
+              fontSize: '19px',
+              lineHeight: '1.3',
             }}
           >
             Digital File Store
@@ -600,9 +637,10 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.0',
+              lineHeight: '1.5',
               color: '#374151',
-              margin: '2px 0',
+              margin: '3px 0',
+              fontSize: '14px',
             }}
           >
             Select the required digital file,
@@ -616,7 +654,8 @@ export default function Home() {
               lineHeight: '1.5',
               color: '#059669',
               fontWeight: '600',
-              margin: '4px 0 0',
+              margin: '6px 0 0',
+              fontSize: '14px',
             }}
           >
             PDF, Excel and other digital files
@@ -624,7 +663,8 @@ export default function Home() {
           </p>
         </section>
 
-        {/* SUCCESS */}
+        {/* ================= SUCCESS ================= */}
+
         {successMessage && pdfUrl && (
           <section
             style={{
@@ -632,16 +672,16 @@ export default function Home() {
               border: '2px solid #16a34a',
               borderRadius: '10px',
               padding: '14px',
-              marginBottom: '5px',
+              marginBottom: '16px',
               textAlign: 'center',
             }}
           >
             <div
               style={{
-                fontSize: '20px',
-                fontWeight: '600',
+                fontSize: '19px',
+                fontWeight: '700',
                 color: '#166534',
-                marginBottom: '5px',
+                marginBottom: '6px',
               }}
             >
               ✅ Payment Successful
@@ -651,8 +691,8 @@ export default function Home() {
               style={{
                 color: '#166534',
                 fontSize: '14px',
-                lineHeight: '1.45',
-                marginBottom: '5px',
+                lineHeight: '1.5',
+                marginBottom: '7px',
               }}
             >
               Your payment has been received successfully.
@@ -665,7 +705,8 @@ export default function Home() {
                 style={{
                   color: '#14532d',
                   fontSize: '12px',
-                  marginBottom: '5px',
+                  lineHeight: '1.4',
+                  marginBottom: '8px',
                   wordBreak: 'break-word',
                 }}
               >
@@ -680,13 +721,13 @@ export default function Home() {
                 rel="noopener noreferrer"
                 style={{
                   display: 'inline-block',
-                  padding: '10px 20px',
+                  padding: '10px 18px',
                   background: '#16a34a',
-                  color: 'white',
+                  color: '#ffffff',
                   textDecoration: 'none',
-                  borderRadius: '8px',
+                  borderRadius: '7px',
                   fontWeight: '600',
-                  fontSize: '16px',
+                  fontSize: '15px',
                   margin: '3px',
                 }}
               >
@@ -701,13 +742,13 @@ export default function Home() {
                 }
                 style={{
                   display: 'inline-block',
-                  padding: '10px 20px',
+                  padding: '10px 18px',
                   background: '#2563eb',
-                  color: 'white',
+                  color: '#ffffff',
                   textDecoration: 'none',
                   borderRadius: '7px',
                   fontWeight: '700',
-                  fontSize: '18px',
+                  fontSize: '15px',
                   margin: '3px',
                 }}
               >
@@ -717,7 +758,8 @@ export default function Home() {
           </section>
         )}
 
-        {/* SELECTED FILE */}
+        {/* ================= SELECTED FILE ================= */}
+
         {selectedPdf && (
           <section
             style={{
@@ -728,42 +770,40 @@ export default function Home() {
 
               outline: '3px solid #dbeafe',
 
-              outlineOffset: '2px',
+              outlineOffset: '1px',
 
-              borderRadius: '14px',
+              borderRadius: '13px',
 
-              padding: '16px',
+              padding: '15px',
 
-              margin: '10px auto 16px',
+              margin: '10px auto 18px',
 
               maxWidth: '520px',
 
               textAlign: 'center',
 
               boxShadow:
-                '0 5px 16px rgba(37,99,235,0.18)',
+                '0 5px 16px rgba(37,99,235,0.16)',
 
               position: 'relative',
 
               overflow: 'hidden',
             }}
-         >
+          >
 
-            {/* FILE NAME */}
             <h2
               style={{
-                margin: '2px 0 8px',
+                margin: '2px 0 9px',
                 color: '#1e3a8a',
-                fontSize: '22px',
+                fontSize: '20px',
                 fontWeight: '700',
-                lineHeight: '1.0',
+                lineHeight: '1.3',
                 wordBreak: 'break-word',
               }}
             >
               {selectedPdf.name}
             </h2>
 
-            {/* PRICE */}
             <div
               style={{
                 margin: '6px 0 12px',
@@ -773,7 +813,7 @@ export default function Home() {
                 style={{
                   fontSize: '12px',
                   color: '#6b7280',
-                  marginBottom: '0px',
+                  marginBottom: '2px',
                 }}
               >
                 Price
@@ -781,7 +821,7 @@ export default function Home() {
 
               <div
                 style={{
-                  fontSize: '20px',
+                  fontSize: '21px',
                   fontWeight: '800',
                   color: '#059669',
                 }}
@@ -790,7 +830,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* PAYMENT BUTTON */}
             <button
               onClick={() =>
                 handlePayment(selectedPdf)
@@ -799,13 +838,13 @@ export default function Home() {
               style={{
                 width: '100%',
                 maxWidth: '420px',
-                padding: '13px 16px',
+                padding: '12px 15px',
 
                 border: loading
                   ? '2px solid #9ca3af'
                   : '2px solid #047857',
 
-                borderRadius: '3px',
+                borderRadius: '7px',
 
                 background: loading
                   ? '#9ca3af'
@@ -813,7 +852,7 @@ export default function Home() {
 
                 color: '#ffffff',
 
-                fontSize: '18px',
+                fontSize: '17px',
 
                 fontWeight: '700',
 
@@ -824,22 +863,20 @@ export default function Home() {
                 boxShadow: loading
                   ? 'none'
                   : '0 3px 8px rgba(5,150,105,0.25)',
-
-                transition: 'all 0.2s ease',
               }}
             >
               {loading
                 ? '⏳ Processing Payment...'
                 : '💳 Pay & Download'}
             </button>
-
           </section>
         )}
 
-        {/* SEARCH */}
+        {/* ================= SEARCH ================= */}
+
         <section
           style={{
-            marginBottom: '12px',
+            marginBottom: '14px',
             display: 'flex',
             justifyContent: 'center',
             background: '#ffffff',
@@ -847,9 +884,8 @@ export default function Home() {
         >
           <div
             style={{
-              width: '80%',
+              width: '100%',
               maxWidth: '600px',
-              position: 'relative',
             }}
           >
             <input
@@ -862,10 +898,10 @@ export default function Home() {
               style={{
                 width: '100%',
                 boxSizing: 'border-box',
-                padding: '13px 16px',
-                borderRadius: '10px',
+                padding: '12px 14px',
+                borderRadius: '9px',
                 border: '2px solid #fdba74',
-                fontSize: '18px',
+                fontSize: '16px',
                 outline: 'none',
                 background: '#ffedd5',
                 color: '#7c2d12',
@@ -873,26 +909,28 @@ export default function Home() {
                 caretColor: '#2563eb',
                 fontWeight: '500',
                 boxShadow:
-                  '0 5px 8px rgba(234,88,12,0.10)',
+                  '0 4px 8px rgba(234,88,12,0.10)',
               }}
             />
           </div>
         </section>
 
-        {/* AVAILABLE FILES */}
+        {/* ================= AVAILABLE FILES ================= */}
+
         <section
           style={{
             background: '#ffffff',
             borderRadius: '12px',
-            padding: '16px',
-            marginBottom: '5px',
+            padding: '10px 2px',
+            marginBottom: '8px',
           }}
         >
           <h2
             style={{
-              margin: '0 0 12px 0',
+              margin: '0 0 12px',
               color: '#166534',
-              fontSize: '22px',
+              fontSize: '20px',
+              lineHeight: '1.3',
             }}
           >
             Available Files
@@ -903,6 +941,7 @@ export default function Home() {
               style={{
                 color: '#16a34a',
                 margin: '5px 0',
+                fontSize: '14px',
               }}
             >
               No files found.
@@ -912,7 +951,7 @@ export default function Home() {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '14px',
+                gap: '13px',
               }}
             >
               {filteredPdfs.map((pdf) => (
@@ -931,13 +970,13 @@ export default function Home() {
 
                     borderRadius: '9px',
 
-                    padding: '10px 11px',
+                    padding: '10px',
 
                     display: 'flex',
 
                     alignItems: 'center',
 
-                    gap: '10px',
+                    gap: '9px',
 
                     width: '100%',
 
@@ -955,21 +994,21 @@ export default function Home() {
                   }}
                 >
 
-                  {/* FILE NAME */}
                   <div
                     onClick={() =>
                       handleSelectFile(pdf)
                     }
                     style={{
                       minWidth: 0,
-                      flex: '1 1 180px',
+                      flex: '1 1 170px',
                       cursor: 'pointer',
                     }}
                   >
                     <strong
                       style={{
                         color: '#111827',
-                        fontSize: '18px',
+                        fontSize: '16px',
+                        lineHeight: '1.35',
                         display: 'block',
                         wordBreak: 'break-word',
                       }}
@@ -980,7 +1019,7 @@ export default function Home() {
                     <div
                       style={{
                         marginTop: '3px',
-                        fontSize: '12px',
+                        fontSize: '11px',
                         color: '#4b5563',
                         wordBreak: 'break-word',
                         lineHeight: '1.35',
@@ -992,19 +1031,17 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* PRICE */}
                   <strong
                     style={{
                       color: '#166534',
                       whiteSpace: 'nowrap',
-                      fontSize: '18px',
+                      fontSize: '16px',
                       flexShrink: 0,
                     }}
                   >
                     ₹{pdf.price}
                   </strong>
 
-                  {/* PAY BUTTON */}
                   <button
                     onClick={() =>
                       handlePayment(pdf)
@@ -1013,7 +1050,7 @@ export default function Home() {
                     style={{
                       border: 'none',
                       borderRadius: '7px',
-                      padding: '9px 12px',
+                      padding: '9px 11px',
 
                       background:
                         loading
@@ -1022,7 +1059,7 @@ export default function Home() {
 
                       color: '#ffffff',
 
-                      fontSize: '16px',
+                      fontSize: '14px',
 
                       fontWeight: '700',
 
@@ -1041,27 +1078,28 @@ export default function Home() {
                       ? '⏳ Processing...'
                       : '💳 Pay & Download'}
                   </button>
-
                 </div>
               ))}
             </div>
           )}
         </section>
 
-        {/* ABOUT */}
+        {/* ================= ABOUT ================= */}
+
         <section
           style={{
             background: '#ffffff',
             borderRadius: '12px',
-            padding: '18px',
-            marginBottom: '0px',
+            padding: '15px 4px',
+            marginBottom: '0',
           }}
         >
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
+              margin: '0 0 7px',
               fontSize: '18px',
+              lineHeight: '1.3',
             }}
           >
             About sr_ePrint Online
@@ -1072,6 +1110,7 @@ export default function Home() {
               lineHeight: '1.5',
               color: '#374151',
               margin: '5px 0',
+              fontSize: '14px',
             }}
           >
             sr_ePrint Online provides digital files
@@ -1080,20 +1119,22 @@ export default function Home() {
           </p>
         </section>
 
-        {/* DIGITAL PRODUCTS */}
+        {/* ================= DIGITAL PRODUCTS ================= */}
+
         <section
           style={{
             background: '#ffffff',
             borderRadius: '12px',
-            padding: '18px',
-            marginBottom: '0px',
+            padding: '15px 4px',
+            marginBottom: '0',
           }}
         >
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
-              fontSize: '16px',
+              margin: '0 0 7px',
+              fontSize: '17px',
+              lineHeight: '1.3',
             }}
           >
             Digital Products
@@ -1103,8 +1144,10 @@ export default function Home() {
             style={{
               lineHeight: '1.7',
               color: '#374151',
-              marginTop: '0px',
-              marginBottom: '0px',
+              marginTop: '0',
+              marginBottom: '0',
+              paddingLeft: '22px',
+              fontSize: '14px',
             }}
           >
             <li>Digital PDF Files</li>
@@ -1115,20 +1158,22 @@ export default function Home() {
           </ul>
         </section>
 
-        {/* HOW IT WORKS */}
+        {/* ================= HOW IT WORKS ================= */}
+
         <section
           style={{
             background: '#ffffff',
             borderRadius: '12px',
-            padding: '18px',
-            marginBottom: '0px',
+            padding: '15px 4px',
+            marginBottom: '0',
           }}
         >
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
-              fontSize: '21px',
+              margin: '0 0 7px',
+              fontSize: '20px',
+              lineHeight: '1.3',
             }}
           >
             How It Works
@@ -1140,6 +1185,8 @@ export default function Home() {
               color: '#374151',
               marginTop: '5px',
               marginBottom: '5px',
+              paddingLeft: '22px',
+              fontSize: '14px',
             }}
           >
             <li>Select the required digital file.</li>
@@ -1161,20 +1208,22 @@ export default function Home() {
           </ol>
         </section>
 
-        {/* PAYMENT & DELIVERY */}
+        {/* ================= PAYMENT & DELIVERY ================= */}
+
         <section
           style={{
             background: '#ffffff',
             borderRadius: '10px',
-            padding: '18px',
+            padding: '15px 4px',
             marginBottom: '5px',
           }}
         >
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
-              fontSize: '21px',
+              margin: '0 0 7px',
+              fontSize: '20px',
+              lineHeight: '1.3',
             }}
           >
             Payment & Digital Delivery
@@ -1185,6 +1234,7 @@ export default function Home() {
               lineHeight: '1.5',
               color: '#374151',
               margin: '5px 0',
+              fontSize: '14px',
             }}
           >
             Payments are processed securely through
@@ -1197,7 +1247,8 @@ export default function Home() {
             style={{
               lineHeight: '1.5',
               color: '#374151',
-              margin: '0px 0',
+              margin: '5px 0',
+              fontSize: '14px',
             }}
           >
             No physical shipping is involved.
@@ -1206,20 +1257,22 @@ export default function Home() {
           </p>
         </section>
 
-        {/* CONTACT */}
+        {/* ================= CONTACT ================= */}
+
         <section
           style={{
             background: '#ffffff',
             borderRadius: '12px',
-            padding: '18px',
-            marginBottom: '0px',
+            padding: '15px 4px',
+            marginBottom: '0',
           }}
         >
           <h2
             style={{
               color: '#1e3a8a',
-              margin: '0 0 7px 0',
-              fontSize: '20px',
+              margin: '0 0 7px',
+              fontSize: '19px',
+              lineHeight: '1.3',
             }}
           >
             Contact Us
@@ -1227,9 +1280,10 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.0',
+              lineHeight: '1.6',
               color: '#374151',
-              margin: '1px 0',
+              margin: '4px 0',
+              fontSize: '14px',
             }}
           >
             <strong>
@@ -1238,36 +1292,39 @@ export default function Home() {
 
             <br />
 
-            Phone / WhatsApp: 9989057683, Email: sronline99890@gmail.com
+            Phone / WhatsApp: 9989057683
 
             <br />
 
+            Email: sronline99890@gmail.com
+
+            <br />
             <br />
 
             Business Address:
+
             <br />
 
             Sr internet online center, Near Maa Mart,
-            Ieeja, JogulambaGadwal Dist,
+            Ieeja, Jogulamba Gadwal Dist,
             Telangana-509127, India.
-
-            <br />
           </p>
         </section>
 
-        {/* IMPORTANT INFORMATION */}
+        {/* ================= IMPORTANT INFORMATION ================= */}
+
         <section
           style={{
             background: '#ffffff',
             borderRadius: '12px',
-            padding: '16px',
-            marginBottom: '0px',
+            padding: '15px 4px',
+            marginBottom: '0',
             textAlign: 'center',
           }}
         >
           <h3
             style={{
-              margin: '0 0 10px 0',
+              margin: '0 0 10px',
               color: '#1e3a8a',
               fontSize: '14px',
             }}
@@ -1281,8 +1338,9 @@ export default function Home() {
               flexWrap: 'wrap',
               justifyContent: 'center',
               alignItems: 'center',
-              gap: '0px',
-              lineHeight: '1.0',
+              gap: '4px',
+              lineHeight: '1.6',
+              fontSize: '13px',
             }}
           >
             <a
@@ -1290,7 +1348,6 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '400',
               }}
             >
               Privacy Policy
@@ -1303,7 +1360,6 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '400',
               }}
             >
               Refund / Cancellation
@@ -1316,7 +1372,6 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '400',
               }}
             >
               Terms & Conditions
@@ -1329,7 +1384,6 @@ export default function Home() {
               style={{
                 color: '#2563eb',
                 textDecoration: 'none',
-                fontWeight: '400',
               }}
             >
               Shipping / Delivery
@@ -1342,7 +1396,6 @@ export default function Home() {
               style={{
                 color: '#16a34a',
                 textDecoration: 'none',
-                fontWeight: '400',
               }}
             >
               💳 Payment History
@@ -1350,11 +1403,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FOOTER */}
+        {/* ================= FOOTER ================= */}
+
         <footer
           style={{
             textAlign: 'center',
-            padding: '18px 12px',
+            padding: '16px 10px',
             color: '#374151',
             fontSize: '12px',
 
@@ -1371,18 +1425,19 @@ export default function Home() {
         >
           <div
             style={{
-              marginBottom: '5px',
+              marginBottom: '6px',
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
               gap: '5px',
+              lineHeight: '1.6',
             }}
           >
             <a
               href="/privacy"
               style={{
                 color: '#2563eb',
-                textDecoration: 'none',
+                textDecoration: 'underline',
               }}
             >
               Privacy
@@ -1394,7 +1449,7 @@ export default function Home() {
               href="/refund"
               style={{
                 color: '#2563eb',
-                textDecoration: 'none',
+                textDecoration: 'underline',
               }}
             >
               Refund
@@ -1406,7 +1461,7 @@ export default function Home() {
               href="/terms"
               style={{
                 color: '#2563eb',
-                textDecoration: 'none',
+                textDecoration: 'underline',
               }}
             >
               Terms
@@ -1418,7 +1473,7 @@ export default function Home() {
               href="/shipping"
               style={{
                 color: '#2563eb',
-                textDecoration: 'none',
+                textDecoration: 'underline',
               }}
             >
               Delivery
@@ -1430,7 +1485,7 @@ export default function Home() {
               href="/payment-history"
               style={{
                 color: '#16a34a',
-                textDecoration: 'none',
+                textDecoration: 'underline',
                 fontWeight: '500',
               }}
             >
@@ -1446,25 +1501,26 @@ export default function Home() {
 
       </div>
 
-      {/* WHATSAPP */}
+      {/* ================= WHATSAPP ================= */}
+
       <a
         href="https://wa.me/919989057683"
         target="_blank"
         rel="noopener noreferrer"
         style={{
           position: 'fixed',
-          right: '18px',
-          bottom: '18px',
-          width: '52px',
-          height: '52px',
+          right: '16px',
+          bottom: '16px',
+          width: '50px',
+          height: '50px',
           borderRadius: '50%',
           background: '#25D366',
-          color: 'white',
+          color: '#ffffff',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           textDecoration: 'none',
-          fontSize: '25px',
+          fontSize: '24px',
           boxShadow:
             '0 4px 12px rgba(0,0,0,0.25)',
           zIndex: 1000,
