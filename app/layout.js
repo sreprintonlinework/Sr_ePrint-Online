@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'ePrint Online',
+  title: 'sr_ePrint Online',
   description: 'Digital PDF & Online Services',
 };
 
