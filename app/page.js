@@ -1212,7 +1212,7 @@ export default function Home() {
             background: '#ffffff',
             borderRadius: '12px',
             padding: '18px',
-            marginBottom: '0px',
+            marginBottom: '1px',
           }}
         >
           <h2
@@ -1227,7 +1227,7 @@ export default function Home() {
 
           <p
             style={{
-              lineHeight: '1.0',
+              lineHeight: '1.5',
               color: '#374151',
               margin: '1px 0',
             }}
@@ -1238,14 +1238,7 @@ export default function Home() {
 
             <br />
 
-            Phone / WhatsApp: 9989057683, Email: sronline99890@gmail.com
-
-            <br />
-
-            <br />
-
-            Business Address:
-            <br />
+            Phone / WhatsApp: 9989057683, Email: sronline99890@gmail.com,
 
             Sr internet online center, Near Maa Mart,
             Ieeja, JogulambaGadwal Dist,
